@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using EVA.API.Spec;
 using EVA.SDK.Generator.V2.Commands.Generate.Transforms;
@@ -19,15 +20,17 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
 {
   private class State
   {
-    internal readonly Dictionary<string, bool> SupportsBackendIDCache = new();
+    internal readonly Dictionary<string, (bool backendID, bool systemID)> SupportsBackendIDCache = new();
   }
 
   public string? OutputPattern => null;
 
-  public string[] ForcedTransformations => new[] { RemoveGenerics.ID, RemoveUnusedGenericArguments.ID, RemoveErrors.ID, RemoveEventExports.ID, RemoveInheritance.ID };
+  public bool GetForcedTransformations(OpenApiOptions _, INamedTransform x) =>
+    x is RemoveGenerics or RemoveUnusedGenericArguments or RemoveErrors or RemoveEventExports or RemoveInheritance;
 
   private const string Parameter_Header_UserAgent = "p1";
   private const string Parameter_Header_IdsMode = "p2";
+  private const string Parameter_Header_IdsModeSystem = "p6";
   private const string Parameter_Header_AsyncCallback = "p3";
   private const string Parameter_Header_OrganizationUnit = "p4";
   private const string Parameter_Header_OrganizationUnitQuery = "p5";
@@ -223,7 +226,7 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
     model.Components.Parameters.Add(Parameter_Header_IdsMode, new()
     {
       In = ParameterLocation.Header,
-      Description = "The IDs mode to run this request in. Currently only `ExternalIDs` is supported.",
+      Description = "The IDs mode to run this request in. This can be either `StringIDs` (default behaviour) or `Hybrid` (when communicating via `BackendID`)",
       Name = "EVA-IDs-Mode",
       Required = false,
       AllowEmptyValue = false,
@@ -237,6 +240,19 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
       },
       Style = ParameterStyle.Simple
     });
+    model.Components.Parameters.Add(Parameter_Header_IdsModeSystem, new()
+    {
+      In = ParameterLocation.Header,
+      Description = "The ID of the backend system that is used to resolve the IDs.",
+      Name = "EVA-IDs-BackendSystemID",
+      Required = false,
+      AllowEmptyValue = false,
+      Schema = new OpenApiSchema
+      {
+        Type = "string"
+      },
+      Style = ParameterStyle.Simple
+    });
 
     model.Components.Parameters.Add(Parameter_Header_OrganizationUnit, new()
     {
@@ -247,7 +263,7 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
       AllowEmptyValue = false,
       Schema = new OpenApiSchema
       {
-        Type = "integer"
+        Type = "string"
       },
       Style = ParameterStyle.Simple
     });
@@ -399,6 +415,12 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
         schema.Description += $"\n\nThis string must be between {slc.Min} (incl) and {slc.Max} (incl) characters long.";
       }
 
+      if (prop.StringRegexConstraint is { } src)
+      {
+        schema.Pattern = src.Regex;
+        schema.Description += $"\n\nThis string must be formatted like `{src.Regex}`.";
+      }
+
       if (prop is { Skippable: true, Required: { CurrentValue: true } })
       {
         schema.Description += $"\n\nWhile this property is not required, if it is sent in the request it must have a valid value.";
@@ -495,16 +517,13 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
 
     if (type.Name == ApiSpecConsts.Specials.Map)
     {
-      var keyType = type.Arguments[0].Name;
-      if (keyType is ApiSpecConsts.String or ApiSpecConsts.Int64 or ApiSpecConsts.Float128 or ApiSpecConsts.Date || char.IsUpper(keyType[0]) && input.Types[keyType].EnumIsFlag.HasValue)
+      // We can't really make a map with certain key types work, but this is the best we can do regardless of the key type
+      return new OpenApiSchema
       {
-        return new OpenApiSchema
-        {
-          Type = "object",
-          AdditionalPropertiesAllowed = true,
-          AdditionalProperties = ToSchema(input, type.Arguments[1])
-        };
-      }
+        Type = "object",
+        AdditionalPropertiesAllowed = true,
+        AdditionalProperties = ToSchema(input, type.Arguments[1])
+      };
     }
 
     if (!type.Name.StartsWith("_") && !type.Arguments.Any())
@@ -653,7 +672,7 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
         }
       ];
 
-    if (supportsExternalID)
+    if (supportsExternalID.backendID)
     {
       parameters.Add(new()
       {
@@ -661,6 +680,18 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
         {
           Type = ReferenceType.Parameter,
           Id = Parameter_Header_IdsMode
+        }
+      });
+    }
+
+    if (supportsExternalID.systemID)
+    {
+      parameters.Add(new()
+      {
+        Reference = new OpenApiReference
+        {
+          Type = ReferenceType.Parameter,
+          Id = Parameter_Header_IdsModeSystem
         }
       });
     }
@@ -685,7 +716,6 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
     {
       Summary = service.Name,
       Description = description,
-      Parameters = parameters,
       Operations = new Dictionary<OperationType, OpenApiOperation>
       {
         {
@@ -696,6 +726,7 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
             OperationId = service.Name,
             Deprecated = service.Deprecated is not null,
             Tags = openApiTags,
+            Parameters = parameters,
             Security = !requiresAuthentication
               ? new List<OpenApiSecurityRequirement>()
               : new List<OpenApiSecurityRequirement>
@@ -729,7 +760,7 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
                     {
                       Value = new OpenApiStringObject(x.content)
                     })
-                    : null
+                    : []
                 }
               }
             },
@@ -754,7 +785,8 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
 
     if (iseva)
     {
-      result.Operations.First().Value.Responses["4XX"] = new()
+      var responses = result.Operations.First().Value.Responses;
+      responses["400"] = new()
       {
         Description = "A BadRequest response",
         Content = new Dictionary<string, OpenApiMediaType>
@@ -767,7 +799,22 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
               ["RequestValidationFailure"] = new()
               {
                 Reference = new OpenApiReference { Type = ReferenceType.Example, Id = Example_400_RequestValidation }
-              },
+              }
+            }
+          }
+        }
+      };
+
+      responses["403"] = new()
+      {
+        Description = "A Forbidden response",
+        Content = new Dictionary<string, OpenApiMediaType>
+        {
+          ["application/json"] = new()
+          {
+            Schema = new OpenApiSchema { Reference = new OpenApiReference { Id = Schema_Error, Type = ReferenceType.Schema } },
+            Examples = new Dictionary<string, OpenApiExample>
+            {
               ["Forbidden"] = new()
               {
                 Reference = new OpenApiReference { Type = ReferenceType.Example, Id = Example_403_Forbidden }
@@ -853,7 +900,7 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
     return result;
   }
 
-  private static bool SupportsExternalIdsMode(State state, ApiDefinitionModel input, string s)
+  private static (bool backendID, bool systemID) SupportsExternalIdsMode(State state, ApiDefinitionModel input, string s)
   {
     if (state.SupportsBackendIDCache.TryGetValue(s, out var cached)) return cached;
 
@@ -862,15 +909,22 @@ internal partial class OpenApiOutput : IOutput<OpenApiOptions>
     return result;
   }
 
-  private static bool SupportsExternalIdsMode_Uncached(ApiDefinitionModel input, string s, HashSet<string> recursionGuard)
+  private static (bool backendID, bool systemID) SupportsExternalIdsMode_Uncached(ApiDefinitionModel input, string s, HashSet<string> recursionGuard)
   {
-    if (recursionGuard.Contains(s)) return false;
+    if (!recursionGuard.Add(s)) return (false, false);
 
-    recursionGuard.Add(s);
     var type = input.Types[s];
-    var result = type.Properties.Any(p => p.Value.DataModelInformation is { SupportsBackendID: true }) || type.TypeDependencies.Any(d => SupportsExternalIdsMode_Uncached(input, d, recursionGuard));
+
+    var backendID = type.Properties.Any(p =>
+      p.Value.DataModelInformation is { SupportsBackendID: true })
+                    || type.TypeDependencies.Any(d => SupportsExternalIdsMode_Uncached(input, d, recursionGuard).backendID);
+
+    var systemID = type.Properties.Any(p =>
+                      p.Value.DataModelInformation is { SupportsSystemID: true })
+                    || type.TypeDependencies.Any(d => SupportsExternalIdsMode_Uncached(input, d, recursionGuard).systemID);
+
     recursionGuard.Remove(s);
-    return result;
+    return (backendID, systemID);
   }
 
   private static string FixName(string name)

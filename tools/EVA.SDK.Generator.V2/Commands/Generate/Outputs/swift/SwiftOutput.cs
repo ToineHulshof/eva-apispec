@@ -2,16 +2,17 @@
 using EVA.SDK.Generator.V2.Commands.Generate.Transforms;
 using EVA.SDK.Generator.V2.Helpers;
 using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
 
 namespace EVA.SDK.Generator.V2.Commands.Generate.Outputs.swift;
 
 internal class SwiftOutput : IOutput<SwiftOptions>
 {
-  private static readonly string[] SafePropertyNames = { "Type" };
+  private static readonly string[] SafePropertyNames = ["Type", "Protocol"];
 
   public string? OutputPattern => null;
 
-  public string[] ForcedTransformations => new[] { RemoveEventExports.ID, RemoveDataLakeExports.ID, RemoveErrors.ID, RemoveInheritance.ID };
+  public bool GetForcedTransformations(SwiftOptions _, INamedTransform x) => x is RemoveEventExports or RemoveDataLakeExports or RemoveErrors or RemoveInheritance;
 
   public async Task Write(OutputContext<SwiftOptions> ctx)
   {
@@ -25,6 +26,7 @@ internal class SwiftOutput : IOutput<SwiftOptions>
       var filename = "Svc" + FileNameFromType(input.Types[service.RequestTypeID]);
       var reqName = GetTypeName(service.RequestTypeID, input);
       var resName = GetTypeName(service.ResponseTypeID, input);
+      if (resName == "EVACoreGetApplicationConfigurationResponse") resName = "ApplicationConfiguration";
 
       var output = new IndentedStringBuilder(4);
 
@@ -47,7 +49,6 @@ internal class SwiftOutput : IOutput<SwiftOptions>
       if (type.ParentType != null) continue;
 
       var assembly = FolderFromAssembly(type.Assembly);
-      var filename = FileNameFromType(type);
       var typename = GetTypeName(id, input);
 
       var output = new IndentedStringBuilder(2);
@@ -57,7 +58,7 @@ internal class SwiftOutput : IOutput<SwiftOptions>
 
       WriteType(type, id, typename, output, ctx);
 
-      await writer.WriteFileAsync($"{assembly}/{filename}.swift", output.ToString());
+      await writer.WriteFileAsync($"{assembly}/{typename}.swift", output.ToString());
     }
 
     // Write mocks
@@ -186,7 +187,7 @@ internal class SwiftOutput : IOutput<SwiftOptions>
         for (var i = 0; i < list.Count; i++)
         {
           var prop = list[i];
-          var propDefault = GetPropDefault(prop.Value.Type);
+          var propDefault = GetPropDefault(prop.Value.Type, prop.Value.Skippable);
           output.WriteLine(
             $"{prop.Key}: {GetPropTypeName(prop.Value, prop.Key, id, ctx, false, prop.Value.Deprecated != null)}{(string.IsNullOrEmpty(propDefault) ? string.Empty : $" = {propDefault}")}{(i == list.Count - 1 ? string.Empty : ",")}");
         }
@@ -298,6 +299,7 @@ internal class SwiftOutput : IOutput<SwiftOptions>
             {
               output.WriteLine("properties: [String: JSON] = [:],");
               var list = options.ToList();
+              output.WriteLine("properties: [String: JSON] = [:]" + ((list.Count == 0) ? "" : ","));
               for (var i = 0; i < list.Count; i++)
               {
                 var option = list[i];
@@ -363,7 +365,7 @@ internal class SwiftOutput : IOutput<SwiftOptions>
       // Identifiable requirement
       if (type.Properties.TryGetValue("ID", out var idProperty))
       {
-        output.WriteLine($"public var id: {GetPropTypeName(idProperty, "ID", id, ctx)} {{ self.ID }}");
+        output.WriteLine($"public var id: {GetPropTypeName(idProperty, "ID", id, ctx, false, idProperty.Deprecated != null)} {{ self.ID }}");
         output.WriteLine();
       }
 
@@ -384,7 +386,7 @@ internal class SwiftOutput : IOutput<SwiftOptions>
     }
 
     // Write the nested types
-    var nestedTypes = ctx.Input.Types.Where(kv => kv.Value.ParentType == id);
+    var nestedTypes = ctx.Input.Types.Where(kv => kv.Value.ParentType == id).ToList();
     foreach (var (nestedID, nestedType) in nestedTypes)
     {
       output.WriteLine();
@@ -458,21 +460,40 @@ internal class SwiftOutput : IOutput<SwiftOptions>
           var typeName = GetPropTypeName(value, key, typeContext, ctx);
           var typeNameNotNullable = GetPropTypeName(value, key, typeContext, ctx, true);
 
-          // Check if we have a conflicting property defined that will "claim" our typename
-          // This is usually the case for props name Date or Data
-          var typePrefix = string.Empty;
-          if (type.Properties.ContainsKey(typeNameNotNullable))
+          var postfix = string.Empty;
+          var containsProductDetails = false;
+          var isOptional = value.Type.Nullable || value.Deprecated != null || value.Skippable;
+
+          foreach (var t in new string[] { "ProductDetails", "String", "Int" })
           {
-            typePrefix = "Foundation.";
+            var before = typeNameNotNullable;
+            typeNameNotNullable = Regex.Replace(typeNameNotNullable, $@"\b{t}\b",$"{t}Wrapper");
+            typeName = Regex.Replace(typeName, $@"\b{t}\b",$"{t}Wrapper");
+            typeNameNotNullable = Regex.Replace(typeNameNotNullable, $"{t}Wrapper:",$"{t}:");
+            typeName = Regex.Replace(typeName, $"{t}Wrapper:",$"{t}:");
+
+            if (before != typeNameNotNullable)
+            {
+              if (t == "ProductDetails")
+              {
+                containsProductDetails = true;
+              }
+              var property = t == "ProductDetails" ? "productDetails" : "unwrapped";
+              postfix = (isOptional ? "?" : "") + "." + property;
+            }
           }
 
-          if (value.Type.Nullable || value.Deprecated != null)
+          // Check if we have a conflicting property defined that will "claim" our typename
+          // This is usually the case for props name Date or Data
+          var typePrefix = (type.Properties.ContainsKey(typeNameNotNullable) && !containsProductDetails) ? "Foundation." : string.Empty;
+
+          if (isOptional)
           {
-            output.WriteLine($"do {{ self.{key} = try container.decodeIfPresent({typePrefix}{typeNameNotNullable}.self, forKey: .{key}) }} catch {{ decodeLog(error) }}");
+            output.WriteLine($"do {{ self.{key} = try container.decodeIfPresent({typePrefix}{typeNameNotNullable}.self, forKey: .{key}){postfix} }} catch {{ decodeLog(error) }}");
           }
           else
           {
-            output.WriteLine($"self.{key} = try container.decode({typePrefix}{typeName}.self, forKey: .{key})");
+            output.WriteLine($"self.{key} = try container.decode({typePrefix}{typeName}.self, forKey: .{key}){postfix}");
           }
         }
       }
@@ -481,7 +502,7 @@ internal class SwiftOutput : IOutput<SwiftOptions>
 
   private static void WriteNonFlagsEnum(TypeSpecification type, string typename, IndentedStringBuilder output)
   {
-    output.WriteLine($"public enum {typename}: RawRepresentable, CodingKeyRepresentable, Identifiable, Codable, Equatable, Hashable, Sendable {{");
+    output.WriteLine($"public enum {typename}: RawRepresentable, CodingKeyRepresentable, Identifiable, CaseIterable, Codable, Equatable, Hashable, Sendable {{");
     using (output.Indentation)
     {
       var values = type.EnumValues.OrderBy(v => v.Value.Value);
@@ -497,6 +518,19 @@ internal class SwiftOutput : IOutput<SwiftOptions>
 
       output.WriteLine();
       output.WriteLine("public var id: Self { self }");
+      output.WriteLine();
+
+      output.WriteLine($"public static var allCases: [{typename}]");
+      using (output.BracedIndentation)
+      {
+        output.WriteLine("[");
+        foreach (var (name, _) in values)
+        {
+          var safeName = SafePropertyNames.Contains(name) ? $"`{name}`" : name;
+          output.WriteLine($".{safeName},");
+        }
+        output.WriteLine("]");
+      }
       output.WriteLine();
 
       output.WriteLine("public init(rawValue: Int)");
@@ -568,6 +602,8 @@ internal class SwiftOutput : IOutput<SwiftOptions>
           output.WriteLine("default: self = .undocumented(codingKey.intValue ?? -1, codingKey.stringValue)");
         }
       }
+
+      WriteIntRawValueInit(output);
     }
 
     output.WriteLine("}");
@@ -594,29 +630,53 @@ internal class SwiftOutput : IOutput<SwiftOptions>
         if (value == 0) continue;
         output.WriteLine($"public static let {name} = {typename}(rawValue: {value})");
       }
+
+      WriteIntRawValueInit(output);
     }
 
     output.WriteLine("}");
   }
 
-  private static string GetPropTypeName(PropertySpecification ps, string name, string? typeContext, OutputContext<SwiftOptions> ctx, bool forceNotNullable = false, bool forceNullable = false)
+  private static void WriteIntRawValueInit(IndentedStringBuilder output)
   {
-    var typeReference = ps.Type;
-    var n = typeReference.Nullable && !forceNotNullable || forceNullable ? "?" : string.Empty;
-    if (ps.AllowedValues.Any()) return $"{name}Values{n}";
-    if (typeReference is { Name: ApiSpecConsts.Specials.Option }) return $"{name}Payload{n}";
-
-    return GetTypeName(typeReference, ctx, forceNotNullable, forceNullable);
+      output.WriteLine();
+      output.WriteLine("public init(from decoder: any Decoder) throws");
+      using (output.BracedIndentation)
+      {
+        output.WriteLine("let container = try decoder.singleValueContainer()");
+        output.WriteLine("let rawValue = try container.decode(IntWrapper.self).unwrapped");
+        output.WriteLine("self.init(rawValue: rawValue)");
+      }
   }
 
-  private static string GetPropDefault(TypeReference typeReference)
+  private static string GetPropTypeName(PropertySpecification ps, string name, string? typeContext, OutputContext<SwiftOptions> ctx, bool forceNotNullable = false, bool forceNullable = false)
   {
-    return typeReference.Nullable ? "nil" : string.Empty;
+    var n = OptionalSuffix(ps.Type, forceNotNullable, forceNullable, ps.Skippable);
+    var typeName = GetCorePropTypeName(ps, name, typeContext, ctx, forceNotNullable, forceNullable);
+    return (ps.Skippable && ps.Type.Nullable ? $"Maybe<{typeName}>" : typeName) + n;
+  }
+
+  private static string GetCorePropTypeName(PropertySpecification ps, string name, string? typeContext, OutputContext<SwiftOptions> ctx, bool forceNotNullable = false, bool forceNullable = false)
+  {
+    var typeReference = ps.Type;
+    if (ps.AllowedValues.Any()) return $"{name}Values";
+    if (typeReference is { Name: ApiSpecConsts.Specials.Option }) return $"{name}Payload";
+    return GetTypeName(typeReference, ctx, true);
+  }
+
+  private static string GetPropDefault(TypeReference typeReference, bool skippable = false)
+  {
+    return typeReference.Nullable || skippable ? "nil" : string.Empty;
+  }
+
+  private static string OptionalSuffix(TypeReference typeReference, bool forceNotNullable = false, bool forceNullable = false, bool skippable = false)
+  {
+    return (typeReference.Nullable || skippable) && !forceNotNullable || forceNullable ? "?" : string.Empty;
   }
 
   private static string GetTypeName(TypeReference typeReference, OutputContext<SwiftOptions> ctx, bool forceNotNullable = false, bool forceNullable = false)
   {
-    var n = typeReference.Nullable && !forceNotNullable || forceNullable ? "?" : string.Empty;
+    var n = OptionalSuffix(typeReference, forceNotNullable, forceNullable);
 
     if (typeReference is { Name: ApiSpecConsts.String or ApiSpecConsts.Duration }) return $"String{n}";
     if (typeReference is { Name: ApiSpecConsts.Binary }) return $"Data{n}";
@@ -624,6 +684,7 @@ internal class SwiftOutput : IOutput<SwiftOptions>
     if (typeReference is { Name: ApiSpecConsts.Int16 or ApiSpecConsts.Int32 or ApiSpecConsts.Int64 }) return $"Int{n}";
     if (typeReference is { Name: ApiSpecConsts.Float128 }) return $"Decimal{n}";
     if (typeReference is { Name: ApiSpecConsts.Float64 }) return $"Double{n}";
+    if (typeReference is { Name: ApiSpecConsts.Float32 }) return $"Float{n}";
     if (typeReference is { Name: ApiSpecConsts.Date }) return $"Date{n}";
     if (typeReference is { Name: ApiSpecConsts.Bool }) return $"Bool{n}";
     if (typeReference is { Name: ApiSpecConsts.Guid }) return $"UUID{n}";
@@ -635,7 +696,8 @@ internal class SwiftOutput : IOutput<SwiftOptions>
     }
 
     if (typeReference is { Name: ApiSpecConsts.Any }) return $"{ctx.Options.AnyCodableName}{n}";
-    if (typeReference is { Name: ApiSpecConsts.WellKnown.IProductSearchItem or ApiSpecConsts.Object }) return $"[String: {ctx.Options.AnyCodableName}]{n}";
+    if (typeReference is { Name: ApiSpecConsts.WellKnown.IProductSearchItem }) return $"ProductDetails{n}";
+    if (typeReference is { Name: ApiSpecConsts.Object }) return $"[String: {ctx.Options.AnyCodableName}]{n}";
     if (typeReference is { Name: ApiSpecConsts.Specials.Map })
     {
       var ta0 = typeReference.Arguments[0];
@@ -670,6 +732,9 @@ internal class SwiftOutput : IOutput<SwiftOptions>
 
   private static string GetTypeName(string id, ApiDefinitionModel input)
   {
+    if (id == "EVA.Core.Users.Subscriptions.UserDto") return "EVACoreSubscriptionsUserDto";
+    if (id == "EVA.Core.Users.Subscriptions.OrganizationUnitDto") return "EVACoreSubscriptionsOrganizationUnitDto";
+    if (id == "EVA.Core.Orders.Dto.CompanyDto") return "EVACoreOrdersCompanyDto";
     var reference = input.Types[id];
     var assembly = reference.Assembly;
     assembly = assembly.Replace(".Services", string.Empty);

@@ -1,368 +1,447 @@
-﻿// using System.Text;
-// using EVA.API.Spec;
-// using EVA.SDK.Generator.V2.Commands.Generate.Outputs.typescript;
-// using EVA.SDK.Generator.V2.Exceptions;
-// using EVA.SDK.Generator.V2.Helpers;
-//
-// namespace EVA.SDK.Generator.V2.Commands.Generate.Outputs.zod;
-//
-// internal class ZodOutput : IOutput<ZodOptions>
-// {
-//   public string? OutputPattern => null;
-//
-//   public string[] ForcedRemoves => new[] { "unused-type-params", "empty-types", "errors", "event-exports", "datalake-exports", "nested-types" };
-//
-//   public async Task Write(OutputContext<ZodOptions> ctx)
-//   {
-//
-//   }
-//   //
-//   // public async Task Write(OutputContext<ZodOptions> ctx)
-//   // {
-//   //   var (input, _, writer, _) = ctx;
-//   //
-//   //   foreach (var group in input.GroupByAssembly())
-//   //   {
-//   //     var assemblyCtx = new AssemblyContext(group.Assembly);
-//   //     var o = new IndentedStringBuilder(2);
-//   //
-//   //     // Write namespace
-//   //     o.WriteLine($"export namespace {FixNamespace(group.Assembly)}");
-//   //     using (o.BracedIndentation)
-//   //     {
-//   //       // Preset types
-//   //       if (group.Assembly == ApiSpecConsts.WellKnown.CoreAssembly)
-//   //       {
-//   //         o.WriteLine();
-//   //         o.WriteLine("const _literalSchema = z.union([z.string(), z.number(), z.boolean(), z.null()]);");
-//   //         o.WriteLine("type _literal = z.infer<typeof _literalSchema>;");
-//   //         o.WriteLine("export type _anyValue = _literal | { [key: string]: _anyValue } | _anyValue[];");
-//   //         o.WriteLine("export const TAnyValue: z.ZodType<_anyValue> = z.lazy(() => z.union([_literalSchema, z.array(TAnyValue), z.record(TAnyValue)]));");
-//   //       }
-//   //
-//   //       // Write the types
-//   //       WriteTypes(group, o, input, assemblyCtx);
-//   //     }
-//   //
-//   //     // Write the import statements
-//   //     var importsBuilder = new StringBuilder();
-//   //     foreach (var x in assemblyCtx.ReferencedModules)
-//   //     {
-//   //       importsBuilder.Append("import { ").Append(FixNamespace(x)).Append(" } from '").Append(TypescriptOutput.GetModuleReference(x, null)).AppendLine("';");
-//   //     }
-//   //
-//   //     importsBuilder.AppendLine("import { z } from 'zod';");
-//   //
-//   //     importsBuilder.AppendLine();
-//   //     importsBuilder.AppendLine(o.ToString());
-//   //
-//   //     await writer.WriteFileAsync($"{group.Assembly}.ts", importsBuilder.ToString());
-//   //   }
-//   // }
-//   //
-//   // private void WriteTypes(ApiDefinitionModelExtensions.GroupedApiDefinitionModel group, IndentedStringBuilder o, ApiDefinitionModel input, AssemblyContext ctx)
-//   // {
-//   //   var writtenTypes = new HashSet<string>();
-//   //   var typesInThisModule = group.Types.Keys.ToHashSet();
-//   //   var lazyTypes = new HashSet<string>();
-//   //
-//   //   var typesToWrite = group.Types.Select(kv => (id: kv.Key, type: kv.Value)).ToHashSet();
-//   //
-//   //   while (typesToWrite.Any())
-//   //   {
-//   //     // Simplest case: write the type if it has no unwritten-dependencies dependencies and its extends type is not a lazy type
-//   //     var typeWithoutDependencies = typesToWrite.FirstOrDefault(x =>
-//   //       (x.type.Extends == null || !lazyTypes.Contains(x.type.Extends.Name)) && x.type.TypeDependencies.All(dep => !typesInThisModule.Contains(dep) || writtenTypes.Contains(dep)));
-//   //     if (typeWithoutDependencies != default)
-//   //     {
-//   //       var (id, type) = typeWithoutDependencies;
-//   //       writtenTypes.Add(id);
-//   //       typesToWrite.Remove(typeWithoutDependencies);
-//   //       var fixedTypeName = TypescriptOutput.FixTypeName(input, id);
-//   //
-//   //       if (type.EnumIsFlag.HasValue)
-//   //       {
-//   //         WriteEnum(o, type, fixedTypeName, type.EnumIsFlag.Value);
-//   //         continue;
-//   //       }
-//   //
-//   //       // Write out the type
-//   //       if (type.TypeArguments.Any())
-//   //       {
-//   //         var args = string.Join(", ", type.TypeArguments.Select(t => $"{t} extends z.ZodTypeAny"));
-//   //         var param = string.Join(", ", type.TypeArguments.Select(t => $"{t[1..]}: {t}"));
-//   //         o.WriteLine($"export function {fixedTypeName}<{args}>({param})");
-//   //         using (o.BracedIndentation)
-//   //         {
-//   //           o.Write("return ");
-//   //           if (type.Extends != null) o.Write($"{ToReference(input, type.Extends, ctx, false)}.merge(");
-//   //           o.WriteLine("z.object({");
-//   //           using (o.Indentation)
-//   //           {
-//   //             WriteProperties(input, ctx, type, o);
-//   //           }
-//   //
-//   //           o.Write("})");
-//   //           if (type.Extends != null) o.Write(")");
-//   //           o.WriteLine(";");
-//   //         }
-//   //       }
-//   //       else
-//   //       {
-//   //         o.Write($"export const {fixedTypeName} = ");
-//   //         if (type.Extends != null) o.Write($"{ToReference(input, type.Extends, ctx, false)}.merge(");
-//   //         o.WriteLine("z.object({");
-//   //         using (o.Indentation)
-//   //         {
-//   //           WriteProperties(input, ctx, type, o);
-//   //         }
-//   //
-//   //         o.Write("})");
-//   //         if (type.Extends != null) o.Write(")");
-//   //         o.WriteLine(";");
-//   //       }
-//   //
-//   //       continue;
-//   //     }
-//   //
-//   //     // At this point we have circular dependencies. We will just randomly choose one (although we prefer types that only reference itself).
-//   //     // This is not optimal, but it is probably good enough.
-//   //     {
-//   //       var typeToWrite = typesToWrite.FirstOrDefault(x => x.type.TypeDependencies.All(dep => !typesInThisModule.Contains(dep) || writtenTypes.Contains(dep) || dep == x.id));
-//   //       typeToWrite = typeToWrite == default ? typesToWrite.First() : typeToWrite;
-//   //
-//   //       var (id, type) = typeToWrite;
-//   //       writtenTypes.Add(id);
-//   //       typesToWrite.Remove(typeToWrite);
-//   //       lazyTypes.Add(id);
-//   //       var fixedTypeName = TypescriptOutput.FixTypeName(input, id);
-//   //
-//   //       if (!type.TypeArguments.Any())
-//   //       {
-//   //         o.WriteLine($"interface {fixedTypeName}Schema {{");
-//   //         using (o.Indentation)
-//   //         {
-//   //           WriteInterfaceProperties(input, ctx, type, o);
-//   //         }
-//   //
-//   //         o.WriteLine("}");
-//   //
-//   //         o.WriteLine($"export const {fixedTypeName}: z.ZodType<{fixedTypeName}Schema> = z.lazy(() => z.object({{");
-//   //         using (o.Indentation)
-//   //         {
-//   //           WriteProperties(input, ctx, type, o);
-//   //         }
-//   //
-//   //         o.WriteLine("}));");
-//   //       }
-//   //       else
-//   //       {
-//   //         throw new SdkException("Self referencing generics are not supported");
-//   //       }
-//   //     }
-//   //   }
-//   // }
-//   //
-//   // private static void WriteEnum(IndentedStringBuilder o, TypeSpecification type, string fixedTypeName, bool isFlag)
-//   // {
-//   //   if (isFlag)
-//   //   {
-//   //     o.WriteLine($"export const {fixedTypeName} = z.number();");
-//   //   }
-//   //   else
-//   //   {
-//   //     o.WriteLine($"export enum {fixedTypeName}Schema");
-//   //     using (o.BracedIndentation)
-//   //     {
-//   //       foreach (var v in type.EnumValues)
-//   //       {
-//   //         o.WriteLine($"{v.Key} = {v.Value.Value},");
-//   //       }
-//   //     }
-//   //
-//   //     o.WriteLine($"export const {fixedTypeName} = z.nativeEnum({fixedTypeName}Schema);");
-//   //   }
-//   // }
-//   //
-//   // private static void WriteInterfaceProperties(ApiDefinitionModel input, AssemblyContext ctx, TypeSpecification type, IndentedStringBuilder o)
-//   // {
-//   //   foreach (var (propName, propSpec) in type.Properties)
-//   //   {
-//   //     if (propSpec.Type.Nullable && !propSpec.Skippable)
-//   //     {
-//   //       o.WriteLine($"{propName}?: {ToInterfaceReference(input, propSpec, ctx)},");
-//   //     }
-//   //     else if (propSpec.Type.Nullable && propSpec.Skippable)
-//   //     {
-//   //       o.WriteLine($"{propName}?: {ToInterfaceReference(input, propSpec, ctx)},");
-//   //     }
-//   //     else if (!propSpec.Type.Nullable && !propSpec.Skippable)
-//   //     {
-//   //       o.WriteLine($"{propName}: {ToInterfaceReference(input, propSpec, ctx)},");
-//   //     }
-//   //     else if (!propSpec.Type.Nullable && propSpec.Skippable)
-//   //     {
-//   //       o.WriteLine($"{propName}?: {ToInterfaceReference(input, propSpec, ctx)},");
-//   //     }
-//   //   }
-//   // }
-//   //
-//   // private static string ToInterfaceReference(ApiDefinitionModel input, PropertySpecification ps, AssemblyContext ctx, bool? overrideNullable = null)
-//   // {
-//   //   if (ps.Type.Name == ApiSpecConsts.String && ps.AllowedValues.Any())
-//   //   {
-//   //     return string.Join(" | ", ps.AllowedValues.Select(TypescriptOutput.EscapeForString).Concat(overrideNullable ?? ps.Type.Nullable ? new[] { "null" } : Array.Empty<string>()));
-//   //   }
-//   //
-//   //   // Option
-//   //   if (ps.Type is { Name: ApiSpecConsts.Specials.Option, Arguments: var options })
-//   //   {
-//   //     // Only use types from this assembly, and add an extender. This extender is patched later on.
-//   //     var typesFromCurrentAssembly = options.Where(o => input.Types[o.Name].Assembly == ctx.AssemblyName).ToArray();
-//   //     var nullable = overrideNullable ?? ps.Type.Nullable || typesFromCurrentAssembly.Any(o => o.Nullable);
-//   //
-//   //     var allReferences = typesFromCurrentAssembly.Select(tr => ToInterfaceReference(input, tr, ctx, false)).Concat(nullable ? new[] { "null" } : Enumerable.Empty<string>());
-//   //     return string.Join(" | ", allReferences);
-//   //   }
-//   //
-//   //   return ToInterfaceReference(input, ps.Type, ctx, overrideNullable);
-//   // }
-//   //
-//   // private static string ToInterfaceReference(ApiDefinitionModel input, TypeReference typeReference, AssemblyContext ctx, bool? overrideNullable = null)
-//   // {
-//   //   var nullable = overrideNullable ?? typeReference.Nullable;
-//   //   var n = nullable ? " | null" : string.Empty;
-//   //
-//   //   var preset = typeReference switch
-//   //   {
-//   //     { Name: ApiSpecConsts.String or ApiSpecConsts.Date or ApiSpecConsts.Binary or ApiSpecConsts.Guid or ApiSpecConsts.Duration } => $"string{n}",
-//   //     { Name: ApiSpecConsts.Bool } => $"boolean{n}",
-//   //     { Name: ApiSpecConsts.Int32 or ApiSpecConsts.Int64 or ApiSpecConsts.Int16 or ApiSpecConsts.Float32 or ApiSpecConsts.Float64 or ApiSpecConsts.Float128 } => $"number{n}",
-//   //     { Name: ApiSpecConsts.Specials.Array, Arguments.Length: 1 } => $"({ToInterfaceReference(input, typeReference.Arguments[0], ctx)})[]{n}",
-//   //     _ when typeReference.Name.StartsWith("_") => typeReference.Name[1..],
-//   //     { Name: ApiSpecConsts.Specials.Map, Arguments.Length: 2 } =>
-//   //       $"{{[key:{ToInterfaceReference(input, typeReference.Arguments[0], ctx, false)}]:{ToInterfaceReference(input, typeReference.Arguments[1], ctx)}}}{n}",
-//   //     _ => null
-//   //   };
-//   //
-//   //   if (preset != null) return preset;
-//   //
-//   //   // Object
-//   //   if (typeReference is { Name: ApiSpecConsts.Object })
-//   //   {
-//   //     ctx.RegisterReferencedModule(ApiSpecConsts.WellKnown.CoreAssembly);
-//   //     return ctx.AssemblyName == ApiSpecConsts.WellKnown.CoreAssembly ? $"Record<string, _anyValue>{n}" : $"Record<string, EvaCore._anyValue>{n}";
-//   //   }
-//   //
-//   //   // Any
-//   //   if (typeReference is { Name: ApiSpecConsts.Any })
-//   //   {
-//   //     ctx.RegisterReferencedModule(ApiSpecConsts.WellKnown.CoreAssembly);
-//   //     return ctx.AssemblyName == ApiSpecConsts.WellKnown.CoreAssembly ? $"_anyValue{n}" : $"EvaCore._anyValue{n}";
-//   //   }
-//   //
-//   //   // Apparently a type
-//   //   ctx.RegisterReferencedModule(input.Types[typeReference.Name].Assembly);
-//   //   return !typeReference.Arguments.Any() ? $"z.infer<typeof {ToReference(input, typeReference, ctx)}>{n}" : "unknown";
-//   // }
-//   //
-//   // private static void WriteProperties(ApiDefinitionModel input, AssemblyContext ctx, TypeSpecification type, IndentedStringBuilder o)
-//   // {
-//   //   foreach (var (propName, propSpec) in type.Properties)
-//   //   {
-//   //     o.WriteLine((propSpec.Type.Nullable, propSpec.Skippable) switch
-//   //     {
-//   //       (false, false) => $"{propName}: {ToReference(input, propSpec, ctx)},",
-//   //       _ => $"{propName}: {ToReference(input, propSpec, ctx)}.optional(),"
-//   //     });
-//   //   }
-//   // }
-//   //
-//   // private static string ToReference(ApiDefinitionModel input, PropertySpecification ps, AssemblyContext ctx, bool? overrideNullable = null)
-//   // {
-//   //   if (ps.Type.Name == ApiSpecConsts.String && ps.AllowedValues.Any())
-//   //   {
-//   //     return $"z.enum([{string.Join(", ", ps.AllowedValues.Select(TypescriptOutput.EscapeForString))}]){(overrideNullable ?? ps.Type.Nullable ? ".nullable()" : "")}";
-//   //   }
-//   //
-//   //   if (ps.Type is { Name: ApiSpecConsts.Specials.Option, Arguments: var options })
-//   //   {
-//   //     // TODO: Extenders
-//   //
-//   //     // Easy case, might change due to extenders
-//   //     if (options.Length == 1) return ToReference(input, options.First(), ctx, overrideNullable);
-//   //
-//   //     // Only add types from this assembly
-//   //     var nullable = overrideNullable ?? ps.Type.Nullable || options.Any(o => o.Nullable);
-//   //
-//   //     var allReferences = options.Select(tr => ToReference(input, tr, ctx, overrideNullable));
-//   //     return $"z.union([{string.Join(", ", allReferences)}]){(overrideNullable ?? nullable ? ".nullable()" : "")}";
-//   //   }
-//   //
-//   //   return ToReference(input, ps.Type, ctx, overrideNullable);
-//   // }
-//   //
-//   // private static string ToReference(ApiDefinitionModel input, TypeReference typeReference, AssemblyContext ctx, bool? overrideNullable = null)
-//   // {
-//   //   var nullable = overrideNullable ?? typeReference.Nullable;
-//   //   var n = nullable ? ".nullable()" : string.Empty;
-//   //
-//   //   var preset = typeReference switch
-//   //   {
-//   //     { Name: ApiSpecConsts.String } => $"z.string(){n}",
-//   //     { Name: ApiSpecConsts.Date } => $"z.string().datetime(){n}",
-//   //     { Name: ApiSpecConsts.Binary } => $"z.string(){n}",
-//   //     { Name: ApiSpecConsts.Guid } => $"z.string().uuid(){n}",
-//   //     { Name: ApiSpecConsts.Duration } => $"z.string(){n}",
-//   //     { Name: ApiSpecConsts.Bool } => $"z.boolean(){n}",
-//   //     { Name: ApiSpecConsts.Int32 or ApiSpecConsts.Int64 or ApiSpecConsts.Int16 } => $"z.number().int(){n}",
-//   //     { Name: ApiSpecConsts.Float32 or ApiSpecConsts.Float64 or ApiSpecConsts.Float128 } => $"z.number(){n}",
-//   //
-//   //     { Name: ApiSpecConsts.Specials.Array, Arguments.Length: 1 } => $"{ToReference(input, typeReference.Arguments[0], ctx)}.array(){n}",
-//   //     { Name: ApiSpecConsts.Specials.Map, Arguments.Length: 2 } => $"z.record({ToReference(input, typeReference.Arguments[1], ctx)}){n}",
-//   //     _ => null
-//   //   };
-//   //
-//   //   if (preset != null) return preset;
-//   //
-//   //   if (typeReference.Name.StartsWith("_"))
-//   //   {
-//   //     return $"{typeReference.Name[1..]}{n}";
-//   //   }
-//   //
-//   //   // Object
-//   //   if (typeReference is { Name: ApiSpecConsts.Object })
-//   //   {
-//   //     ctx.RegisterReferencedModule(ApiSpecConsts.WellKnown.CoreAssembly);
-//   //     return ctx.AssemblyName == ApiSpecConsts.WellKnown.CoreAssembly ? $"z.record(TAnyValue){n}" : $"z.record(EvaCore.TAnyValue){n}";
-//   //   }
-//   //
-//   //   // Any
-//   //   if (typeReference is { Name: ApiSpecConsts.Any })
-//   //   {
-//   //     ctx.RegisterReferencedModule(ApiSpecConsts.WellKnown.CoreAssembly);
-//   //     return ctx.AssemblyName == ApiSpecConsts.WellKnown.CoreAssembly ? $"TAnyValue{n}" : $"EvaCore.TAnyValue{n}";
-//   //   }
-//   //
-//   //   // Apparently a type
-//   //   ctx.RegisterReferencedModule(input.Types[typeReference.Name].Assembly);
-//   //   if (!typeReference.Arguments.Any())
-//   //   {
-//   //     return TypescriptOutput.GetTypeRef(input, typeReference.Name, ctx);
-//   //   }
-//   //
-//   //   var args = typeReference.Arguments.Select(a => ToReference(input, a, ctx));
-//   //   return $"{TypescriptOutput.GetTypeRef(input, typeReference.Name, ctx)}({string.Join(", ", args)})";
-//   // }
-//   //
-//   // /// <summary>
-//   // /// Fixes the name of the namespace.
-//   // /// </summary>
-//   // /// <param name="s"></param>
-//   // /// <returns></returns>
-//   // internal static string FixNamespace(string s)
-//   // {
-//   //   if (s.StartsWith("EVA.")) s = "Eva." + s[4..];
-//   //   return s.Replace(".", string.Empty);
-//   // }
-// }
+﻿using System.Text;
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using EVA.API.Spec;
+using EVA.SDK.Generator.V2.Commands.Generate.Outputs.typescript;
+using EVA.SDK.Generator.V2.Commands.Generate.Transforms;
+using EVA.SDK.Generator.V2.Helpers;
+
+namespace EVA.SDK.Generator.V2.Commands.Generate.Outputs.zod;
+
+internal class ZodOutput : IOutput<ZodOptions>
+{
+  public string? OutputPattern => null;
+
+  public bool GetForcedTransformations(ZodOptions _, INamedTransform x) => x is RemoveInheritance;
+
+  public async Task Write(OutputContext<ZodOptions> ctx)
+  {
+    var (input, options, writer, _) = ctx;
+
+    foreach (var (typeID, type) in input.Types)
+    {
+      var o = new IndentedStringBuilder(2);
+      o.WriteLine("import { z } from 'zod';");
+
+      var references = new HashSet<string>();
+      var typeO = new IndentedStringBuilder(2);
+      WriteType(typeID, type, typeO, input, references);
+
+      foreach (var reference in references)
+      {
+        if(reference == typeID) continue;
+        o.WriteLine($"import {{ {TypeNameToTypescriptTypeName(input, reference, null)} }} from './{reference}';");
+      }
+      o.WriteLine();
+      o.WriteLine(typeO.ToString());
+
+      await writer.WriteFileAsync($"{typeID}.ts", o.ToString());
+    }
+  }
+
+  private static void WriteType(string id, TypeSpecification type, IndentedStringBuilder o, ApiDefinitionModel input, HashSet<string> references)
+  {
+    if (type.EnumIsFlag.HasValue)
+    {
+      if (type.EnumIsFlag.Value)
+      {
+        o.WriteLine($"export const {TypeNameToTypescriptTypeName(input, id, null)} = z.number();");
+      }
+      else
+      {
+        var values = type.EnumValues.ToTotals().Select(x => x.Value).Order().Select(x => $"z.literal({x})");
+
+        if (values.Count() == 1)
+        {
+          o.WriteLine($"export const {TypeNameToTypescriptTypeName(input, id, null)} = {values.First()};");
+        }
+        else
+        {
+          o.WriteLine($"export const {TypeNameToTypescriptTypeName(input, id, null)} = z.union([{string.Join(", ", values)}]);");
+        }
+      }
+    }
+    else if (id == ApiSpecConsts.WellKnown.IProductSearchItem)
+    {
+      var fixedTypeName = TypeNameToTypescriptTypeName(input, id, null);
+      o.WriteLine($"export const {fixedTypeName} = z.record(z.string(), z.any().nullable())");
+    }
+    else
+    {
+      var fixedTypeName = TypeNameToTypescriptTypeName(input, id, null);
+
+      if (type.TypeArguments.Any())
+      {
+        var typeArgument1 = string.Join(", ", type.TypeArguments.Select(x => $"{x[1..]} extends z.ZodTypeAny"));
+        var typeArgument2 = string.Join(", ", type.TypeArguments.Select(x => $"{x[1..]}Schema: {x[1..]}"));
+        o.WriteLine($"function __{fixedTypeName}<{typeArgument1}>({typeArgument2}) {{ return z.object({{");
+      }
+      else
+      {
+        o.WriteLine($"const __{fixedTypeName} = z.object({{");
+      }
+
+      var recursiveProperties = type.Properties.Where(p =>
+        {
+          foreach (var x in p.Value.Type.EnumerateAllTypeReferences())
+          {
+            if (input.Types.TryGetValue(x.Name, out var typeSpec))
+            {
+              foreach (var x2 in typeSpec.Properties)
+              {
+                foreach (var x3 in x2.Value.Type.EnumerateAllTypeReferences())
+                {
+                  if (x3.Name == id)
+                  {
+                    return true;
+                  }
+                }
+              }
+            }
+          }
+
+          return false;
+        })
+        .Select(x => x.Key)
+        .ToList();
+
+      using (o.Indentation)
+      {
+        foreach (var (propName, propSpec) in type.Properties)
+        {
+          if (recursiveProperties.Contains(propName)) continue;
+          WriteProperty(type, o, input, references, propName, propSpec, false);
+        }
+      }
+
+      if (type.TypeArguments.Any())
+      {
+        o.WriteLine("});}");
+      }
+      else
+      {
+        o.WriteLine("});");
+      }
+
+      if (recursiveProperties.Any())
+      {
+        o.WriteLine($"type _{fixedTypeName} = z.infer<typeof __{fixedTypeName}> & {{");
+        using (o.Indentation)
+        {
+          foreach (var (propName, propSpec) in type.Properties)
+          {
+            if (!recursiveProperties.Contains(propName)) continue;
+            WritePropertyAsType(type, o, input, references, propName, id, propSpec);
+          }
+        }
+        o.WriteLine("};");
+
+        o.WriteLine($"export const {fixedTypeName}: z.ZodType<_{fixedTypeName}> = __{fixedTypeName}.extend({{");
+        using (o.Indentation)
+        {
+          foreach (var (propName, propSpec) in type.Properties)
+          {
+            if (!recursiveProperties.Contains(propName)) continue;
+            WriteProperty(type, o, input, references, propName, propSpec, true);
+          }
+        }
+
+        o.WriteLine("});");
+      }
+      else
+      {
+        o.WriteLine($"export const {fixedTypeName} = __{fixedTypeName};");
+      }
+
+      o.WriteLine();
+    }
+  }
+
+  private static void WriteProperty(
+    TypeSpecification type,
+    IndentedStringBuilder o,
+    ApiDefinitionModel input,
+    HashSet<string> references,
+    string propName,
+    PropertySpecification propSpec,
+    bool wrapLazy)
+  {
+    var lp = wrapLazy ? "z.lazy(() => " : string.Empty;
+    var ls = wrapLazy ? ")" : string.Empty;
+
+    if (propSpec.Type.Nullable && !propSpec.Skippable)
+    {
+      o.WriteLine($"{propName}: {lp}{ToReference(input, propSpec, references, false)}.optional(){ls},");
+    }
+    else if (propSpec.Type.Nullable && propSpec.Skippable)
+    {
+      o.WriteLine($"{propName}: {lp}{ToReference(input, propSpec, references)}.optional(){ls},");
+    }
+    else if (!propSpec.Type.Nullable && !propSpec.Skippable)
+    {
+      // "primitive values" are always optional because they have a default value that is not `null`
+      // we only want to do this in request-only types
+      if (type.Usage is { Request: true }
+          && propSpec.Type.Name is ApiSpecConsts.Bool or ApiSpecConsts.Int32 or ApiSpecConsts.Int64)
+      {
+        o.WriteLine($"{propName}: {lp}{ToReference(input, propSpec, references)}.optional(){ls},");
+      }
+      else if (type.Usage is { Request: true }
+               && input.Types.TryGetValue(propSpec.Type.Name, out var typeSpec)
+               && typeSpec.EnumValues.Count > 0)
+      {
+        // While an enum is not a primitive, it is still optional
+        o.WriteLine($"{propName}: {lp}{ToReference(input, propSpec, references)}.optional(){ls},");
+      }
+      else
+      {
+        o.WriteLine($"{propName}: {lp}{ToReference(input, propSpec, references)}{ls},");
+      }
+    }
+    else if (!propSpec.Type.Nullable && propSpec.Skippable)
+    {
+      o.WriteLine($"{propName}: {lp}{ToReference(input, propSpec, references)}.optional(){ls},");
+    }
+  }
+
+  private static void WritePropertyAsType(
+    TypeSpecification type,
+    IndentedStringBuilder o,
+    ApiDefinitionModel input,
+    HashSet<string> references,
+    string propName,
+    string self,
+    PropertySpecification propSpec)
+  {
+    if (propSpec.Type.Nullable && !propSpec.Skippable)
+    {
+      o.WriteLine($"{propName}?: {ToReferenceAsType(input, propSpec, references, self, false)},");
+    }
+    else if (propSpec.Type.Nullable && propSpec.Skippable)
+    {
+      o.WriteLine($"{propName}?: {ToReferenceAsType(input, propSpec, references, self)},");
+    }
+    else if (!propSpec.Type.Nullable && !propSpec.Skippable)
+    {
+      // "primitive values" are always optional because they have a default value that is not `null`
+      // we only want to do this in request-only types
+      if (type.Usage is { Request: true }
+          && propSpec.Type.Name is ApiSpecConsts.Bool or ApiSpecConsts.Int32 or ApiSpecConsts.Int64)
+      {
+        o.WriteLine($"{propName}?: {ToReferenceAsType(input, propSpec, references, self)},");
+      }
+      else if (type.Usage is { Request: true }
+               && input.Types.TryGetValue(propSpec.Type.Name, out var typeSpec)
+               && typeSpec.EnumValues.Count > 0)
+      {
+        // While an enum is not a primitive, it is still optional
+        o.WriteLine($"{propName}?: {ToReferenceAsType(input, propSpec, references, self)},");
+      }
+      else
+      {
+        o.WriteLine($"{propName}: {ToReferenceAsType(input, propSpec, references, self)},");
+      }
+    }
+    else if (!propSpec.Type.Nullable && propSpec.Skippable)
+    {
+      o.WriteLine($"{propName}?: {ToReferenceAsType(input, propSpec, references, self)},");
+    }
+  }
+
+  private static string ToReference(ApiDefinitionModel input, PropertySpecification ps, HashSet<string> references, bool? overrideNullable = null)
+  {
+    if (ps.Type.Name == ApiSpecConsts.String && ps.AllowedValues.Any())
+    {
+      var values = ps.AllowedValues.Select(EscapeForString).Concat(overrideNullable ?? ps.Type.Nullable ? ["null"] : []);
+      return $"z.enum([{string.Join(", ", values)}])";
+    }
+
+    // Option
+    if (ps.Type is { Name: ApiSpecConsts.Specials.Option, Arguments: var options })
+    {
+      // Only use types from this assembly, and add an extender. This extender is patched later on.
+      var nullable = overrideNullable ?? ps.Type.Nullable || options.Any(o => o.Nullable);
+
+      var extra = new List<string?>();
+      if (nullable) extra.Add("z.null()");
+
+      var allReferences = (options.Any() ? options : [ps.Type.Shared!])
+        .Select(tr => ToReference(input, tr, references, overrideNullable)).Concat(extra).ToList();
+
+      if (allReferences.Count == 1) return allReferences[0];
+      return $"z.union([{string.Join(", ", allReferences)}])";
+    }
+
+    return ToReference(input, ps.Type, references, overrideNullable);
+  }
+
+  private static string ToReference(ApiDefinitionModel input, TypeReference typeReference, HashSet<string> references, bool? overrideNullable = null)
+  {
+    var nullable = overrideNullable ?? typeReference.Nullable;
+    var n = nullable ? ".nullable()" : string.Empty;
+
+    var preset = typeReference switch
+    {
+      { Name: ApiSpecConsts.ID } => $"z.number(){n}",
+      { Name: ApiSpecConsts.String or ApiSpecConsts.Date or ApiSpecConsts.Binary or ApiSpecConsts.Guid or ApiSpecConsts.Duration } => $"z.string(){n}",
+      { Name: ApiSpecConsts.Bool } => $"z.boolean(){n}",
+      { Name: ApiSpecConsts.Int32 or ApiSpecConsts.Int64 or ApiSpecConsts.Int16 or ApiSpecConsts.Float32 or ApiSpecConsts.Float64 or ApiSpecConsts.Float128 } => $"z.number(){n}",
+      { Name: ApiSpecConsts.Specials.Array, Arguments.Length: 1 } => $"z.array({ToReference(input, typeReference.Arguments[0], references, false)}){n}",
+      _ when typeReference.Name.StartsWith('_') => typeReference.Name[1..] + "Schema",
+      // Key will always be a string
+      { Name: ApiSpecConsts.Specials.Map, Arguments.Length: 2 } => $"z.record(z.string(), {ToReference(input, typeReference.Arguments[1], references)}){n}",
+      _ => null
+    };
+
+    if (preset != null) return preset;
+
+    // Object
+    if (typeReference is { Name: ApiSpecConsts.Object })
+    {
+      return $"z.record(z.string(), z.any()){n}";
+    }
+
+    // Any
+    if (typeReference is { Name: ApiSpecConsts.Any })
+    {
+      return $"z.any(){n}";
+    }
+
+    // Apparently a type
+    if (!typeReference.Arguments.Any())
+    {
+      if (input.Types.GetValueOrDefault(typeReference.Name)?.EnumIsFlag.HasValue ?? true)
+      {
+        return TypeNameToTypescriptTypeName(input, typeReference.Name, references);
+      }
+      else
+      {
+        return TypeNameToTypescriptTypeName(input, typeReference.Name, references);
+      }
+    }
+
+    var args = new List<string>();
+    foreach (var a in typeReference.Arguments)
+    {
+      args.Add(ToReference(input, a, references));
+    }
+
+    return $"{TypeNameToTypescriptTypeName(input, typeReference.Name, references)}({string.Join(", ", args)})";
+  }
+
+  private static string ToReferenceAsType(ApiDefinitionModel input, PropertySpecification ps, HashSet<string> references, string self, bool? overrideNullable = null)
+  {
+    if (ps.Type.Name == ApiSpecConsts.String && ps.AllowedValues.Any())
+    {
+      return string.Join(" | ", ps.AllowedValues.Select(EscapeForString).Concat(overrideNullable ?? ps.Type.Nullable ? ["null"] : []));
+    }
+
+    // Option
+    if (ps.Type is { Name: ApiSpecConsts.Specials.Option, Arguments: var options })
+    {
+      var nullable = overrideNullable ?? ps.Type.Nullable || options.Any(o => o.Nullable);
+
+      var extra = new List<string?>();
+      if (nullable) extra.Add("null");
+
+      var allReferences = (options.Any() ? options : [ps.Type.Shared!])
+        .Select(tr => ToReferenceAsType(input, tr, references, self, overrideNullable)).Concat(extra);
+      return string.Join(" | ", allReferences);
+    }
+
+    return ToReferenceAsType(input, ps.Type, references, self, overrideNullable);
+  }
+
+  private static string ToReferenceAsType(ApiDefinitionModel input, TypeReference typeReference, HashSet<string> references, string self, bool? overrideNullable = null)
+  {
+    var nullable = overrideNullable ?? typeReference.Nullable;
+    var n = nullable ? " | null" : string.Empty;
+
+    var preset = typeReference switch
+    {
+      { Name: ApiSpecConsts.ID } => $"number{n}",
+      { Name: ApiSpecConsts.String or ApiSpecConsts.Date or ApiSpecConsts.Binary or ApiSpecConsts.Guid or ApiSpecConsts.Duration } => $"string{n}",
+      { Name: ApiSpecConsts.Bool } => $"boolean{n}",
+      { Name: ApiSpecConsts.Int32 or ApiSpecConsts.Int64 or ApiSpecConsts.Int16 or ApiSpecConsts.Float32 or ApiSpecConsts.Float64 or ApiSpecConsts.Float128 } => $"number{n}",
+      { Name: ApiSpecConsts.Specials.Array, Arguments.Length: 1 } => $"{ToReferenceAsType(input, typeReference.Arguments[0], references, self, false)}[]{n}",
+      _ when typeReference.Name.StartsWith("_") => typeReference.Name[1..],
+      // Key will always be a string
+      { Name: ApiSpecConsts.Specials.Map, Arguments.Length: 2 } => $"Record<string,{ToReferenceAsType(input, typeReference.Arguments[1], references, self)}>{n}",
+      _ => null
+    };
+
+    if (preset != null) return preset;
+
+    // Object
+    if (typeReference is { Name: ApiSpecConsts.Object })
+    {
+      return $"Record<string, any>{n}";
+    }
+
+    // Any
+    if (typeReference is { Name: ApiSpecConsts.Any })
+    {
+      return $"any{n}";
+    }
+
+    // Apparently a type
+    var t = TypeNameToTypescriptTypeName(input, typeReference.Name, references);
+    if (self == typeReference.Name)
+    {
+      t = "_" + t;
+      return t;
+    }
+
+    if (!typeReference.Arguments.Any())
+    {
+      return $"z.infer<typeof {t}>";
+    }
+
+    var args = new List<string>();
+    foreach (var a in typeReference.Arguments)
+    {
+      args.Add(ToReferenceAsType(input, a, references, self));
+    }
+
+    return $"{t}<{string.Join(", ", args)}>";
+  }
+
+  private static string EscapeForString(string s)
+  {
+    return $"'{s.Replace("'", @"\'")}'";
+  }
+
+  private static string TypeNameToTypescriptTypeName(ApiDefinitionModel input, string name, HashSet<string>? references)
+  {
+    references?.Add(name);
+
+    // For service types
+    {
+      if (input.Services.Any(s => s.RequestTypeID == name || s.ResponseTypeID == name))
+      {
+        var idx = name.IndexOf('`');
+        name = idx == -1 ? name : name[..idx];
+
+        idx = name.LastIndexOf('.');
+        name = idx == -1 ? name : name[(idx + 1)..];
+
+        return name + "Schema";
+      }
+    }
+
+    // Other types
+    {
+      var spec = input.Types[name];
+      if (name.StartsWith(spec.Assembly + "."))
+      {
+        name = name[(spec.Assembly.Length + 1)..];
+      }
+
+      var idx = name.IndexOf('`');
+      name = idx == -1 ? name : name[..idx];
+
+      var result = name.Replace(".", string.Empty).Replace("+", "_");
+      return result + "Schema";
+    }
+  }
+}
