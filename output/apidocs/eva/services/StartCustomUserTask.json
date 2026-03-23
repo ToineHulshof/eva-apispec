@@ -42,7 +42,7 @@
   "response_samples": [
     {
       "name": "200",
-      "sample": "{\n  \u0022CustomFields\u0022: [\n    {\n      \u0022CustomFieldResponse\u0022: {\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022CustomFieldID\u0022: 123,\n        \u0022DataType\u0022: \u0022string\u0022,\n        \u0022DataTypeID\u0022: 123,\n        \u0022DisplayName\u0022: \u0022string\u0022,\n        \u0022EnumValues\u0022: {\n          \u0022key\u0022: \u0022string\u0022\n        },\n        \u0022IsArray\u0022: true,\n        \u0022IsEditableByUser\u0022: true,\n        \u0022Name\u0022: \u0022string\u0022,\n        \u0022Options\u0022: {\n          \u0022DefaultCustomFieldValue\u0022: {\n            \u0022ArrayValues\u0022: [\n              {\n                \u0022re\u0022: \u0022cursion\u0022\n              }\n            ],\n            \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n            \u0022BoolValue\u0022: true,\n            \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n            \u0022NumberValue\u0022: 123.456,\n            \u0022StringValue\u0022: \u0022string\u0022\n          },\n          \u0022DefaultValue\u0022: \u0022string\u0022,\n          \u0022IsEditable\u0022: true,\n          \u0022IsRequired\u0022: true,\n          \u0022MaximumDate\u0022: \u00222025-01-01\u0022,\n          \u0022MaximumLength\u0022: 123,\n          \u0022MaximumValue\u0022: 123.456,\n          \u0022MinimumDate\u0022: \u00222025-01-01\u0022,\n          \u0022MinimumLength\u0022: 123,\n          \u0022MinimumValue\u0022: 123.456,\n          \u0022Regex\u0022: \u0022string\u0022\n        },\n        \u0022Order\u0022: 123,\n        \u0022Value\u0022: \u0022any valid json value\u0022\n      },\n      \u0022InputHint\u0022: \u0022string\u0022,\n      \u0022IsRequired\u0022: true\n    }\n  ]\n}"
+      "sample": "{\n  \u0022CustomFields\u0022: [\n    {\n      \u0022CustomFieldResponse\u0022: {\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022CustomFieldID\u0022: 123,\n        \u0022DataType\u0022: \u0022string\u0022,\n        \u0022DataTypeID\u0022: 123,\n        \u0022DisplayName\u0022: \u0022string\u0022,\n        \u0022EnumValues\u0022: {\n          \u0022key\u0022: \u0022string\u0022\n        },\n        \u0022IsArray\u0022: true,\n        \u0022IsEditableByUser\u0022: true,\n        \u0022Name\u0022: \u0022string\u0022,\n        \u0022Options\u0022: {\n          \u0022DefaultCustomFieldValue\u0022: {\n            \u0022ArrayValues\u0022: [\n              {\n                \u0022re\u0022: \u0022cursion\u0022\n              }\n            ],\n            \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n            \u0022BoolValue\u0022: true,\n            \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n            \u0022NumberValue\u0022: 123.456,\n            \u0022StringValue\u0022: \u0022string\u0022\n          },\n          \u0022DefaultValue\u0022: \u0022string\u0022,\n          \u0022EnumValues\u0022: {\n            \u0022key\u0022: \u0022string\u0022\n          },\n          \u0022IsArray\u0022: true,\n          \u0022IsEditable\u0022: true,\n          \u0022IsRequired\u0022: true,\n          \u0022MaximumDate\u0022: \u00222025-01-01\u0022,\n          \u0022MaximumLength\u0022: 123,\n          \u0022MaximumValue\u0022: 123.456,\n          \u0022MinimumDate\u0022: \u00222025-01-01\u0022,\n          \u0022MinimumLength\u0022: 123,\n          \u0022MinimumValue\u0022: 123.456,\n          \u0022Regex\u0022: \u0022string\u0022\n        },\n        \u0022Order\u0022: 123,\n        \u0022Value\u0022: \u0022any valid json value\u0022\n      },\n      \u0022InputHint\u0022: \u0022string\u0022,\n      \u0022IsRequired\u0022: true\n    }\n  ],\n  \u0022Fields\u0022: [\n    {\n      \u0022CustomFieldID\u0022: 123,\n      \u0022IsRequired\u0022: true\n    }\n  ]\n}"
     },
     {
       "name": "400",
@@ -53,7 +53,7 @@
       "sample": "{\n  \u0022Error\u0022: {\n    \u0022Code\u0022: \u0022COVFEFE\u0022,\n    \u0022Type\u0022: \u0022Forbidden\u0022,\n    \u0022Message\u0022: \u0022You are not authorized to execute this request.\u0022,\n    \u0022RequestID\u0022: \u0022576b62dd71894e3281a4d84951f44e70\u0022\n  }\n}"
     }
   ],
-  "deprecation_notice": "\n\n**Deprecated since 795:** Custom usertasks are deprecated and will be removed in the future.\n\n**Will be removed from the typings in 811**",
+  "deprecation_notice": "\n\n**Deprecated since 812:** Custom usertasks are deprecated and will be removed in the future.\n\n**Will be removed from the typings in 838**",
   "request_type_id": "B",
   "response_type_id": "C",
   "types": {
@@ -139,6 +139,24 @@
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "EnumValues",
+        "deprecation_notice": "\n\n**Deprecated since 812:** EnumValues is deprecated and will be removed in 2.0.856: Moved to the custom field metadata..\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** EnumValues is deprecated and will be removed in 2.0.856: Moved to the custom field metadata..\n\n**Will be removed in 838**",
+        "type": "map[string] | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsArray",
+        "deprecation_notice": "\n\n**Deprecated since 812:** IsArray is deprecated and will be removed in 2.0.856: Moved to the custom field metadata..\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** IsArray is deprecated and will be removed in 2.0.856: Moved to the custom field metadata..\n\n**Will be removed in 838**",
+        "type": "boolean | null",
         "required": false,
         "properties_id": null,
         "one_of": null
@@ -413,6 +431,26 @@
     ],
     "I": [
       {
+        "name": "CustomFieldID",
+        "deprecation_notice": null,
+        "description": "This is the ID of a \u0060CustomField\u0060",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsRequired",
+        "deprecation_notice": null,
+        "description": "If the field is required, a value MUST be set when completing the task.",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "J": [
+      {
         "name": "ExternalIDs",
         "deprecation_notice": null,
         "description": "When using the \u0060ExternalIDs\u0060 mode, this will hold the resolved external IDs.",
@@ -460,12 +498,21 @@
         "one_of": null
       },
       {
+        "name": "Fields",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Fields is deprecated and will be removed in 2.0.856: Use CustomFields instead.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Fields is deprecated and will be removed in 2.0.856: Use CustomFields instead.\n\n**Will be removed in 838**",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "I",
+        "one_of": null
+      },
+      {
         "name": "Metadata",
         "deprecation_notice": null,
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "I",
+        "properties_id": "J",
         "one_of": null
       }
     ]

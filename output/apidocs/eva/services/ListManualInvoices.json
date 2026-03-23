@@ -3,7 +3,7 @@
   "method": "POST",
   "path": "/message/ListManualInvoices",
   "description": "List manually created invoices. These invoices are created via the \u0060CreateManualInvoice\u0060 service and are used as a worst-case scenario when everything has gone offline and the retailer has to make invoices on actual paper. These services are then used to enter the paper invoices back in to EVA.",
-  "auth_description": "Requires a user of type \u0060Employee\u0060 or \u0060Api\u0060 with functionality \u0060Invoices:View\u0060",
+  "auth_description": "Requires a user of type \u0060Employee\u0060 or \u0060Api\u0060 with functionality \u0060ManualInvoices:View\u0060",
   "headers": [
     {
       "name": "EVA-User-Agent",
@@ -378,8 +378,8 @@
       },
       {
         "name": "Filters",
-        "deprecation_notice": null,
-        "description": "",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Filters is deprecated and will be removed in 2.0.856: Will not be returned anymore. Remember what you passed to the request..\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Filters is deprecated and will be removed in 2.0.856: Will not be returned anymore. Remember what you passed to the request..\n\n**Will be removed in 838**",
         "type": "map[string] | null",
         "required": false,
         "properties_id": null,

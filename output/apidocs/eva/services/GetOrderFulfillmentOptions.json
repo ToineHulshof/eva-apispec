@@ -1272,8 +1272,8 @@
       },
       {
         "name": "FulfillmentOptions",
-        "deprecation_notice": "\n\n**Deprecated since 785:** FulfillmentOptions is deprecated and will be removed in 2.0.817: Not used anymore.\n\n**Will be removed in 801**",
-        "description": "**Deprecated since 785:** FulfillmentOptions is deprecated and will be removed in 2.0.817: Not used anymore.\n\n**Will be removed in 801**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** FulfillmentOptions is deprecated and will be removed in 2.0.856: Not used anymore.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** FulfillmentOptions is deprecated and will be removed in 2.0.856: Not used anymore.\n\n**Will be removed in 838**",
         "type": "array[object] | null",
         "required": false,
         "properties_id": "V",
@@ -1290,8 +1290,8 @@
       },
       {
         "name": "PotentialFulfillmentOptions",
-        "deprecation_notice": "\n\n**Deprecated since 785:** PotentialFulfillmentOptions is deprecated and will be removed in 2.0.817: Not used anymore.\n\n**Will be removed in 801**",
-        "description": "**Deprecated since 785:** PotentialFulfillmentOptions is deprecated and will be removed in 2.0.817: Not used anymore.\n\n**Will be removed in 801**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** PotentialFulfillmentOptions is deprecated and will be removed in 2.0.856: Not used anymore.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** PotentialFulfillmentOptions is deprecated and will be removed in 2.0.856: Not used anymore.\n\n**Will be removed in 838**",
         "type": "array[object] | null",
         "required": false,
         "properties_id": "Y",

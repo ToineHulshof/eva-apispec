@@ -332,8 +332,7 @@
         "one_of": null
       }
     ],
-    "N": [],
-    "O": [
+    "N": [
       {
         "name": "AcceptHeader",
         "deprecation_notice": null,
@@ -416,15 +415,14 @@
         "one_of": null
       }
     ],
-    "P": [],
     "M": [
       {
         "name": "AdditionalData",
         "deprecation_notice": null,
         "description": "",
-        "type": "object | null",
+        "type": "map[string] | null",
         "required": false,
-        "properties_id": "N",
+        "properties_id": null,
         "one_of": null
       },
       {
@@ -433,16 +431,16 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "O",
+        "properties_id": "N",
         "one_of": null
       },
       {
         "name": "PaymentMethod",
         "deprecation_notice": null,
         "description": "",
-        "type": "object | null",
+        "type": "map[string] | null",
         "required": false,
-        "properties_id": "P",
+        "properties_id": null,
         "one_of": null
       },
       {
@@ -529,7 +527,7 @@
         "one_of": null
       }
     ],
-    "Q": [
+    "O": [
       {
         "name": "AllowStorePaymentMethod",
         "deprecation_notice": null,
@@ -576,7 +574,7 @@
         "one_of": null
       }
     ],
-    "R": [
+    "P": [
       {
         "name": "AllowStorePaymentMethod",
         "deprecation_notice": null,
@@ -614,7 +612,7 @@
         "one_of": null
       }
     ],
-    "T": [
+    "R": [
       {
         "name": "ArticleDescription",
         "deprecation_notice": null,
@@ -661,7 +659,7 @@
         "one_of": null
       }
     ],
-    "S": [
+    "Q": [
       {
         "name": "Accept",
         "deprecation_notice": null,
@@ -686,7 +684,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "T",
+        "properties_id": "R",
         "one_of": null
       },
       {
@@ -1167,7 +1165,7 @@
         "one_of": null
       }
     ],
-    "U": [
+    "S": [
       {
         "name": "CardAmount",
         "deprecation_notice": null,
@@ -1187,7 +1185,45 @@
         "one_of": null
       }
     ],
-    "V": [
+    "T": [
+      {
+        "name": "AdditionalData",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "map[any] | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "PaymentTransactionID",
+        "deprecation_notice": null,
+        "description": "This is the ID of a \u0060PaymentTransaction\u0060",
+        "type": "integer | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Token",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "UniqueKey",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "U": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -1216,7 +1252,27 @@
         "one_of": null
       }
     ],
+    "V": [
+      {
+        "name": "InstallmentCount",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "integer | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
     "W": [
+      {
+        "name": "BankAccountNumber",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
       {
         "name": "IBAN",
         "deprecation_notice": null,
@@ -1583,22 +1639,30 @@
           },
           {
             "name": "AdyenPayByLinkPaymentMethodRequestProperties",
-            "properties_id": "Q"
+            "properties_id": "O"
           },
           {
             "name": "AdyenDropInPaymentMethodRequestProperties",
-            "properties_id": "R"
+            "properties_id": "P"
           },
           {
             "name": "BuckarooPaymentMethodPayData",
-            "properties_id": "S"
+            "properties_id": "Q"
           },
           {
             "name": "UserCardPaymentMethodRequestProperties",
-            "properties_id": "U"
+            "properties_id": "S"
+          },
+          {
+            "name": "TapToPayPaymentMethodRequestProperties",
+            "properties_id": "T"
           },
           {
             "name": "RemboursPaymentMethodRequestProperties",
+            "properties_id": "U"
+          },
+          {
+            "name": "PinPaymentRequestProperties",
             "properties_id": "V"
           },
           {
@@ -1967,6 +2031,44 @@
     ],
     "BV": [
       {
+        "name": "AdditionalData",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "map[any] | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "PaymentReference",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Token",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "UniqueKey",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "BW": [
+      {
         "name": "OrderLineCreated",
         "deprecation_notice": null,
         "description": "",
@@ -1976,7 +2078,7 @@
         "one_of": null
       }
     ],
-    "BW": [
+    "BX": [
       {
         "name": "Url",
         "deprecation_notice": null,
@@ -1987,7 +2089,7 @@
         "one_of": null
       }
     ],
-    "BX": [
+    "BY": [
       {
         "name": "RawReturnAmount",
         "deprecation_notice": null,
@@ -2016,7 +2118,7 @@
         "one_of": null
       }
     ],
-    "BY": [
+    "BZ": [
       {
         "name": "RedirectUrl",
         "deprecation_notice": null,
@@ -2027,7 +2129,7 @@
         "one_of": null
       }
     ],
-    "BZ": [
+    "CA": [
       {
         "name": "MSPPaymentID",
         "deprecation_notice": null,
@@ -2054,9 +2156,18 @@
         "required": false,
         "properties_id": null,
         "one_of": null
+      },
+      {
+        "name": "Success",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Success is deprecated and will be removed in 2.0.856: MarkD will tell us to delete this when all frontends are updated.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Success is deprecated and will be removed in 2.0.856: MarkD will tell us to delete this when all frontends are updated.\n\n**Will be removed in 838**",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
       }
     ],
-    "CA": [
+    "CB": [
       {
         "name": "RedirectUrl",
         "deprecation_notice": null,
@@ -2067,7 +2178,7 @@
         "one_of": null
       }
     ],
-    "CB": [
+    "CC": [
       {
         "name": "ClientSecret",
         "deprecation_notice": null,
@@ -2087,7 +2198,7 @@
         "one_of": null
       }
     ],
-    "CC": [
+    "CD": [
       {
         "name": "QRCode",
         "deprecation_notice": null,
@@ -2098,7 +2209,7 @@
         "one_of": null
       }
     ],
-    "CD": [
+    "CE": [
       {
         "name": "Success",
         "deprecation_notice": null,
@@ -2157,40 +2268,44 @@
             "properties_id": "BU"
           },
           {
-            "name": "GiftCardRefundPaymentMethodResultProperties",
+            "name": "TapToPayPaymentMethodResultProperties",
             "properties_id": "BV"
           },
           {
-            "name": "EVAPayPaymentMethodResultProperties",
+            "name": "GiftCardRefundPaymentMethodResultProperties",
             "properties_id": "BW"
           },
           {
-            "name": "CashPaymentMethodResultProperties",
+            "name": "EVAPayPaymentMethodResultProperties",
             "properties_id": "BX"
           },
           {
-            "name": "MolliePaymentMethodResultProperties",
+            "name": "CashPaymentMethodResultProperties",
             "properties_id": "BY"
           },
           {
-            "name": "MultiSafepayPaymentMethodResultProperties",
+            "name": "MolliePaymentMethodResultProperties",
             "properties_id": "BZ"
           },
           {
-            "name": "SaferpayPaymentMethodResponseProperties",
+            "name": "MultiSafepayPaymentMethodResultProperties",
             "properties_id": "CA"
           },
           {
-            "name": "StripePaymentMethodResultProperties",
+            "name": "SaferpayPaymentMethodResponseProperties",
             "properties_id": "CB"
           },
           {
-            "name": "UnionPayCSBPaymentMethodResultProperties",
+            "name": "StripePaymentMethodResultProperties",
             "properties_id": "CC"
           },
           {
-            "name": "IntersolvePaymentMethodResultProperties",
+            "name": "UnionPayCSBPaymentMethodResultProperties",
             "properties_id": "CD"
+          },
+          {
+            "name": "IntersolvePaymentMethodResultProperties",
+            "properties_id": "CE"
           }
         ]
       }

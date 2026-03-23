@@ -44,12 +44,12 @@
   "request_samples": [
     {
       "name": "JSON",
-      "sample": "{\n  \u0022ActionData\u0022: {\n    \u0022Amount\u0022: 123.456,\n    \u0022ApplyToLine\u0022: true,\n    \u0022FinancialDispersion\u0022: 2,\n    \u0022FinancialDispersionScriptID\u0022: 123,\n    \u0022MaximumAmount\u0022: 123.456,\n    \u0022RequiresReason\u0022: true\n  },\n  \u0022ActionType\u0022: \u0022V2:DISCOUNTAMOUNT\u0022,\n  \u0022ApplyTo\u0022: 2,\n  \u0022BackendID\u0022: \u0022string\u0022,\n  \u0022Budget\u0022: 123.456,\n  \u0022CampaignID\u0022: 123,\n  \u0022CannotApplyToOwnOrder\u0022: true,\n  \u0022CompliancyRule\u0022: 1,\n  \u0022ConditionType\u0022: 1,\n  \u0022Conditions\u0022: [\n    {\n      \u0022Data\u0022: {},\n      \u0022Type\u0022: \u0022V2:COUPONORIGINATINGORDERORGANIZATIONUNIT\u0022\n    }\n  ],\n  \u0022CouponHandler\u0022: \u0022string\u0022,\n  \u0022CouponsGeneratedByOtherDiscount\u0022: true,\n  \u0022CurrencyConstraint\u0022: 1,\n  \u0022CurrencyID\u0022: \u0022string\u0022,\n  \u0022CustomFields\u0022: [\n    {\n      \u0022ArrayValues\u0022: [\n        {\n          \u0022ArrayValues\u0022: [\n            {\n              \u0022re\u0022: \u0022cursion\u0022\n            }\n          ],\n          \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n          \u0022BoolValue\u0022: true,\n          \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n          \u0022NumberValue\u0022: 123.456,\n          \u0022StringValue\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n      \u0022BoolValue\u0022: true,\n      \u0022CustomFieldID\u0022: 123,\n      \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n      \u0022NumberValue\u0022: 123.456,\n      \u0022StringValue\u0022: \u0022string\u0022\n    }\n  ],\n  \u0022CustomUserUsageLimitFieldID\u0022: 123,\n  \u0022DaysApplicable\u0022: 16,\n  \u0022DeactivateWhenBudgetReached\u0022: true,\n  \u0022Description\u0022: \u0022string\u0022,\n  \u0022DiscountOrderType\u0022: 2,\n  \u0022Enable\u0022: true,\n  \u0022EndDate\u0022: \u00222025-01-01\u0022,\n  \u0022ImageBlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n  \u0022ImageBlobUrl\u0022: \u0022string\u0022,\n  \u0022LayerID\u0022: 123,\n  \u0022LedgerClassID\u0022: \u0022string\u0022,\n  \u0022LoyaltyPointWithdrawal\u0022: 123,\n  \u0022LoyaltyProgramID\u0022: 123,\n  \u0022MarketingDescription\u0022: \u0022string\u0022,\n  \u0022MaximumUsage\u0022: 123,\n  \u0022MaximumUsagePerOrder\u0022: 123,\n  \u0022MaximumUsagePerUser\u0022: 123,\n  \u0022NeedsReason\u0022: true,\n  \u0022OrganizationUnitSetID\u0022: 123,\n  \u0022ProductSubscriptionID\u0022: 123,\n  \u0022PromotionLabel\u0022: \u0022string\u0022,\n  \u0022RequiredCustomFields\u0022: [\n    123\n  ],\n  \u0022RestitutionOrganizationUnitID\u0022: 123,\n  \u0022RoleIDs\u0022: [\n    123\n  ],\n  \u0022StartDate\u0022: \u00222025-01-01\u0022,\n  \u0022Trigger\u0022: 4,\n  \u0022UserUsageLimit\u0022: 123.456,\n  \u0022UserUsagePeriodDuration\u0022: 123,\n  \u0022UserUsagePeriodType\u0022: 2,\n  \u0022UserUsageReloadStrategy\u0022: \u0022string\u0022\n}",
+      "sample": "{\n  \u0022ActionData\u0022: {\n    \u0022Amount\u0022: 123.456,\n    \u0022ApplyToLine\u0022: true,\n    \u0022FinancialDispersion\u0022: 2,\n    \u0022FinancialDispersionScriptID\u0022: 123,\n    \u0022MaximumAmount\u0022: 123.456,\n    \u0022RequiresReason\u0022: true\n  },\n  \u0022ActionType\u0022: \u0022V2:DISCOUNTAMOUNT\u0022,\n  \u0022ApplyTo\u0022: 2,\n  \u0022BackendID\u0022: \u0022string\u0022,\n  \u0022Budget\u0022: 123.456,\n  \u0022CampaignID\u0022: 123,\n  \u0022CampaignName\u0022: \u0022string\u0022,\n  \u0022CannotApplyToOwnOrder\u0022: true,\n  \u0022CompliancyRule\u0022: 1,\n  \u0022ConditionType\u0022: 1,\n  \u0022Conditions\u0022: [\n    {\n      \u0022Data\u0022: {},\n      \u0022Type\u0022: \u0022V2:COUPONORIGINATINGORDERORGANIZATIONUNIT\u0022,\n      \u0022UseAsActionCondition\u0022: true\n    }\n  ],\n  \u0022CouponHandler\u0022: \u0022string\u0022,\n  \u0022CouponsGeneratedByOtherDiscount\u0022: true,\n  \u0022CurrencyConstraint\u0022: 1,\n  \u0022CurrencyID\u0022: \u0022string\u0022,\n  \u0022CustomFields\u0022: [\n    {\n      \u0022ArrayValues\u0022: [\n        {\n          \u0022ArrayValues\u0022: [\n            {\n              \u0022re\u0022: \u0022cursion\u0022\n            }\n          ],\n          \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n          \u0022BoolValue\u0022: true,\n          \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n          \u0022NumberValue\u0022: 123.456,\n          \u0022StringValue\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n      \u0022BoolValue\u0022: true,\n      \u0022CustomFieldID\u0022: 123,\n      \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n      \u0022NumberValue\u0022: 123.456,\n      \u0022StringValue\u0022: \u0022string\u0022\n    }\n  ],\n  \u0022CustomUserUsageLimitFieldID\u0022: 123,\n  \u0022DaysApplicable\u0022: 16,\n  \u0022DeactivateWhenBudgetReached\u0022: true,\n  \u0022Description\u0022: \u0022string\u0022,\n  \u0022DiscountOrderType\u0022: 2,\n  \u0022Enable\u0022: true,\n  \u0022EndDate\u0022: \u00222025-01-01\u0022,\n  \u0022FinancialDispersion\u0022: 2,\n  \u0022ImageBlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n  \u0022ImageBlobUrl\u0022: \u0022string\u0022,\n  \u0022IsActive\u0022: true,\n  \u0022LayerID\u0022: 123,\n  \u0022LedgerClassID\u0022: \u0022string\u0022,\n  \u0022LoyaltyPointWithdrawal\u0022: 123,\n  \u0022LoyaltyProgramID\u0022: 123,\n  \u0022MarketingDescription\u0022: \u0022string\u0022,\n  \u0022MaximumUsage\u0022: 123,\n  \u0022MaximumUsagePerOrder\u0022: 123,\n  \u0022MaximumUsagePerUser\u0022: 123,\n  \u0022NeedsReason\u0022: true,\n  \u0022OrganizationUnitSetID\u0022: 123,\n  \u0022ProductSubscriptionID\u0022: 123,\n  \u0022PromotionLabel\u0022: \u0022string\u0022,\n  \u0022RequiredCustomFields\u0022: [\n    123\n  ],\n  \u0022RestitutionOrganizationUnitID\u0022: 123,\n  \u0022RoleIDs\u0022: [\n    123\n  ],\n  \u0022StartDate\u0022: \u00222025-01-01\u0022,\n  \u0022Trigger\u0022: 7,\n  \u0022UserUsageLimit\u0022: 123.456,\n  \u0022UserUsagePeriodDuration\u0022: 123,\n  \u0022UserUsagePeriodType\u0022: 2,\n  \u0022UserUsageReloadStrategy\u0022: \u0022string\u0022\n}",
       "syntax": "json"
     },
     {
       "name": "CURL",
-      "sample": "curl -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022EVA-User-Agent: MyFirstUserAgent/1.0.0\u0022 \\\n  -H \u0022Authorization: Bearer \u003Ctoken\u003E\u0022 \\\n  --data \u0027{\n  \u0022ActionData\u0022: {\n    \u0022Amount\u0022: 123.456,\n    \u0022ApplyToLine\u0022: true,\n    \u0022FinancialDispersion\u0022: 2,\n    \u0022FinancialDispersionScriptID\u0022: 123,\n    \u0022MaximumAmount\u0022: 123.456,\n    \u0022RequiresReason\u0022: true\n  },\n  \u0022ActionType\u0022: \u0022V2:DISCOUNTAMOUNT\u0022,\n  \u0022ApplyTo\u0022: 2,\n  \u0022BackendID\u0022: \u0022string\u0022,\n  \u0022Budget\u0022: 123.456,\n  \u0022CampaignID\u0022: 123,\n  \u0022CannotApplyToOwnOrder\u0022: true,\n  \u0022CompliancyRule\u0022: 1,\n  \u0022ConditionType\u0022: 1,\n  \u0022Conditions\u0022: [\n    {\n      \u0022Data\u0022: {},\n      \u0022Type\u0022: \u0022V2:COUPONORIGINATINGORDERORGANIZATIONUNIT\u0022\n    }\n  ],\n  \u0022CouponHandler\u0022: \u0022string\u0022,\n  \u0022CouponsGeneratedByOtherDiscount\u0022: true,\n  \u0022CurrencyConstraint\u0022: 1,\n  \u0022CurrencyID\u0022: \u0022string\u0022,\n  \u0022CustomFields\u0022: [\n    {\n      \u0022ArrayValues\u0022: [\n        {\n          \u0022ArrayValues\u0022: [\n            {\n              \u0022re\u0022: \u0022cursion\u0022\n            }\n          ],\n          \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n          \u0022BoolValue\u0022: true,\n          \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n          \u0022NumberValue\u0022: 123.456,\n          \u0022StringValue\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n      \u0022BoolValue\u0022: true,\n      \u0022CustomFieldID\u0022: 123,\n      \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n      \u0022NumberValue\u0022: 123.456,\n      \u0022StringValue\u0022: \u0022string\u0022\n    }\n  ],\n  \u0022CustomUserUsageLimitFieldID\u0022: 123,\n  \u0022DaysApplicable\u0022: 16,\n  \u0022DeactivateWhenBudgetReached\u0022: true,\n  \u0022Description\u0022: \u0022string\u0022,\n  \u0022DiscountOrderType\u0022: 2,\n  \u0022Enable\u0022: true,\n  \u0022EndDate\u0022: \u00222025-01-01\u0022,\n  \u0022ImageBlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n  \u0022ImageBlobUrl\u0022: \u0022string\u0022,\n  \u0022LayerID\u0022: 123,\n  \u0022LedgerClassID\u0022: \u0022string\u0022,\n  \u0022LoyaltyPointWithdrawal\u0022: 123,\n  \u0022LoyaltyProgramID\u0022: 123,\n  \u0022MarketingDescription\u0022: \u0022string\u0022,\n  \u0022MaximumUsage\u0022: 123,\n  \u0022MaximumUsagePerOrder\u0022: 123,\n  \u0022MaximumUsagePerUser\u0022: 123,\n  \u0022NeedsReason\u0022: true,\n  \u0022OrganizationUnitSetID\u0022: 123,\n  \u0022ProductSubscriptionID\u0022: 123,\n  \u0022PromotionLabel\u0022: \u0022string\u0022,\n  \u0022RequiredCustomFields\u0022: [\n    123\n  ],\n  \u0022RestitutionOrganizationUnitID\u0022: 123,\n  \u0022RoleIDs\u0022: [\n    123\n  ],\n  \u0022StartDate\u0022: \u00222025-01-01\u0022,\n  \u0022Trigger\u0022: 4,\n  \u0022UserUsageLimit\u0022: 123.456,\n  \u0022UserUsagePeriodDuration\u0022: 123,\n  \u0022UserUsagePeriodType\u0022: 2,\n  \u0022UserUsageReloadStrategy\u0022: \u0022string\u0022\n}\u0027 \\\n  https://euw.acme.test.eva-online.cloud/message/CreateDiscount",
+      "sample": "curl -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022EVA-User-Agent: MyFirstUserAgent/1.0.0\u0022 \\\n  -H \u0022Authorization: Bearer \u003Ctoken\u003E\u0022 \\\n  --data \u0027{\n  \u0022ActionData\u0022: {\n    \u0022Amount\u0022: 123.456,\n    \u0022ApplyToLine\u0022: true,\n    \u0022FinancialDispersion\u0022: 2,\n    \u0022FinancialDispersionScriptID\u0022: 123,\n    \u0022MaximumAmount\u0022: 123.456,\n    \u0022RequiresReason\u0022: true\n  },\n  \u0022ActionType\u0022: \u0022V2:DISCOUNTAMOUNT\u0022,\n  \u0022ApplyTo\u0022: 2,\n  \u0022BackendID\u0022: \u0022string\u0022,\n  \u0022Budget\u0022: 123.456,\n  \u0022CampaignID\u0022: 123,\n  \u0022CampaignName\u0022: \u0022string\u0022,\n  \u0022CannotApplyToOwnOrder\u0022: true,\n  \u0022CompliancyRule\u0022: 1,\n  \u0022ConditionType\u0022: 1,\n  \u0022Conditions\u0022: [\n    {\n      \u0022Data\u0022: {},\n      \u0022Type\u0022: \u0022V2:COUPONORIGINATINGORDERORGANIZATIONUNIT\u0022,\n      \u0022UseAsActionCondition\u0022: true\n    }\n  ],\n  \u0022CouponHandler\u0022: \u0022string\u0022,\n  \u0022CouponsGeneratedByOtherDiscount\u0022: true,\n  \u0022CurrencyConstraint\u0022: 1,\n  \u0022CurrencyID\u0022: \u0022string\u0022,\n  \u0022CustomFields\u0022: [\n    {\n      \u0022ArrayValues\u0022: [\n        {\n          \u0022ArrayValues\u0022: [\n            {\n              \u0022re\u0022: \u0022cursion\u0022\n            }\n          ],\n          \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n          \u0022BoolValue\u0022: true,\n          \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n          \u0022NumberValue\u0022: 123.456,\n          \u0022StringValue\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022BlobValue\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n      \u0022BoolValue\u0022: true,\n      \u0022CustomFieldID\u0022: 123,\n      \u0022DateTimeValue\u0022: \u00222025-01-01\u0022,\n      \u0022NumberValue\u0022: 123.456,\n      \u0022StringValue\u0022: \u0022string\u0022\n    }\n  ],\n  \u0022CustomUserUsageLimitFieldID\u0022: 123,\n  \u0022DaysApplicable\u0022: 16,\n  \u0022DeactivateWhenBudgetReached\u0022: true,\n  \u0022Description\u0022: \u0022string\u0022,\n  \u0022DiscountOrderType\u0022: 2,\n  \u0022Enable\u0022: true,\n  \u0022EndDate\u0022: \u00222025-01-01\u0022,\n  \u0022FinancialDispersion\u0022: 2,\n  \u0022ImageBlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n  \u0022ImageBlobUrl\u0022: \u0022string\u0022,\n  \u0022IsActive\u0022: true,\n  \u0022LayerID\u0022: 123,\n  \u0022LedgerClassID\u0022: \u0022string\u0022,\n  \u0022LoyaltyPointWithdrawal\u0022: 123,\n  \u0022LoyaltyProgramID\u0022: 123,\n  \u0022MarketingDescription\u0022: \u0022string\u0022,\n  \u0022MaximumUsage\u0022: 123,\n  \u0022MaximumUsagePerOrder\u0022: 123,\n  \u0022MaximumUsagePerUser\u0022: 123,\n  \u0022NeedsReason\u0022: true,\n  \u0022OrganizationUnitSetID\u0022: 123,\n  \u0022ProductSubscriptionID\u0022: 123,\n  \u0022PromotionLabel\u0022: \u0022string\u0022,\n  \u0022RequiredCustomFields\u0022: [\n    123\n  ],\n  \u0022RestitutionOrganizationUnitID\u0022: 123,\n  \u0022RoleIDs\u0022: [\n    123\n  ],\n  \u0022StartDate\u0022: \u00222025-01-01\u0022,\n  \u0022Trigger\u0022: 7,\n  \u0022UserUsageLimit\u0022: 123.456,\n  \u0022UserUsagePeriodDuration\u0022: 123,\n  \u0022UserUsagePeriodType\u0022: 2,\n  \u0022UserUsageReloadStrategy\u0022: \u0022string\u0022\n}\u0027 \\\n  https://euw.acme.test.eva-online.cloud/message/CreateDiscount",
       "syntax": "bash"
     }
   ],
@@ -69,7 +69,7 @@
   ],
   "deprecation_notice": null,
   "request_type_id": "B",
-  "response_type_id": "CS",
+  "response_type_id": "CV",
   "types": {
     "C": [],
     "D": [
@@ -819,6 +819,44 @@
         "one_of": null
       },
       {
+        "name": "PercentageToUseForValueDetermination",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "V": [
+      {
+        "name": "FinancialDispersion",
+        "deprecation_notice": null,
+        "description": "Possible values:\n\n* \u00600\u0060 - DivideInProportionToProductPrice\n* \u00601\u0060 - MostExpensiveToCheapest\n* \u00602\u0060 - CheapestToMostExpensive\n* \u00603\u0060 - HighestToLowestTaxRate\n* \u00604\u0060 - LowestToHighestTaxRate",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "FinancialDispersionScriptID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "integer | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "MaximumAmount",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "float | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "OriginatingOrderProductsToUseForValueDetermination",
         "deprecation_notice": null,
         "description": "",
@@ -837,7 +875,7 @@
         "one_of": null
       }
     ],
-    "V": [
+    "W": [
       {
         "name": "DiscountAmount",
         "deprecation_notice": null,
@@ -884,7 +922,7 @@
         "one_of": null
       }
     ],
-    "W": [
+    "X": [
       {
         "name": "ApplyToLine",
         "deprecation_notice": null,
@@ -949,7 +987,16 @@
         "one_of": null
       }
     ],
-    "Y": [
+    "Z": [
+      {
+        "name": "BackupProducts",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[integer] | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
       {
         "name": "DefaultProduct",
         "deprecation_notice": null,
@@ -1005,18 +1052,18 @@
         "one_of": null
       }
     ],
-    "X": [
+    "Y": [
       {
         "name": "Tiers",
         "deprecation_notice": null,
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "Y",
+        "properties_id": "Z",
         "one_of": null
       }
     ],
-    "BA": [
+    "BB": [
       {
         "name": "Amount",
         "deprecation_notice": null,
@@ -1036,7 +1083,7 @@
         "one_of": null
       }
     ],
-    "Z": [
+    "BA": [
       {
         "name": "FinancialDispersion",
         "deprecation_notice": null,
@@ -1079,11 +1126,11 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BA",
+        "properties_id": "BB",
         "one_of": null
       }
     ],
-    "BC": [
+    "BD": [
       {
         "name": "Amount",
         "deprecation_notice": null,
@@ -1103,7 +1150,7 @@
         "one_of": null
       }
     ],
-    "BB": [
+    "BC": [
       {
         "name": "ExactAmountsOnly",
         "deprecation_notice": null,
@@ -1164,11 +1211,11 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BC",
+        "properties_id": "BD",
         "one_of": null
       }
     ],
-    "BE": [
+    "BF": [
       {
         "name": "DiscountAmount",
         "deprecation_notice": null,
@@ -1188,7 +1235,7 @@
         "one_of": null
       }
     ],
-    "BD": [
+    "BE": [
       {
         "name": "FinancialDispersion",
         "deprecation_notice": null,
@@ -1231,11 +1278,11 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BE",
+        "properties_id": "BF",
         "one_of": null
       }
     ],
-    "BG": [
+    "BH": [
       {
         "name": "DiscountPercentage",
         "deprecation_notice": null,
@@ -1255,7 +1302,7 @@
         "one_of": null
       }
     ],
-    "BF": [
+    "BG": [
       {
         "name": "ExactQuantitiesOnly",
         "deprecation_notice": null,
@@ -1316,11 +1363,11 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BG",
+        "properties_id": "BH",
         "one_of": null
       }
     ],
-    "BH": [
+    "BI": [
       {
         "name": "DiscountAmount",
         "deprecation_notice": null,
@@ -1394,7 +1441,7 @@
         "one_of": null
       }
     ],
-    "BI": [
+    "BJ": [
       {
         "name": "FinancialDispersion",
         "deprecation_notice": null,
@@ -1459,7 +1506,7 @@
         "one_of": null
       }
     ],
-    "BK": [
+    "BL": [
       {
         "name": "CountryID",
         "deprecation_notice": null,
@@ -1596,7 +1643,7 @@
         "one_of": null
       }
     ],
-    "BJ": [
+    "BK": [
       {
         "name": "AllowProductPicking",
         "deprecation_notice": null,
@@ -1648,11 +1695,11 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BK",
+        "properties_id": "BL",
         "one_of": null
       }
     ],
-    "BL": [
+    "BM": [
       {
         "name": "DiscountPercentage",
         "deprecation_notice": null,
@@ -1726,14 +1773,14 @@
         "one_of": null
       }
     ],
-    "BO": [
+    "BP": [
       {
         "name": "ArrayValues",
         "deprecation_notice": null,
         "description": "Used for multiple values",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BO",
+        "properties_id": "BP",
         "one_of": null
       },
       {
@@ -1782,14 +1829,14 @@
         "one_of": null
       }
     ],
-    "BN": [
+    "BO": [
       {
         "name": "CustomFieldValue",
         "deprecation_notice": null,
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BO",
+        "properties_id": "BP",
         "one_of": null
       },
       {
@@ -1802,7 +1849,7 @@
         "one_of": null
       }
     ],
-    "BM": [
+    "BN": [
       {
         "name": "CustomFieldID",
         "deprecation_notice": null,
@@ -1854,7 +1901,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BN",
+        "properties_id": "BO",
         "one_of": null
       },
       {
@@ -1876,10 +1923,10 @@
         "one_of": null
       }
     ],
-    "BP": [],
-    "BR": [],
+    "BQ": [],
     "BS": [],
-    "BT": [
+    "BT": [],
+    "BU": [
       {
         "name": "DaysValid",
         "deprecation_notice": null,
@@ -1953,7 +2000,7 @@
         "one_of": null
       }
     ],
-    "BU": [
+    "BV": [
       {
         "name": "ExactAgeOnly",
         "deprecation_notice": null,
@@ -1982,7 +2029,7 @@
         "one_of": null
       }
     ],
-    "BW": [
+    "BX": [
       {
         "name": "Operator",
         "deprecation_notice": null,
@@ -2002,14 +2049,23 @@
         "one_of": null
       }
     ],
-    "BV": [
+    "BW": [
+      {
+        "name": "AccountType",
+        "deprecation_notice": null,
+        "description": "Possible values:\n\n* \u00600\u0060 - Standard\n* \u00601\u0060 - Basic\n* \u00602\u0060 - Incognito",
+        "type": "integer | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
       {
         "name": "EmailAddressFilter",
         "deprecation_notice": null,
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BW",
+        "properties_id": "BX",
         "one_of": null
       },
       {
@@ -2027,7 +2083,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BW",
+        "properties_id": "BX",
         "one_of": null
       },
       {
@@ -2045,7 +2101,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BW",
+        "properties_id": "BX",
         "one_of": null
       },
       {
@@ -2076,7 +2132,18 @@
         "one_of": null
       }
     ],
-    "BX": [
+    "BY": [
+      {
+        "name": "LoyaltyBadgeID",
+        "deprecation_notice": null,
+        "description": "This is the ID of a \u0060LoyaltyProgramBadge\u0060",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "BZ": [
       {
         "name": "LoyaltyProgramID",
         "deprecation_notice": null,
@@ -2096,7 +2163,27 @@
         "one_of": null
       }
     ],
-    "BY": [
+    "CA": [
+      {
+        "name": "ExactTierOnly",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "LoyaltyProgramTierID",
+        "deprecation_notice": null,
+        "description": "This is the ID of a \u0060LoyaltyProgramTier\u0060",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "CB": [
       {
         "name": "MaximumUsage",
         "deprecation_notice": null,
@@ -2107,7 +2194,7 @@
         "one_of": null
       }
     ],
-    "CA": [
+    "CD": [
       {
         "name": "UserFieldId",
         "deprecation_notice": null,
@@ -2127,14 +2214,14 @@
         "one_of": null
       }
     ],
-    "BZ": [
+    "CC": [
       {
         "name": "Conditions",
         "deprecation_notice": null,
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CA",
+        "properties_id": "CD",
         "one_of": null
       },
       {
@@ -2143,7 +2230,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BZ",
+        "properties_id": "CC",
         "one_of": null
       },
       {
@@ -2156,7 +2243,7 @@
         "one_of": null
       }
     ],
-    "CB": [
+    "CE": [
       {
         "name": "ExcludedProducts",
         "deprecation_notice": null,
@@ -2194,11 +2281,11 @@
         "one_of": null
       }
     ],
-    "CD": [
+    "CG": [
       {
         "name": "CustomFieldId",
         "deprecation_notice": null,
-        "description": "",
+        "description": "This is the ID of a \u0060CustomField\u0060",
         "type": "integer",
         "required": false,
         "properties_id": null,
@@ -2210,7 +2297,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BO",
+        "properties_id": "BP",
         "one_of": null
       },
       {
@@ -2223,14 +2310,14 @@
         "one_of": null
       }
     ],
-    "CE": [
+    "CH": [
       {
         "name": "Conditions",
         "deprecation_notice": null,
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CD",
+        "properties_id": "CG",
         "one_of": null
       },
       {
@@ -2248,36 +2335,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CE",
-        "one_of": null
-      }
-    ],
-    "CC": [
-      {
-        "name": "Conditions",
-        "deprecation_notice": null,
-        "description": "",
-        "type": "array[object] | null",
-        "required": false,
-        "properties_id": "CD",
-        "one_of": null
-      },
-      {
-        "name": "FilterType",
-        "deprecation_notice": null,
-        "description": "Possible values:\n\n* \u00600\u0060 - And\n* \u00601\u0060 - Or",
-        "type": "integer",
-        "required": false,
-        "properties_id": null,
-        "one_of": null
-      },
-      {
-        "name": "Filters",
-        "deprecation_notice": null,
-        "description": "",
-        "type": "array[object] | null",
-        "required": false,
-        "properties_id": "CE",
+        "properties_id": "CH",
         "one_of": null
       }
     ],
@@ -2288,7 +2346,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CD",
+        "properties_id": "CG",
         "one_of": null
       },
       {
@@ -2306,11 +2364,40 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CE",
+        "properties_id": "CH",
         "one_of": null
       }
     ],
-    "CG": [
+    "CI": [
+      {
+        "name": "Conditions",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "CG",
+        "one_of": null
+      },
+      {
+        "name": "FilterType",
+        "deprecation_notice": null,
+        "description": "Possible values:\n\n* \u00600\u0060 - And\n* \u00601\u0060 - Or",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Filters",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "CH",
+        "one_of": null
+      }
+    ],
+    "CJ": [
       {
         "name": "IsExcludingCondition",
         "deprecation_notice": null,
@@ -2323,7 +2410,7 @@
       {
         "name": "OrderProperties",
         "deprecation_notice": null,
-        "description": "Flags enum, combine any of the below values:\n\n* \u00600\u0060 - None\n* \u00601\u0060 - IsPickup\n* \u00602\u0060 - CreatedByEmployee\n* \u00604\u0060 - IsInterbranch\n* \u00608\u0060 - IsB2B\n* \u006016\u0060 - Duplicated\n* \u006032\u0060 - Autocompleted\n* \u0060128\u0060 - ReturnToSupplier\n* \u0060256\u0060 - CustomTaxesApplied\n* \u0060512\u0060 - Replenishment\n* \u00601024\u0060 - SoldByOverridden\n* \u00602048\u0060 - ImportedFromLiveGuard\n* \u00604096\u0060 - IsTransferOrder\n* \u00608192\u0060 - IsReturnsTransferOrder\n* \u006016384\u0060 - IsOffer\n* \u006032768\u0060 - IsUnified\n* \u006065536\u0060 - IsReturned\n* \u0060131072\u0060 - HasReturnLines\n* \u0060262144\u0060 - DownPayment\n* \u0060524288\u0060 - Restitution\n* \u00601048576\u0060 - Repairs\n* \u00602097152\u0060 - IsReturnReversal",
+        "description": "Flags enum, combine any of the below values:\n\n* \u00600\u0060 - None\n* \u00601\u0060 - IsPickup\n* \u00602\u0060 - CreatedByEmployee\n* \u00604\u0060 - IsInterbranch\n* \u00608\u0060 - IsB2B\n* \u006016\u0060 - Duplicated\n* \u006032\u0060 - Autocompleted\n* \u0060128\u0060 - ReturnToSupplier\n* \u0060256\u0060 - CustomTaxesApplied\n* \u0060512\u0060 - Replenishment\n* \u00601024\u0060 - SoldByOverridden\n* \u00602048\u0060 - ImportedFromLiveGuard\n* \u00604096\u0060 - IsTransferOrder\n* \u00608192\u0060 - IsReturnsTransferOrder\n* \u006016384\u0060 - IsOffer\n* \u006032768\u0060 - IsUnified\n* \u006065536\u0060 - IsReturned\n* \u0060131072\u0060 - HasReturnLines\n* \u0060262144\u0060 - DownPayment\n* \u0060524288\u0060 - Restitution\n* \u00601048576\u0060 - Repairs\n* \u00602097152\u0060 - IsReturnReversal\n* \u00604194304\u0060 - FulfillmentOrder",
         "type": "integer",
         "required": false,
         "properties_id": null,
@@ -2339,7 +2426,7 @@
         "one_of": null
       }
     ],
-    "CH": [
+    "CK": [
       {
         "name": "OrderType",
         "deprecation_notice": null,
@@ -2350,7 +2437,7 @@
         "one_of": null
       }
     ],
-    "CI": [
+    "CL": [
       {
         "name": "IsExcludingCondition",
         "deprecation_notice": null,
@@ -2370,7 +2457,7 @@
         "one_of": null
       }
     ],
-    "CJ": [
+    "CM": [
       {
         "name": "IsExcludingCondition",
         "deprecation_notice": null,
@@ -2390,7 +2477,7 @@
         "one_of": null
       }
     ],
-    "CK": [
+    "CN": [
       {
         "name": "IdenticalProductsOnly",
         "deprecation_notice": null,
@@ -2428,7 +2515,7 @@
         "one_of": null
       }
     ],
-    "CL": [
+    "CO": [
       {
         "name": "ProductRequirementID",
         "deprecation_notice": null,
@@ -2448,7 +2535,7 @@
         "one_of": null
       }
     ],
-    "CM": [
+    "CP": [
       {
         "name": "IsExcludingCondition",
         "deprecation_notice": null,
@@ -2468,14 +2555,14 @@
         "one_of": null
       }
     ],
-    "CN": [
+    "CQ": [
       {
         "name": "Conditions",
         "deprecation_notice": null,
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CD",
+        "properties_id": "CG",
         "one_of": null
       },
       {
@@ -2493,11 +2580,11 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CE",
+        "properties_id": "CH",
         "one_of": null
       }
     ],
-    "CO": [
+    "CR": [
       {
         "name": "IsExcludingCondition",
         "deprecation_notice": null,
@@ -2526,7 +2613,7 @@
         "one_of": null
       }
     ],
-    "CP": [
+    "CS": [
       {
         "name": "IsExcludingCondition",
         "deprecation_notice": null,
@@ -2539,127 +2626,144 @@
       {
         "name": "UserTypes",
         "deprecation_notice": null,
-        "description": "Flags enum, combine any of the below values:\n\n* \u00600\u0060 - None\n* \u00601\u0060 - Employee\n* \u00602\u0060 - Customer\n* \u00604\u0060 - Anonymous\n* \u00608\u0060 - Business\n* \u006017\u0060 - System\n* \u006064\u0060 - Debtor\n* \u0060512\u0060 - Tester\n* \u00601024\u0060 - RemovedByRequest\n* \u00602048\u0060 - Api\n* \u00604096\u0060 - Impersonated",
+        "description": "Flags enum, combine any of the below values:\n\n* \u00600\u0060 - None\n* \u00601\u0060 - Employee\n* \u00602\u0060 - Customer\n* \u00604\u0060 - Anonymous\n* \u00608\u0060 - Business\n* \u006017\u0060 - System\n* \u006064\u0060 - Debtor\n* \u0060512\u0060 - Tester\n* \u00601024\u0060 - RemovedByRequest\n* \u00602048\u0060 - Api",
         "type": "integer",
         "required": false,
         "properties_id": null,
         "one_of": null
       }
     ],
-    "CQ": [],
-    "BQ": [
+    "CT": [],
+    "BR": [
       {
         "name": "Data",
         "deprecation_notice": null,
         "description": "",
         "type": "one-of[object] | null",
         "required": false,
-        "properties_id": "BR",
+        "properties_id": "BS",
         "one_of": [
           {
             "name": "CouponOriginatingOrderOrganizationUnitConditionData",
-            "properties_id": "BS"
-          },
-          {
-            "name": "CouponValidityConditionData",
             "properties_id": "BT"
           },
           {
-            "name": "CustomerAgeConditionData",
+            "name": "CouponValidityConditionData",
             "properties_id": "BU"
           },
           {
-            "name": "CustomerConditionData",
+            "name": "CustomerAgeConditionData",
             "properties_id": "BV"
           },
           {
-            "name": "LoyaltyPointsConditionData",
-            "properties_id": "BX"
+            "name": "CustomerConditionData",
+            "properties_id": "BW"
           },
           {
-            "name": "MaximumUsePerUserConditionData",
+            "name": "LoyaltyBadgeConditionData",
             "properties_id": "BY"
           },
           {
-            "name": "OldUserFieldConditionData",
+            "name": "LoyaltyPointsConditionData",
             "properties_id": "BZ"
           },
           {
-            "name": "OrderAmountConditionData",
+            "name": "LoyaltyTierConditionData",
+            "properties_id": "CA"
+          },
+          {
+            "name": "MaximumUsePerUserConditionData",
             "properties_id": "CB"
           },
           {
-            "name": "OrderCustomFieldConditionData",
+            "name": "OldUserFieldConditionData",
             "properties_id": "CC"
           },
           {
-            "name": "OrderLineCustomFieldConditionData",
+            "name": "OrderAmountConditionData",
+            "properties_id": "CE"
+          },
+          {
+            "name": "OrderCustomFieldConditionData",
             "properties_id": "CF"
           },
           {
-            "name": "OrderPropertiesConditionData",
-            "properties_id": "CG"
-          },
-          {
-            "name": "OrderTypeConditionData",
-            "properties_id": "CH"
-          },
-          {
-            "name": "OrganizationUnitConditionData",
+            "name": "OrderLineCustomFieldConditionData",
             "properties_id": "CI"
           },
           {
-            "name": "OrganizationUnitTypeConditionData",
+            "name": "OrderPropertiesConditionData",
             "properties_id": "CJ"
           },
           {
-            "name": "ProductConditionData",
+            "name": "OrderTypeConditionData",
             "properties_id": "CK"
           },
           {
-            "name": "ProductRequirementConditionData",
+            "name": "OrganizationUnitConditionData",
             "properties_id": "CL"
           },
           {
-            "name": "StockLabelConditionData",
+            "name": "OrganizationUnitTypeConditionData",
             "properties_id": "CM"
           },
           {
-            "name": "UserCustomFieldConditionData",
+            "name": "ProductConditionData",
             "properties_id": "CN"
           },
           {
-            "name": "UserRoleConditionData",
+            "name": "ProductRequirementConditionData",
             "properties_id": "CO"
           },
           {
-            "name": "UserTypeConditionData",
+            "name": "StockLabelConditionData",
             "properties_id": "CP"
           },
           {
-            "name": "EmptyConditionData",
+            "name": "UserCustomFieldConditionData",
             "properties_id": "CQ"
+          },
+          {
+            "name": "UserRoleConditionData",
+            "properties_id": "CR"
+          },
+          {
+            "name": "UserTypeConditionData",
+            "properties_id": "CS"
+          },
+          {
+            "name": "EmptyConditionData",
+            "properties_id": "CT"
           }
         ]
       },
       {
         "name": "Type",
         "deprecation_notice": null,
-        "description": "Possible values:\n\n* \u0060V2:COUPONORIGINATINGORDERORGANIZATIONUNIT\u0060\n* \u0060V2:COUPONVALIDITY\u0060\n* \u0060V2:CUSTOMERAGE\u0060\n* \u0060V2:CUSTOMER\u0060\n* \u0060V2:LOYALTYPOINTS\u0060\n* \u0060V2:MAXIMUMUSEPERUSER\u0060\n* \u0060V2:USERFIELD\u0060\n* \u0060V2:ORDERAMOUNT\u0060\n* \u0060V2:ORDERCUSTOMFIELD\u0060\n* \u0060V2:ORDERLINECUSTOMFIELD\u0060\n* \u0060V2:ORDERPROPERTIES\u0060\n* \u0060V2:ORDERTYPE\u0060\n* \u0060V2:OBS:ORGANIZATIONUNIT\u0060\n* \u0060V2:OBS:ORGANIZATIONUNITTYPE\u0060\n* \u0060V2:PRODUCT\u0060\n* \u0060V2:PRODUCTREQUIREMENT\u0060\n* \u0060V2:STOCKLABEL\u0060\n* \u0060V2:USERCUSTOMFIELD\u0060\n* \u0060V2:USERROLE\u0060\n* \u0060V2:USERTYPE\u0060\n* \u0060DEFAULT\u0060",
+        "description": "Possible values:\n\n* \u0060V2:COUPONORIGINATINGORDERORGANIZATIONUNIT\u0060\n* \u0060V2:COUPONVALIDITY\u0060\n* \u0060V2:CUSTOMERAGE\u0060\n* \u0060V2:CUSTOMER\u0060\n* \u0060V2:LOYALTYBADGE\u0060\n* \u0060V2:LOYALTYPOINTS\u0060\n* \u0060V2:LOYALTYTIER\u0060\n* \u0060V2:MAXIMUMUSEPERUSER\u0060\n* \u0060V2:USERFIELD\u0060\n* \u0060V2:ORDERAMOUNT\u0060\n* \u0060V2:ORDERCUSTOMFIELD\u0060\n* \u0060V2:ORDERLINECUSTOMFIELD\u0060\n* \u0060V2:ORDERPROPERTIES\u0060\n* \u0060V2:ORDERTYPE\u0060\n* \u0060V2:OBS:ORGANIZATIONUNIT\u0060\n* \u0060V2:OBS:ORGANIZATIONUNITTYPE\u0060\n* \u0060V2:PRODUCT\u0060\n* \u0060V2:PRODUCTREQUIREMENT\u0060\n* \u0060V2:STOCKLABEL\u0060\n* \u0060V2:USERCUSTOMFIELD\u0060\n* \u0060V2:USERROLE\u0060\n* \u0060V2:USERTYPE\u0060\n* \u0060DEFAULT\u0060",
         "type": "string",
         "required": true,
         "properties_id": null,
         "one_of": null
+      },
+      {
+        "name": "UseAsActionCondition",
+        "deprecation_notice": "\n\n**Deprecated since 812:** UseAsActionCondition is deprecated and will be removed in 2.0.856: No longer in use.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** UseAsActionCondition is deprecated and will be removed in 2.0.856: No longer in use.\n\n**Will be removed in 838**",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
       }
     ],
-    "CR": [
+    "CU": [
       {
         "name": "ArrayValues",
         "deprecation_notice": null,
         "description": "Used for multiple values",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BO",
+        "properties_id": "BP",
         "one_of": null
       },
       {
@@ -2763,67 +2867,71 @@
             "properties_id": "S"
           },
           {
-            "name": "OriginatingOrderDiscountActionData",
+            "name": "OriginatingAppointmentActionData",
             "properties_id": "U"
           },
           {
-            "name": "OtherCostsDiscountActionData",
+            "name": "OriginatingOrderDiscountActionData",
             "properties_id": "V"
           },
           {
-            "name": "PercentageDiscountActionData",
+            "name": "OtherCostsDiscountActionData",
             "properties_id": "W"
           },
           {
-            "name": "PickAProductTieredDiscountActionData",
+            "name": "PercentageDiscountActionData",
             "properties_id": "X"
           },
           {
+            "name": "PickAProductTieredDiscountActionData",
+            "properties_id": "Y"
+          },
+          {
             "name": "ProductAmountTieredAmountDiscountActionData",
-            "properties_id": "Z"
+            "properties_id": "BA"
           },
           {
             "name": "ProductAmountTieredPercentageDiscountActionData",
-            "properties_id": "BB"
+            "properties_id": "BC"
           },
           {
             "name": "ProductQuantityTieredAmountDiscountActionData",
-            "properties_id": "BD"
+            "properties_id": "BE"
           },
           {
             "name": "ProductQuantityTieredPercentageDiscountActionData",
-            "properties_id": "BF"
+            "properties_id": "BG"
           },
           {
             "name": "ProductSetAmountDiscountActionData",
-            "properties_id": "BH"
-          },
-          {
-            "name": "ProductSetFixedPriceDiscountActionData",
             "properties_id": "BI"
           },
           {
-            "name": "ProductSetFreeProductActionData",
+            "name": "ProductSetFixedPriceDiscountActionData",
             "properties_id": "BJ"
           },
           {
-            "name": "ProductSetPercentageDiscountActionData",
-            "properties_id": "BL"
+            "name": "ProductSetFreeProductActionData",
+            "properties_id": "BK"
           },
           {
-            "name": "CustomFieldValueDeterminedDiscountActionData",
+            "name": "ProductSetPercentageDiscountActionData",
             "properties_id": "BM"
           },
           {
+            "name": "CustomFieldValueDeterminedDiscountActionData",
+            "properties_id": "BN"
+          },
+          {
             "name": "EmptyDiscountActionData",
-            "properties_id": "BP"
+            "properties_id": "BQ"
           }
         ]
       },
       {
         "name": "ActionType",
         "deprecation_notice": null,
-        "description": "Possible values:\n\n* \u0060V2:DISCOUNTAMOUNT\u0060\n* \u0060V2:CUSTOMERAGE\u0060\n* \u0060V2:TIEREDCUSTOMERAGE\u0060\n* \u0060V2:GENERATEDISCOUNTCOUPON\u0060\n* \u0060V2:GETAPRODUCT\u0060\n* \u0060V2:LOYALTYTIEREDDISCOUNTAMOUNT\u0060\n* \u0060V2:LOYALTYTIEREDDISCOUNTPERCENTAGE\u0060\n* \u0060V2:ORDERTIEREDDISCOUNTAMOUNT\u0060\n* \u0060V2:ORDERTIEREDDISCOUNTPERCENTAGE\u0060\n* \u0060V2:ORIGINATINGORDERDISCOUNT\u0060\n* \u0060V2:OTHERCOSTS\u0060\n* \u0060V2:DISCOUNTPERCENTAGE\u0060\n* \u0060V2:TIEREDPICKAPRODUCT\u0060\n* \u0060V2:PRODUCTAMOUNTTIEREDDISCOUNTAMOUNT\u0060\n* \u0060V2:PRODUCTAMOUNTTIEREDDISCOUNTPERCENTAGE\u0060\n* \u0060V2:PRODUCTQUANTITYTIEREDDISCOUNTAMOUNT\u0060\n* \u0060V2:PRODUCTQUANTITYTIEREDDISCOUNTPERCENTAGE\u0060\n* \u0060V2:PRODUCTSETDISCOUNTAMOUNT\u0060\n* \u0060V2:PRODUCTSETFIXEDPRICE\u0060\n* \u0060V2:PRODUCTSETFREEPRODUCT\u0060\n* \u0060V2:PRODUCTSETDISCOUNTPERCENTAGE\u0060\n* \u0060V2:CUSTOMFIELDVALUEDETERMINEDDISCOUNT\u0060\n* \u0060DEFAULT\u0060",
+        "description": "Possible values:\n\n* \u0060V2:DISCOUNTAMOUNT\u0060\n* \u0060V2:CUSTOMERAGE\u0060\n* \u0060V2:TIEREDCUSTOMERAGE\u0060\n* \u0060V2:GENERATEDISCOUNTCOUPON\u0060\n* \u0060V2:GETAPRODUCT\u0060\n* \u0060V2:LOYALTYTIEREDDISCOUNTAMOUNT\u0060\n* \u0060V2:LOYALTYTIEREDDISCOUNTPERCENTAGE\u0060\n* \u0060V2:ORDERTIEREDDISCOUNTAMOUNT\u0060\n* \u0060V2:ORDERTIEREDDISCOUNTPERCENTAGE\u0060\n* \u0060V2:ORIGINATINGAPPOINTMENT\u0060\n* \u0060V2:ORIGINATINGORDERDISCOUNT\u0060\n* \u0060V2:OTHERCOSTS\u0060\n* \u0060V2:DISCOUNTPERCENTAGE\u0060\n* \u0060V2:TIEREDPICKAPRODUCT\u0060\n* \u0060V2:PRODUCTAMOUNTTIEREDDISCOUNTAMOUNT\u0060\n* \u0060V2:PRODUCTAMOUNTTIEREDDISCOUNTPERCENTAGE\u0060\n* \u0060V2:PRODUCTQUANTITYTIEREDDISCOUNTAMOUNT\u0060\n* \u0060V2:PRODUCTQUANTITYTIEREDDISCOUNTPERCENTAGE\u0060\n* \u0060V2:PRODUCTSETDISCOUNTAMOUNT\u0060\n* \u0060V2:PRODUCTSETFIXEDPRICE\u0060\n* \u0060V2:PRODUCTSETFREEPRODUCT\u0060\n* \u0060V2:PRODUCTSETDISCOUNTPERCENTAGE\u0060\n* \u0060V2:CUSTOMFIELDVALUEDETERMINEDDISCOUNT\u0060\n* \u0060DEFAULT\u0060",
         "type": "string",
         "required": true,
         "properties_id": null,
@@ -2866,6 +2974,15 @@
         "one_of": null
       },
       {
+        "name": "CampaignName",
+        "deprecation_notice": "\n\n**Deprecated since 812:** CampaignName is deprecated and will be removed in 2.0.856: Replaced by CampaignID.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** CampaignName is deprecated and will be removed in 2.0.856: Replaced by CampaignID.\n\n**Will be removed in 838**",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "CannotApplyToOwnOrder",
         "deprecation_notice": null,
         "description": "",
@@ -2898,7 +3015,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BQ",
+        "properties_id": "BR",
         "one_of": null
       },
       {
@@ -2943,7 +3060,7 @@
         "description": "Optional additional custom fields",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CR",
+        "properties_id": "CU",
         "one_of": null
       },
       {
@@ -2994,9 +3111,9 @@
       {
         "name": "Enable",
         "deprecation_notice": null,
-        "description": "",
-        "type": "boolean",
-        "required": true,
+        "description": "**Required since 812:** Field Enable is required and will be enforced as such in 2.0.856.\n\n**Will be enforced in 838**",
+        "type": "boolean | null",
+        "required": false,
         "properties_id": null,
         "one_of": null
       },
@@ -3005,6 +3122,15 @@
         "deprecation_notice": null,
         "description": "",
         "type": "datetime | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "FinancialDispersion",
+        "deprecation_notice": "\n\n**Deprecated since 812:** FinancialDispersion is deprecated and will be removed in 2.0.856: No longer supported, moved to the action data..\n\n**Will be removed in 838**",
+        "description": "Possible values:\n\n* \u00600\u0060 - DivideInProportionToProductPrice\n* \u00601\u0060 - MostExpensiveToCheapest\n* \u00602\u0060 - CheapestToMostExpensive\n* \u00603\u0060 - HighestToLowestTaxRate\n* \u00604\u0060 - LowestToHighestTaxRate\n\n**Deprecated since 812:** FinancialDispersion is deprecated and will be removed in 2.0.856: No longer supported, moved to the action data..\n\n**Will be removed in 838**",
+        "type": "integer",
         "required": false,
         "properties_id": null,
         "one_of": null
@@ -3023,6 +3149,15 @@
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsActive",
+        "deprecation_notice": "\n\n**Deprecated since 812:** IsActive is deprecated and will be removed in 2.0.856: Replaced by \u0060Enable\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** IsActive is deprecated and will be removed in 2.0.856: Replaced by \u0060Enable\u0060.\n\n**Will be removed in 838**",
+        "type": "boolean",
         "required": false,
         "properties_id": null,
         "one_of": null
@@ -3174,7 +3309,7 @@
       {
         "name": "Trigger",
         "deprecation_notice": null,
-        "description": "NOTE THAT trigger cannot be updated after creation.\nPossible values:\n\n* \u0060-1\u0060 - SystemManaged\n* \u00600\u0060 - Automatic\n* \u00601\u0060 - Manual\n* \u00602\u0060 - Coupon\n* \u00604\u0060 - Bundles\n* \u00605\u0060 - Loyalty\n* \u00606\u0060 - ProductSubscription",
+        "description": "NOTE THAT trigger cannot be updated after creation.\nPossible values:\n\n* \u0060-1\u0060 - SystemManaged\n* \u00600\u0060 - Automatic\n* \u00601\u0060 - Manual\n* \u00602\u0060 - Coupon\n* \u00604\u0060 - Bundles\n* \u00605\u0060 - Loyalty\n* \u00606\u0060 - ProductSubscription\n* \u00607\u0060 - Benefit",
         "type": "integer",
         "required": false,
         "properties_id": null,
@@ -3217,7 +3352,7 @@
         "one_of": null
       }
     ],
-    "CT": [
+    "CW": [
       {
         "name": "Code",
         "deprecation_notice": null,
@@ -3264,7 +3399,7 @@
         "one_of": null
       }
     ],
-    "CU": [
+    "CX": [
       {
         "name": "ExternalIDs",
         "deprecation_notice": null,
@@ -3293,14 +3428,14 @@
         "one_of": null
       }
     ],
-    "CS": [
+    "CV": [
       {
         "name": "Error",
         "deprecation_notice": null,
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "CT",
+        "properties_id": "CW",
         "one_of": null
       },
       {
@@ -3318,7 +3453,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "CU",
+        "properties_id": "CX",
         "one_of": null
       }
     ]

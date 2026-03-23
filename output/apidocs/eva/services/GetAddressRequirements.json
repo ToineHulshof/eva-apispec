@@ -42,7 +42,7 @@
   "response_samples": [
     {
       "name": "200",
-      "sample": "{\n  \u0022AddressRequirements\u0022: {\n    \u0022key\u0022: {\n      \u0022ID\u0022: 123,\n      \u0022MaxLength\u0022: 123,\n      \u0022MinLength\u0022: 123,\n      \u0022PredefinedValues\u0022: [\n        \u0022string\u0022\n      ],\n      \u0022Validation\u0022: \u0022string\u0022,\n      \u0022Visible\u0022: 2\n    }\n  }\n}"
+      "sample": "{\n  \u0022AddressRequirements\u0022: {\n    \u0022key\u0022: {\n      \u0022ID\u0022: 123,\n      \u0022MaxLength\u0022: 123,\n      \u0022MinLength\u0022: 123,\n      \u0022PredefinedValues\u0022: [\n        \u0022string\u0022\n      ],\n      \u0022Regex\u0022: \u0022string\u0022,\n      \u0022Validation\u0022: \u0022string\u0022,\n      \u0022Visible\u0022: 2\n    }\n  }\n}"
     },
     {
       "name": "400",
@@ -61,9 +61,9 @@
       {
         "name": "CountryID",
         "deprecation_notice": null,
-        "description": "This is the ID of a \u0060Country\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
-        "type": "string",
-        "required": true,
+        "description": "This is the ID of a \u0060Country\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.\n\n**Required since 812:** Field CountryID is required and will be enforced as such in 2.0.856.\n\n**Will be enforced in 838**",
+        "type": "string | null",
+        "required": false,
         "properties_id": null,
         "one_of": null
       },
@@ -110,6 +110,15 @@
         "deprecation_notice": null,
         "description": "",
         "type": "array[string] | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Regex",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
         "required": false,
         "properties_id": null,
         "one_of": null

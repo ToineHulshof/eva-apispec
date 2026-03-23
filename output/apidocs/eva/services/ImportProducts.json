@@ -2,7 +2,7 @@
   "name": "ImportProducts",
   "method": "POST",
   "path": "/message/ImportProducts",
-  "description": "This service lets you create and update a set of products and their content.\n\nThe set is products is hierarchical in nature. For example, if you have a shirt that comes in 3 colors and 5 sizes per color, you would normally define a root product that then contains the 3 color products\nand each color product would contain the 5 different sizes, which would be the SKU. How you define the hierarchy is up to you, it\u0027s also fine to have the 3 color products as root products and only have them\ncontain the SKUs, or to forego a hierarchy entirely and just create the SKUs, but creating the root and color products is useful for search and frontend purposes.\n\nAn example request of a hierarchy:\n\n\u0060\u0060\u0060\n{\n  \u0022ID\u0022: \u0022special_shirt\u0022,\n  \u0022Name\u0022: \u0022Special Shirt\u0022,\n  \u0022TaxCode\u0022: \u0022High\u0022,\n  \u0022Variations\u0022: {\n    \u0022Property\u0022: \u0022color_code\u0022,\n    \u0022LogicalLevel\u0022: \u0022color\u0022,\n    \u0022Products\u0022: [\n      {\n        \u0022ID\u0022: \u0022special_shirt_blue\u0022,\n        \u0022Name\u0022: \u0022Special Shirt - Blue\u0022,\n        \u0022VariationValues\u0022: [\n          {\n            \u0022LanguageID\u0022: null,\n            \u0022Value\u0022: \u0022BLUE\u0022\n          }\n        ],\n        \u0022Variations\u0022: {\n          \u0022Property\u0022: \u0022size_code\u0022,\n          \u0022LogicalLevel\u0022: \u0022size\u0022,\n          \u0022Products\u0022: [\n            {\n              \u0022ID\u0022: \u0022sku_special_shirt_blue_xl\u0022,\n              \u0022VariationValues\u0022: [\n                {\n                  \u0022LanguageID\u0022: null,\n                  \u0022Value\u0022: \u0022XL\u0022\n                }\n              ]\n            }\n          ]\n        }\n      }\n    ]\n  }\n}\n\u0060\u0060\u0060",
+  "description": "This service lets you create and update a set of products and their content.\n\nThe set of products is typically hierarchical. For example, if a shirt comes in 3 colors and 5 sizes per color, you might define a root product, then 3 color products, and then the size SKUs beneath each color.\nThe hierarchy is flexible: you can place color products at the root and only nest SKUs, or skip hierarchy entirely and just import SKUs. Still, providing root and color products is useful for search,\nmerchandising, and frontend navigation.\n\nAn example request of a hierarchy:\n\n\u0060\u0060\u0060\n{\n  \u0022ID\u0022: \u0022special_shirt\u0022,\n  \u0022Name\u0022: \u0022Special Shirt\u0022,\n  \u0022TaxCode\u0022: \u0022High\u0022,\n  \u0022Variations\u0022: {\n    \u0022Property\u0022: \u0022color_code\u0022,\n    \u0022LogicalLevel\u0022: \u0022color\u0022,\n    \u0022Products\u0022: [\n      {\n        \u0022ID\u0022: \u0022special_shirt_blue\u0022,\n        \u0022Name\u0022: \u0022Special Shirt - Blue\u0022,\n        \u0022VariationValues\u0022: [\n          {\n            \u0022LanguageID\u0022: null,\n            \u0022Value\u0022: \u0022BLUE\u0022\n          }\n        ],\n        \u0022Variations\u0022: {\n          \u0022Property\u0022: \u0022size_code\u0022,\n          \u0022LogicalLevel\u0022: \u0022size\u0022,\n          \u0022Products\u0022: [\n            {\n              \u0022ID\u0022: \u0022sku_special_shirt_blue_xl\u0022,\n              \u0022VariationValues\u0022: [\n                {\n                  \u0022LanguageID\u0022: null,\n                  \u0022Value\u0022: \u0022XL\u0022\n                }\n              ]\n            }\n          ]\n        }\n      }\n    ]\n  }\n}\n\u0060\u0060\u0060",
   "auth_description": "Requires a user of type \u0060Employee\u0060 or \u0060Api\u0060 with functionality \u0060ImportProducts:None\u0060",
   "headers": [
     {
@@ -25,17 +25,24 @@
       "description": "The query that selects the organization unit to run this request in.",
       "required": false,
       "default": null
+    },
+    {
+      "name": "EVA-IDs-Mode",
+      "type": "string",
+      "description": "The IDs mode to run this request in. Currently only \u0060ExternalIDs\u0060 is supported.",
+      "required": false,
+      "default": null
     }
   ],
   "request_samples": [
     {
       "name": "JSON",
-      "sample": "{\n  \u0022CustomPropertyTypes\u0022: [\n    {\n      \u0022CategoryID\u0022: \u0022string\u0022,\n      \u0022CopyToParentProductPropertyTypeID\u0022: \u0022string\u0022,\n      \u0022DataType\u0022: 3,\n      \u0022IndexType\u0022: 2,\n      \u0022IsArray\u0022: true,\n      \u0022ProductPropertyTypeID\u0022: \u0022string\u0022\n    }\n  ],\n  \u0022DownloadImagesInBackground\u0022: true,\n  \u0022ImageBlobCategory\u0022: \u0022string\u0022,\n  \u0022LayerName\u0022: \u0022string\u0022,\n  \u0022Products\u0022: [\n    {\n      \u0022Assortments\u0022: [\n        {\n          \u0022AnnouncementDate\u0022: \u00222025-01-01\u0022,\n          \u0022AssortmentCode\u0022: \u0022string\u0022,\n          \u0022EndDate\u0022: \u00222025-01-01\u0022,\n          \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n          \u0022ProductStatus\u0022: {\n            \u0022DeliveryOnly\u0022: true,\n            \u0022DisableBackorder\u0022: true,\n            \u0022DisableDelivery\u0022: true,\n            \u0022DisablePickup\u0022: true,\n            \u0022NonSellable\u0022: true,\n            \u0022PreRelease\u0022: true,\n            \u0022UseUp\u0022: true\n          },\n          \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n          \u0022StartDate\u0022: \u00222025-01-01\u0022\n        }\n      ],\n      \u0022Barcodes\u0022: [\n        \u0022string\u0022\n      ],\n      \u0022Brand\u0022: \u0022string\u0022,\n      \u0022CommodityCode\u0022: \u0022string\u0022,\n      \u0022Content\u0022: [\n        {\n          \u0022CountryID\u0022: \u0022st\u0022,\n          \u0022CustomContent\u0022: {\n            \u0022key\u0022: \u0022any valid json value\u0022\n          },\n          \u0022Images\u0022: [\n            {\n              \u0022ID\u0022: \u0022string\u0022,\n              \u0022ImageData\u0022: \u0022base64 encoded binary data\u0022,\n              \u0022ImageUrl\u0022: \u0022string\u0022,\n              \u0022IsPrimaryImage\u0022: true,\n              \u0022LocationType\u0022: \u0022string\u0022,\n              \u0022MimeType\u0022: \u0022string\u0022,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Sequence\u0022: 123\n            }\n          ],\n          \u0022LanguageID\u0022: \u0022st\u0022,\n          \u0022LongDescription\u0022: \u0022string\u0022,\n          \u0022MarketingDescription\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022PublicationStatuses\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022ShortDescription\u0022: \u0022string\u0022,\n          \u0022Tags\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022UniqueSellingPointBlobIDs\u0022: [\n            \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022\n          ],\n          \u0022UniqueSellingPointTexts\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022XDimension\u0022: {\n            \u0022PropertyName\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          },\n          \u0022YDimension\u0022: {\n            \u0022PropertyName\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          }\n        }\n      ],\n      \u0022CountryOfOriginID\u0022: \u0022string\u0022,\n      \u0022CustomID\u0022: \u0022string\u0022,\n      \u0022GiftCardConfigurationID\u0022: 123,\n      \u0022GiftCardData\u0022: \u0022any valid json value\u0022,\n      \u0022GiftCardIsDigital\u0022: true,\n      \u0022GiftCardType\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022ImagesWillBeInheritedByChildren\u0022: true,\n      \u0022IsDeleted\u0022: true,\n      \u0022LedgerClassID\u0022: \u0022string\u0022,\n      \u0022ManufacturerID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022,\n      \u0022ProductRequirements\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022DataType\u0022: 1,\n          \u0022EnumValues\u0022: {\n            \u0022key\u0022: \u0022string\u0022\n          },\n          \u0022Handler\u0022: \u0022string\u0022,\n          \u0022IsArray\u0022: true,\n          \u0022IsRequired\u0022: true,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022OrderType\u0022: 1\n        }\n      ],\n      \u0022RequireSerialNumberForSale\u0022: true,\n      \u0022SerialNumberConfigurationID\u0022: 123,\n      \u0022Status\u0022: {\n        \u0022DeliveryOnly\u0022: true,\n        \u0022DisableBackorder\u0022: true,\n        \u0022DisableDelivery\u0022: true,\n        \u0022DisablePickup\u0022: true,\n        \u0022NonSellable\u0022: true,\n        \u0022PreRelease\u0022: true,\n        \u0022UseUp\u0022: true\n      },\n      \u0022StockProducts\u0022: [\n        {\n          \u0022Assortments\u0022: [\n            {\n              \u0022AnnouncementDate\u0022: \u00222025-01-01\u0022,\n              \u0022AssortmentCode\u0022: \u0022string\u0022,\n              \u0022EndDate\u0022: \u00222025-01-01\u0022,\n              \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n              \u0022ProductStatus\u0022: {\n                \u0022DeliveryOnly\u0022: true,\n                \u0022DisableBackorder\u0022: true,\n                \u0022DisableDelivery\u0022: true,\n                \u0022DisablePickup\u0022: true,\n                \u0022NonSellable\u0022: true,\n                \u0022PreRelease\u0022: true,\n                \u0022UseUp\u0022: true\n              },\n              \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n              \u0022StartDate\u0022: \u00222025-01-01\u0022\n            }\n          ],\n          \u0022Barcodes\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022Brand\u0022: \u0022string\u0022,\n          \u0022Content\u0022: [\n            {\n              \u0022CountryID\u0022: \u0022st\u0022,\n              \u0022CustomContent\u0022: {\n                \u0022key\u0022: \u0022any valid json value\u0022\n              },\n              \u0022Images\u0022: [\n                {\n                  \u0022ID\u0022: \u0022string\u0022,\n                  \u0022ImageData\u0022: \u0022base64 encoded binary data\u0022,\n                  \u0022ImageUrl\u0022: \u0022string\u0022,\n                  \u0022IsPrimaryImage\u0022: true,\n                  \u0022LocationType\u0022: \u0022string\u0022,\n                  \u0022MimeType\u0022: \u0022string\u0022,\n                  \u0022Name\u0022: \u0022string\u0022,\n                  \u0022Sequence\u0022: 123\n                }\n              ],\n              \u0022LanguageID\u0022: \u0022st\u0022,\n              \u0022LongDescription\u0022: \u0022string\u0022,\n              \u0022MarketingDescription\u0022: \u0022string\u0022,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022PublicationStatuses\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022ShortDescription\u0022: \u0022string\u0022,\n              \u0022Tags\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022UniqueSellingPointBlobIDs\u0022: [\n                \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022\n              ],\n              \u0022UniqueSellingPointTexts\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022XDimension\u0022: {\n                \u0022PropertyName\u0022: \u0022string\u0022,\n                \u0022Value\u0022: \u0022string\u0022\n              },\n              \u0022YDimension\u0022: {\n                \u0022PropertyName\u0022: \u0022string\u0022,\n                \u0022Value\u0022: \u0022string\u0022\n              }\n            }\n          ],\n          \u0022CountryOfOriginID\u0022: \u0022string\u0022,\n          \u0022CustomID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022IsDeleted\u0022: true,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022ManufacturerID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Status\u0022: {\n            \u0022DeliveryOnly\u0022: true,\n            \u0022DisableBackorder\u0022: true,\n            \u0022DisableDelivery\u0022: true,\n            \u0022DisablePickup\u0022: true,\n            \u0022NonSellable\u0022: true,\n            \u0022PreRelease\u0022: true,\n            \u0022UseUp\u0022: true\n          },\n          \u0022Type\u0022: {\n            \u0022AllowCustomPricing\u0022: true,\n            \u0022BundleProduct\u0022: true,\n            \u0022GiftCard\u0022: true,\n            \u0022Insurance\u0022: true,\n            \u0022Service\u0022: true,\n            \u0022Stock\u0022: true,\n            \u0022SubscriptionProduct\u0022: true\n          },\n          \u0022UnitBarcodes\u0022: [\n            {\n              \u0022Barcode\u0022: \u0022string\u0022,\n              \u0022Quantity\u0022: 123,\n              \u0022UnitOfMeasureName\u0022: \u0022string\u0022\n            }\n          ]\n        }\n      ],\n      \u0022TaxCode\u0022: \u0022string\u0022,\n      \u0022Type\u0022: {\n        \u0022AllowCustomPricing\u0022: true,\n        \u0022BundleProduct\u0022: true,\n        \u0022GiftCard\u0022: true,\n        \u0022Insurance\u0022: true,\n        \u0022Service\u0022: true,\n        \u0022Stock\u0022: true,\n        \u0022SubscriptionProduct\u0022: true\n      },\n      \u0022UnitBarcodes\u0022: [\n        {\n          \u0022Barcode\u0022: \u0022string\u0022,\n          \u0022Quantity\u0022: 123,\n          \u0022UnitOfMeasureName\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022VariationValues\u0022: [\n        {\n          \u0022CountryID\u0022: \u0022st\u0022,\n          \u0022LanguageID\u0022: \u0022st\u0022,\n          \u0022Value\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022Variations\u0022: {\n        \u0022LogicalLevel\u0022: \u0022string\u0022,\n        \u0022Products\u0022: [\n          {\n            \u0022re\u0022: \u0022cursion\u0022\n          }\n        ],\n        \u0022Property\u0022: \u0022string\u0022\n      }\n    }\n  ],\n  \u0022RootLogicalLevel\u0022: \u0022string\u0022,\n  \u0022SystemID\u0022: \u0022string\u0022,\n  \u0022Type\u0022: 1,\n  \u0022WaitForProductComposition\u0022: true\n}",
+      "sample": "{\n  \u0022AllowEmptyMedia\u0022: true,\n  \u0022CustomPropertyTypes\u0022: [\n    {\n      \u0022CategoryID\u0022: \u0022string\u0022,\n      \u0022CopyToParentProductPropertyTypeID\u0022: \u0022string\u0022,\n      \u0022DataType\u0022: 3,\n      \u0022IndexType\u0022: 2,\n      \u0022IsArray\u0022: true,\n      \u0022ProductPropertyTypeID\u0022: \u0022string\u0022\n    }\n  ],\n  \u0022DownloadImagesInBackground\u0022: true,\n  \u0022DownloadMediaInBackground\u0022: true,\n  \u0022ImageBlobCategory\u0022: \u0022string\u0022,\n  \u0022LayerName\u0022: \u0022string\u0022,\n  \u0022MediaBlobCategory\u0022: \u0022string\u0022,\n  \u0022Products\u0022: [\n    {\n      \u0022Assortments\u0022: [\n        {\n          \u0022AnnouncementDate\u0022: \u00222025-01-01\u0022,\n          \u0022AssortmentCode\u0022: \u0022string\u0022,\n          \u0022EndDate\u0022: \u00222025-01-01\u0022,\n          \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n          \u0022ProductStatus\u0022: {\n            \u0022DeliveryOnly\u0022: true,\n            \u0022DisableBackorder\u0022: true,\n            \u0022DisableDelivery\u0022: true,\n            \u0022DisablePickup\u0022: true,\n            \u0022NonSellable\u0022: true,\n            \u0022PreRelease\u0022: true,\n            \u0022UseUp\u0022: true\n          },\n          \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n          \u0022StartDate\u0022: \u00222025-01-01\u0022\n        }\n      ],\n      \u0022Barcodes\u0022: [\n        \u0022string\u0022\n      ],\n      \u0022Brand\u0022: \u0022string\u0022,\n      \u0022CommodityCode\u0022: \u0022string\u0022,\n      \u0022Content\u0022: [\n        {\n          \u0022CountryID\u0022: \u0022st\u0022,\n          \u0022CustomContent\u0022: {\n            \u0022key\u0022: \u0022any valid json value\u0022\n          },\n          \u0022Images\u0022: [\n            {\n              \u0022ID\u0022: \u0022string\u0022,\n              \u0022ImageData\u0022: \u0022base64 encoded binary data\u0022,\n              \u0022ImageUrl\u0022: \u0022string\u0022,\n              \u0022IsPrimaryImage\u0022: true,\n              \u0022LocationType\u0022: \u0022string\u0022,\n              \u0022MimeType\u0022: \u0022string\u0022,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Sequence\u0022: 123\n            }\n          ],\n          \u0022LanguageID\u0022: \u0022st\u0022,\n          \u0022LongDescription\u0022: \u0022string\u0022,\n          \u0022MarketingDescription\u0022: \u0022string\u0022,\n          \u0022Media\u0022: [\n            {\n              \u0022ID\u0022: \u0022string\u0022,\n              \u0022IsPrimaryImage\u0022: true,\n              \u0022LocationType\u0022: \u0022string\u0022,\n              \u0022MediaData\u0022: \u0022base64 encoded binary data\u0022,\n              \u0022MediaUrl\u0022: \u0022string\u0022,\n              \u0022MimeType\u0022: \u0022string\u0022,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Sequence\u0022: 123\n            }\n          ],\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022PublicationStatuses\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022ShortDescription\u0022: \u0022string\u0022,\n          \u0022Tags\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022UniqueSellingPointBlobIDs\u0022: [\n            \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022\n          ],\n          \u0022UniqueSellingPointTexts\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022XDimension\u0022: {\n            \u0022PropertyName\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          },\n          \u0022YDimension\u0022: {\n            \u0022PropertyName\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          }\n        }\n      ],\n      \u0022CountryOfOriginID\u0022: \u0022string\u0022,\n      \u0022CustomID\u0022: \u0022string\u0022,\n      \u0022GiftCardConfigurationID\u0022: 123,\n      \u0022GiftCardData\u0022: \u0022any valid json value\u0022,\n      \u0022GiftCardIsDigital\u0022: true,\n      \u0022GiftCardType\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022ImagesWillBeInheritedByChildren\u0022: true,\n      \u0022IsDeleted\u0022: true,\n      \u0022IsFullHierarchy\u0022: true,\n      \u0022LedgerClassID\u0022: \u0022string\u0022,\n      \u0022ManufacturerID\u0022: \u0022string\u0022,\n      \u0022MediaWillBeInheritedByChildren\u0022: true,\n      \u0022Name\u0022: \u0022string\u0022,\n      \u0022ProductRequirements\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022DataType\u0022: 1,\n          \u0022EnumValues\u0022: {\n            \u0022key\u0022: \u0022string\u0022\n          },\n          \u0022Handler\u0022: \u0022string\u0022,\n          \u0022IsArray\u0022: true,\n          \u0022IsRequired\u0022: true,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022OrderType\u0022: 1\n        }\n      ],\n      \u0022RequireSerialNumberForSale\u0022: true,\n      \u0022SerialNumberConfigurationID\u0022: 123,\n      \u0022Status\u0022: {\n        \u0022DeliveryOnly\u0022: true,\n        \u0022DisableBackorder\u0022: true,\n        \u0022DisableDelivery\u0022: true,\n        \u0022DisablePickup\u0022: true,\n        \u0022NonSellable\u0022: true,\n        \u0022PreRelease\u0022: true,\n        \u0022UseUp\u0022: true\n      },\n      \u0022StockProducts\u0022: [\n        {\n          \u0022Assortments\u0022: [\n            {\n              \u0022AnnouncementDate\u0022: \u00222025-01-01\u0022,\n              \u0022AssortmentCode\u0022: \u0022string\u0022,\n              \u0022EndDate\u0022: \u00222025-01-01\u0022,\n              \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n              \u0022ProductStatus\u0022: {\n                \u0022DeliveryOnly\u0022: true,\n                \u0022DisableBackorder\u0022: true,\n                \u0022DisableDelivery\u0022: true,\n                \u0022DisablePickup\u0022: true,\n                \u0022NonSellable\u0022: true,\n                \u0022PreRelease\u0022: true,\n                \u0022UseUp\u0022: true\n              },\n              \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n              \u0022StartDate\u0022: \u00222025-01-01\u0022\n            }\n          ],\n          \u0022Barcodes\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022Brand\u0022: \u0022string\u0022,\n          \u0022Content\u0022: [\n            {\n              \u0022CountryID\u0022: \u0022st\u0022,\n              \u0022CustomContent\u0022: {\n                \u0022key\u0022: \u0022any valid json value\u0022\n              },\n              \u0022Images\u0022: [\n                {\n                  \u0022ID\u0022: \u0022string\u0022,\n                  \u0022ImageData\u0022: \u0022base64 encoded binary data\u0022,\n                  \u0022ImageUrl\u0022: \u0022string\u0022,\n                  \u0022IsPrimaryImage\u0022: true,\n                  \u0022LocationType\u0022: \u0022string\u0022,\n                  \u0022MimeType\u0022: \u0022string\u0022,\n                  \u0022Name\u0022: \u0022string\u0022,\n                  \u0022Sequence\u0022: 123\n                }\n              ],\n              \u0022LanguageID\u0022: \u0022st\u0022,\n              \u0022LongDescription\u0022: \u0022string\u0022,\n              \u0022MarketingDescription\u0022: \u0022string\u0022,\n              \u0022Media\u0022: [\n                {\n                  \u0022ID\u0022: \u0022string\u0022,\n                  \u0022IsPrimaryImage\u0022: true,\n                  \u0022LocationType\u0022: \u0022string\u0022,\n                  \u0022MediaData\u0022: \u0022base64 encoded binary data\u0022,\n                  \u0022MediaUrl\u0022: \u0022string\u0022,\n                  \u0022MimeType\u0022: \u0022string\u0022,\n                  \u0022Name\u0022: \u0022string\u0022,\n                  \u0022Sequence\u0022: 123\n                }\n              ],\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022PublicationStatuses\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022ShortDescription\u0022: \u0022string\u0022,\n              \u0022Tags\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022UniqueSellingPointBlobIDs\u0022: [\n                \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022\n              ],\n              \u0022UniqueSellingPointTexts\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022XDimension\u0022: {\n                \u0022PropertyName\u0022: \u0022string\u0022,\n                \u0022Value\u0022: \u0022string\u0022\n              },\n              \u0022YDimension\u0022: {\n                \u0022PropertyName\u0022: \u0022string\u0022,\n                \u0022Value\u0022: \u0022string\u0022\n              }\n            }\n          ],\n          \u0022CountryOfOriginID\u0022: \u0022string\u0022,\n          \u0022CustomID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022IsDeleted\u0022: true,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022ManufacturerID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Status\u0022: {\n            \u0022DeliveryOnly\u0022: true,\n            \u0022DisableBackorder\u0022: true,\n            \u0022DisableDelivery\u0022: true,\n            \u0022DisablePickup\u0022: true,\n            \u0022NonSellable\u0022: true,\n            \u0022PreRelease\u0022: true,\n            \u0022UseUp\u0022: true\n          },\n          \u0022Type\u0022: {\n            \u0022AllowCustomPricing\u0022: true,\n            \u0022BundleProduct\u0022: true,\n            \u0022Event\u0022: true,\n            \u0022GiftCard\u0022: true,\n            \u0022GreetingCard\u0022: true,\n            \u0022Insurance\u0022: true,\n            \u0022Marketing\u0022: true,\n            \u0022NotReturnable\u0022: true,\n            \u0022Service\u0022: true,\n            \u0022Stock\u0022: true,\n            \u0022SubscriptionProduct\u0022: true,\n            \u0022VirtualProduct\u0022: true\n          },\n          \u0022UnitBarcodes\u0022: [\n            {\n              \u0022Barcode\u0022: \u0022string\u0022,\n              \u0022Quantity\u0022: 123,\n              \u0022UnitOfMeasureID\u0022: 123,\n              \u0022UnitOfMeasureName\u0022: \u0022string\u0022\n            }\n          ]\n        }\n      ],\n      \u0022TaxCode\u0022: \u0022string\u0022,\n      \u0022Type\u0022: {\n        \u0022AllowCustomPricing\u0022: true,\n        \u0022BundleProduct\u0022: true,\n        \u0022Event\u0022: true,\n        \u0022GiftCard\u0022: true,\n        \u0022GreetingCard\u0022: true,\n        \u0022Insurance\u0022: true,\n        \u0022Marketing\u0022: true,\n        \u0022NotReturnable\u0022: true,\n        \u0022Service\u0022: true,\n        \u0022Stock\u0022: true,\n        \u0022SubscriptionProduct\u0022: true,\n        \u0022VirtualProduct\u0022: true\n      },\n      \u0022UnitBarcodes\u0022: [\n        {\n          \u0022Barcode\u0022: \u0022string\u0022,\n          \u0022Quantity\u0022: 123,\n          \u0022UnitOfMeasureID\u0022: 123,\n          \u0022UnitOfMeasureName\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022VariationValues\u0022: [\n        {\n          \u0022CountryID\u0022: \u0022st\u0022,\n          \u0022LanguageID\u0022: \u0022st\u0022,\n          \u0022Value\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022Variations\u0022: {\n        \u0022LogicalLevel\u0022: \u0022string\u0022,\n        \u0022Products\u0022: [\n          {\n            \u0022re\u0022: \u0022cursion\u0022\n          }\n        ],\n        \u0022Property\u0022: \u0022string\u0022\n      }\n    }\n  ],\n  \u0022RootLogicalLevel\u0022: \u0022string\u0022,\n  \u0022SystemID\u0022: \u0022string\u0022,\n  \u0022Type\u0022: 1,\n  \u0022WaitForProductComposition\u0022: true\n}",
       "syntax": "json"
     },
     {
       "name": "CURL",
-      "sample": "curl -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022EVA-User-Agent: MyFirstUserAgent/1.0.0\u0022 \\\n  -H \u0022Authorization: Bearer \u003Ctoken\u003E\u0022 \\\n  --data \u0027{\n  \u0022CustomPropertyTypes\u0022: [\n    {\n      \u0022CategoryID\u0022: \u0022string\u0022,\n      \u0022CopyToParentProductPropertyTypeID\u0022: \u0022string\u0022,\n      \u0022DataType\u0022: 3,\n      \u0022IndexType\u0022: 2,\n      \u0022IsArray\u0022: true,\n      \u0022ProductPropertyTypeID\u0022: \u0022string\u0022\n    }\n  ],\n  \u0022DownloadImagesInBackground\u0022: true,\n  \u0022ImageBlobCategory\u0022: \u0022string\u0022,\n  \u0022LayerName\u0022: \u0022string\u0022,\n  \u0022Products\u0022: [\n    {\n      \u0022Assortments\u0022: [\n        {\n          \u0022AnnouncementDate\u0022: \u00222025-01-01\u0022,\n          \u0022AssortmentCode\u0022: \u0022string\u0022,\n          \u0022EndDate\u0022: \u00222025-01-01\u0022,\n          \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n          \u0022ProductStatus\u0022: {\n            \u0022DeliveryOnly\u0022: true,\n            \u0022DisableBackorder\u0022: true,\n            \u0022DisableDelivery\u0022: true,\n            \u0022DisablePickup\u0022: true,\n            \u0022NonSellable\u0022: true,\n            \u0022PreRelease\u0022: true,\n            \u0022UseUp\u0022: true\n          },\n          \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n          \u0022StartDate\u0022: \u00222025-01-01\u0022\n        }\n      ],\n      \u0022Barcodes\u0022: [\n        \u0022string\u0022\n      ],\n      \u0022Brand\u0022: \u0022string\u0022,\n      \u0022CommodityCode\u0022: \u0022string\u0022,\n      \u0022Content\u0022: [\n        {\n          \u0022CountryID\u0022: \u0022st\u0022,\n          \u0022CustomContent\u0022: {\n            \u0022key\u0022: \u0022any valid json value\u0022\n          },\n          \u0022Images\u0022: [\n            {\n              \u0022ID\u0022: \u0022string\u0022,\n              \u0022ImageData\u0022: \u0022base64 encoded binary data\u0022,\n              \u0022ImageUrl\u0022: \u0022string\u0022,\n              \u0022IsPrimaryImage\u0022: true,\n              \u0022LocationType\u0022: \u0022string\u0022,\n              \u0022MimeType\u0022: \u0022string\u0022,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Sequence\u0022: 123\n            }\n          ],\n          \u0022LanguageID\u0022: \u0022st\u0022,\n          \u0022LongDescription\u0022: \u0022string\u0022,\n          \u0022MarketingDescription\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022PublicationStatuses\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022ShortDescription\u0022: \u0022string\u0022,\n          \u0022Tags\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022UniqueSellingPointBlobIDs\u0022: [\n            \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022\n          ],\n          \u0022UniqueSellingPointTexts\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022XDimension\u0022: {\n            \u0022PropertyName\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          },\n          \u0022YDimension\u0022: {\n            \u0022PropertyName\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          }\n        }\n      ],\n      \u0022CountryOfOriginID\u0022: \u0022string\u0022,\n      \u0022CustomID\u0022: \u0022string\u0022,\n      \u0022GiftCardConfigurationID\u0022: 123,\n      \u0022GiftCardData\u0022: \u0022any valid json value\u0022,\n      \u0022GiftCardIsDigital\u0022: true,\n      \u0022GiftCardType\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022ImagesWillBeInheritedByChildren\u0022: true,\n      \u0022IsDeleted\u0022: true,\n      \u0022LedgerClassID\u0022: \u0022string\u0022,\n      \u0022ManufacturerID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022,\n      \u0022ProductRequirements\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022DataType\u0022: 1,\n          \u0022EnumValues\u0022: {\n            \u0022key\u0022: \u0022string\u0022\n          },\n          \u0022Handler\u0022: \u0022string\u0022,\n          \u0022IsArray\u0022: true,\n          \u0022IsRequired\u0022: true,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022OrderType\u0022: 1\n        }\n      ],\n      \u0022RequireSerialNumberForSale\u0022: true,\n      \u0022SerialNumberConfigurationID\u0022: 123,\n      \u0022Status\u0022: {\n        \u0022DeliveryOnly\u0022: true,\n        \u0022DisableBackorder\u0022: true,\n        \u0022DisableDelivery\u0022: true,\n        \u0022DisablePickup\u0022: true,\n        \u0022NonSellable\u0022: true,\n        \u0022PreRelease\u0022: true,\n        \u0022UseUp\u0022: true\n      },\n      \u0022StockProducts\u0022: [\n        {\n          \u0022Assortments\u0022: [\n            {\n              \u0022AnnouncementDate\u0022: \u00222025-01-01\u0022,\n              \u0022AssortmentCode\u0022: \u0022string\u0022,\n              \u0022EndDate\u0022: \u00222025-01-01\u0022,\n              \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n              \u0022ProductStatus\u0022: {\n                \u0022DeliveryOnly\u0022: true,\n                \u0022DisableBackorder\u0022: true,\n                \u0022DisableDelivery\u0022: true,\n                \u0022DisablePickup\u0022: true,\n                \u0022NonSellable\u0022: true,\n                \u0022PreRelease\u0022: true,\n                \u0022UseUp\u0022: true\n              },\n              \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n              \u0022StartDate\u0022: \u00222025-01-01\u0022\n            }\n          ],\n          \u0022Barcodes\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022Brand\u0022: \u0022string\u0022,\n          \u0022Content\u0022: [\n            {\n              \u0022CountryID\u0022: \u0022st\u0022,\n              \u0022CustomContent\u0022: {\n                \u0022key\u0022: \u0022any valid json value\u0022\n              },\n              \u0022Images\u0022: [\n                {\n                  \u0022ID\u0022: \u0022string\u0022,\n                  \u0022ImageData\u0022: \u0022base64 encoded binary data\u0022,\n                  \u0022ImageUrl\u0022: \u0022string\u0022,\n                  \u0022IsPrimaryImage\u0022: true,\n                  \u0022LocationType\u0022: \u0022string\u0022,\n                  \u0022MimeType\u0022: \u0022string\u0022,\n                  \u0022Name\u0022: \u0022string\u0022,\n                  \u0022Sequence\u0022: 123\n                }\n              ],\n              \u0022LanguageID\u0022: \u0022st\u0022,\n              \u0022LongDescription\u0022: \u0022string\u0022,\n              \u0022MarketingDescription\u0022: \u0022string\u0022,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022PublicationStatuses\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022ShortDescription\u0022: \u0022string\u0022,\n              \u0022Tags\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022UniqueSellingPointBlobIDs\u0022: [\n                \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022\n              ],\n              \u0022UniqueSellingPointTexts\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022XDimension\u0022: {\n                \u0022PropertyName\u0022: \u0022string\u0022,\n                \u0022Value\u0022: \u0022string\u0022\n              },\n              \u0022YDimension\u0022: {\n                \u0022PropertyName\u0022: \u0022string\u0022,\n                \u0022Value\u0022: \u0022string\u0022\n              }\n            }\n          ],\n          \u0022CountryOfOriginID\u0022: \u0022string\u0022,\n          \u0022CustomID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022IsDeleted\u0022: true,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022ManufacturerID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Status\u0022: {\n            \u0022DeliveryOnly\u0022: true,\n            \u0022DisableBackorder\u0022: true,\n            \u0022DisableDelivery\u0022: true,\n            \u0022DisablePickup\u0022: true,\n            \u0022NonSellable\u0022: true,\n            \u0022PreRelease\u0022: true,\n            \u0022UseUp\u0022: true\n          },\n          \u0022Type\u0022: {\n            \u0022AllowCustomPricing\u0022: true,\n            \u0022BundleProduct\u0022: true,\n            \u0022GiftCard\u0022: true,\n            \u0022Insurance\u0022: true,\n            \u0022Service\u0022: true,\n            \u0022Stock\u0022: true,\n            \u0022SubscriptionProduct\u0022: true\n          },\n          \u0022UnitBarcodes\u0022: [\n            {\n              \u0022Barcode\u0022: \u0022string\u0022,\n              \u0022Quantity\u0022: 123,\n              \u0022UnitOfMeasureName\u0022: \u0022string\u0022\n            }\n          ]\n        }\n      ],\n      \u0022TaxCode\u0022: \u0022string\u0022,\n      \u0022Type\u0022: {\n        \u0022AllowCustomPricing\u0022: true,\n        \u0022BundleProduct\u0022: true,\n        \u0022GiftCard\u0022: true,\n        \u0022Insurance\u0022: true,\n        \u0022Service\u0022: true,\n        \u0022Stock\u0022: true,\n        \u0022SubscriptionProduct\u0022: true\n      },\n      \u0022UnitBarcodes\u0022: [\n        {\n          \u0022Barcode\u0022: \u0022string\u0022,\n          \u0022Quantity\u0022: 123,\n          \u0022UnitOfMeasureName\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022VariationValues\u0022: [\n        {\n          \u0022CountryID\u0022: \u0022st\u0022,\n          \u0022LanguageID\u0022: \u0022st\u0022,\n          \u0022Value\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022Variations\u0022: {\n        \u0022LogicalLevel\u0022: \u0022string\u0022,\n        \u0022Products\u0022: [\n          {\n            \u0022re\u0022: \u0022cursion\u0022\n          }\n        ],\n        \u0022Property\u0022: \u0022string\u0022\n      }\n    }\n  ],\n  \u0022RootLogicalLevel\u0022: \u0022string\u0022,\n  \u0022SystemID\u0022: \u0022string\u0022,\n  \u0022Type\u0022: 1,\n  \u0022WaitForProductComposition\u0022: true\n}\u0027 \\\n  https://euw.acme.test.eva-online.cloud/message/ImportProducts",
+      "sample": "curl -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022EVA-User-Agent: MyFirstUserAgent/1.0.0\u0022 \\\n  -H \u0022Authorization: Bearer \u003Ctoken\u003E\u0022 \\\n  --data \u0027{\n  \u0022AllowEmptyMedia\u0022: true,\n  \u0022CustomPropertyTypes\u0022: [\n    {\n      \u0022CategoryID\u0022: \u0022string\u0022,\n      \u0022CopyToParentProductPropertyTypeID\u0022: \u0022string\u0022,\n      \u0022DataType\u0022: 3,\n      \u0022IndexType\u0022: 2,\n      \u0022IsArray\u0022: true,\n      \u0022ProductPropertyTypeID\u0022: \u0022string\u0022\n    }\n  ],\n  \u0022DownloadImagesInBackground\u0022: true,\n  \u0022DownloadMediaInBackground\u0022: true,\n  \u0022ImageBlobCategory\u0022: \u0022string\u0022,\n  \u0022LayerName\u0022: \u0022string\u0022,\n  \u0022MediaBlobCategory\u0022: \u0022string\u0022,\n  \u0022Products\u0022: [\n    {\n      \u0022Assortments\u0022: [\n        {\n          \u0022AnnouncementDate\u0022: \u00222025-01-01\u0022,\n          \u0022AssortmentCode\u0022: \u0022string\u0022,\n          \u0022EndDate\u0022: \u00222025-01-01\u0022,\n          \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n          \u0022ProductStatus\u0022: {\n            \u0022DeliveryOnly\u0022: true,\n            \u0022DisableBackorder\u0022: true,\n            \u0022DisableDelivery\u0022: true,\n            \u0022DisablePickup\u0022: true,\n            \u0022NonSellable\u0022: true,\n            \u0022PreRelease\u0022: true,\n            \u0022UseUp\u0022: true\n          },\n          \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n          \u0022StartDate\u0022: \u00222025-01-01\u0022\n        }\n      ],\n      \u0022Barcodes\u0022: [\n        \u0022string\u0022\n      ],\n      \u0022Brand\u0022: \u0022string\u0022,\n      \u0022CommodityCode\u0022: \u0022string\u0022,\n      \u0022Content\u0022: [\n        {\n          \u0022CountryID\u0022: \u0022st\u0022,\n          \u0022CustomContent\u0022: {\n            \u0022key\u0022: \u0022any valid json value\u0022\n          },\n          \u0022Images\u0022: [\n            {\n              \u0022ID\u0022: \u0022string\u0022,\n              \u0022ImageData\u0022: \u0022base64 encoded binary data\u0022,\n              \u0022ImageUrl\u0022: \u0022string\u0022,\n              \u0022IsPrimaryImage\u0022: true,\n              \u0022LocationType\u0022: \u0022string\u0022,\n              \u0022MimeType\u0022: \u0022string\u0022,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Sequence\u0022: 123\n            }\n          ],\n          \u0022LanguageID\u0022: \u0022st\u0022,\n          \u0022LongDescription\u0022: \u0022string\u0022,\n          \u0022MarketingDescription\u0022: \u0022string\u0022,\n          \u0022Media\u0022: [\n            {\n              \u0022ID\u0022: \u0022string\u0022,\n              \u0022IsPrimaryImage\u0022: true,\n              \u0022LocationType\u0022: \u0022string\u0022,\n              \u0022MediaData\u0022: \u0022base64 encoded binary data\u0022,\n              \u0022MediaUrl\u0022: \u0022string\u0022,\n              \u0022MimeType\u0022: \u0022string\u0022,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Sequence\u0022: 123\n            }\n          ],\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022PublicationStatuses\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022ShortDescription\u0022: \u0022string\u0022,\n          \u0022Tags\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022UniqueSellingPointBlobIDs\u0022: [\n            \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022\n          ],\n          \u0022UniqueSellingPointTexts\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022XDimension\u0022: {\n            \u0022PropertyName\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          },\n          \u0022YDimension\u0022: {\n            \u0022PropertyName\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          }\n        }\n      ],\n      \u0022CountryOfOriginID\u0022: \u0022string\u0022,\n      \u0022CustomID\u0022: \u0022string\u0022,\n      \u0022GiftCardConfigurationID\u0022: 123,\n      \u0022GiftCardData\u0022: \u0022any valid json value\u0022,\n      \u0022GiftCardIsDigital\u0022: true,\n      \u0022GiftCardType\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022ImagesWillBeInheritedByChildren\u0022: true,\n      \u0022IsDeleted\u0022: true,\n      \u0022IsFullHierarchy\u0022: true,\n      \u0022LedgerClassID\u0022: \u0022string\u0022,\n      \u0022ManufacturerID\u0022: \u0022string\u0022,\n      \u0022MediaWillBeInheritedByChildren\u0022: true,\n      \u0022Name\u0022: \u0022string\u0022,\n      \u0022ProductRequirements\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022DataType\u0022: 1,\n          \u0022EnumValues\u0022: {\n            \u0022key\u0022: \u0022string\u0022\n          },\n          \u0022Handler\u0022: \u0022string\u0022,\n          \u0022IsArray\u0022: true,\n          \u0022IsRequired\u0022: true,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022OrderType\u0022: 1\n        }\n      ],\n      \u0022RequireSerialNumberForSale\u0022: true,\n      \u0022SerialNumberConfigurationID\u0022: 123,\n      \u0022Status\u0022: {\n        \u0022DeliveryOnly\u0022: true,\n        \u0022DisableBackorder\u0022: true,\n        \u0022DisableDelivery\u0022: true,\n        \u0022DisablePickup\u0022: true,\n        \u0022NonSellable\u0022: true,\n        \u0022PreRelease\u0022: true,\n        \u0022UseUp\u0022: true\n      },\n      \u0022StockProducts\u0022: [\n        {\n          \u0022Assortments\u0022: [\n            {\n              \u0022AnnouncementDate\u0022: \u00222025-01-01\u0022,\n              \u0022AssortmentCode\u0022: \u0022string\u0022,\n              \u0022EndDate\u0022: \u00222025-01-01\u0022,\n              \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n              \u0022ProductStatus\u0022: {\n                \u0022DeliveryOnly\u0022: true,\n                \u0022DisableBackorder\u0022: true,\n                \u0022DisableDelivery\u0022: true,\n                \u0022DisablePickup\u0022: true,\n                \u0022NonSellable\u0022: true,\n                \u0022PreRelease\u0022: true,\n                \u0022UseUp\u0022: true\n              },\n              \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n              \u0022StartDate\u0022: \u00222025-01-01\u0022\n            }\n          ],\n          \u0022Barcodes\u0022: [\n            \u0022string\u0022\n          ],\n          \u0022Brand\u0022: \u0022string\u0022,\n          \u0022Content\u0022: [\n            {\n              \u0022CountryID\u0022: \u0022st\u0022,\n              \u0022CustomContent\u0022: {\n                \u0022key\u0022: \u0022any valid json value\u0022\n              },\n              \u0022Images\u0022: [\n                {\n                  \u0022ID\u0022: \u0022string\u0022,\n                  \u0022ImageData\u0022: \u0022base64 encoded binary data\u0022,\n                  \u0022ImageUrl\u0022: \u0022string\u0022,\n                  \u0022IsPrimaryImage\u0022: true,\n                  \u0022LocationType\u0022: \u0022string\u0022,\n                  \u0022MimeType\u0022: \u0022string\u0022,\n                  \u0022Name\u0022: \u0022string\u0022,\n                  \u0022Sequence\u0022: 123\n                }\n              ],\n              \u0022LanguageID\u0022: \u0022st\u0022,\n              \u0022LongDescription\u0022: \u0022string\u0022,\n              \u0022MarketingDescription\u0022: \u0022string\u0022,\n              \u0022Media\u0022: [\n                {\n                  \u0022ID\u0022: \u0022string\u0022,\n                  \u0022IsPrimaryImage\u0022: true,\n                  \u0022LocationType\u0022: \u0022string\u0022,\n                  \u0022MediaData\u0022: \u0022base64 encoded binary data\u0022,\n                  \u0022MediaUrl\u0022: \u0022string\u0022,\n                  \u0022MimeType\u0022: \u0022string\u0022,\n                  \u0022Name\u0022: \u0022string\u0022,\n                  \u0022Sequence\u0022: 123\n                }\n              ],\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022PublicationStatuses\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022ShortDescription\u0022: \u0022string\u0022,\n              \u0022Tags\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022UniqueSellingPointBlobIDs\u0022: [\n                \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022\n              ],\n              \u0022UniqueSellingPointTexts\u0022: [\n                \u0022string\u0022\n              ],\n              \u0022XDimension\u0022: {\n                \u0022PropertyName\u0022: \u0022string\u0022,\n                \u0022Value\u0022: \u0022string\u0022\n              },\n              \u0022YDimension\u0022: {\n                \u0022PropertyName\u0022: \u0022string\u0022,\n                \u0022Value\u0022: \u0022string\u0022\n              }\n            }\n          ],\n          \u0022CountryOfOriginID\u0022: \u0022string\u0022,\n          \u0022CustomID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022IsDeleted\u0022: true,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022ManufacturerID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Status\u0022: {\n            \u0022DeliveryOnly\u0022: true,\n            \u0022DisableBackorder\u0022: true,\n            \u0022DisableDelivery\u0022: true,\n            \u0022DisablePickup\u0022: true,\n            \u0022NonSellable\u0022: true,\n            \u0022PreRelease\u0022: true,\n            \u0022UseUp\u0022: true\n          },\n          \u0022Type\u0022: {\n            \u0022AllowCustomPricing\u0022: true,\n            \u0022BundleProduct\u0022: true,\n            \u0022Event\u0022: true,\n            \u0022GiftCard\u0022: true,\n            \u0022GreetingCard\u0022: true,\n            \u0022Insurance\u0022: true,\n            \u0022Marketing\u0022: true,\n            \u0022NotReturnable\u0022: true,\n            \u0022Service\u0022: true,\n            \u0022Stock\u0022: true,\n            \u0022SubscriptionProduct\u0022: true,\n            \u0022VirtualProduct\u0022: true\n          },\n          \u0022UnitBarcodes\u0022: [\n            {\n              \u0022Barcode\u0022: \u0022string\u0022,\n              \u0022Quantity\u0022: 123,\n              \u0022UnitOfMeasureID\u0022: 123,\n              \u0022UnitOfMeasureName\u0022: \u0022string\u0022\n            }\n          ]\n        }\n      ],\n      \u0022TaxCode\u0022: \u0022string\u0022,\n      \u0022Type\u0022: {\n        \u0022AllowCustomPricing\u0022: true,\n        \u0022BundleProduct\u0022: true,\n        \u0022Event\u0022: true,\n        \u0022GiftCard\u0022: true,\n        \u0022GreetingCard\u0022: true,\n        \u0022Insurance\u0022: true,\n        \u0022Marketing\u0022: true,\n        \u0022NotReturnable\u0022: true,\n        \u0022Service\u0022: true,\n        \u0022Stock\u0022: true,\n        \u0022SubscriptionProduct\u0022: true,\n        \u0022VirtualProduct\u0022: true\n      },\n      \u0022UnitBarcodes\u0022: [\n        {\n          \u0022Barcode\u0022: \u0022string\u0022,\n          \u0022Quantity\u0022: 123,\n          \u0022UnitOfMeasureID\u0022: 123,\n          \u0022UnitOfMeasureName\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022VariationValues\u0022: [\n        {\n          \u0022CountryID\u0022: \u0022st\u0022,\n          \u0022LanguageID\u0022: \u0022st\u0022,\n          \u0022Value\u0022: \u0022string\u0022\n        }\n      ],\n      \u0022Variations\u0022: {\n        \u0022LogicalLevel\u0022: \u0022string\u0022,\n        \u0022Products\u0022: [\n          {\n            \u0022re\u0022: \u0022cursion\u0022\n          }\n        ],\n        \u0022Property\u0022: \u0022string\u0022\n      }\n    }\n  ],\n  \u0022RootLogicalLevel\u0022: \u0022string\u0022,\n  \u0022SystemID\u0022: \u0022string\u0022,\n  \u0022Type\u0022: 1,\n  \u0022WaitForProductComposition\u0022: true\n}\u0027 \\\n  https://euw.acme.test.eva-online.cloud/message/ImportProducts",
       "syntax": "bash"
     }
   ],
@@ -55,13 +62,13 @@
   ],
   "deprecation_notice": null,
   "request_type_id": "B",
-  "response_type_id": "P",
+  "response_type_id": "Q",
   "types": {
     "C": [
       {
         "name": "CategoryID",
         "deprecation_notice": null,
-        "description": "The ID of the category the property falls into. Defaults to \u0060default\u0060.",
+        "description": "The ID of the category the property belongs to. Defaults to \u0060default\u0060.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -79,7 +86,7 @@
       {
         "name": "DataType",
         "deprecation_notice": null,
-        "description": "Defines the data type of the property.\nPossible values:\n\n* \u00600\u0060 - String\n* \u00601\u0060 - Int\n* \u00602\u0060 - Double\n* \u00603\u0060 - Bool\n* \u00604\u0060 - Date",
+        "description": "Defines the data type of the property value.\nPossible values:\n\n* \u00600\u0060 - String\n* \u00601\u0060 - Int\n* \u00602\u0060 - Double\n* \u00603\u0060 - Bool\n* \u00604\u0060 - Date",
         "type": "integer",
         "required": false,
         "properties_id": null,
@@ -88,7 +95,7 @@
       {
         "name": "IndexType",
         "deprecation_notice": null,
-        "description": "Defines whether and how the content of this property is searchable. Note that this is a flags enum so IndexType can both be IndexedNotAnalyzed and IndexedAnalyzed, meaning the field will be indexed in an analyzed *and* a non-analyzed manner.\nFlags enum, combine any of the below values:\n\n* \u00600\u0060 - NotIndexed\n* \u00601\u0060 - IndexedNotAnalyzed\n* \u00602\u0060 - IndexedAnalyzed",
+        "description": "Defines whether and how the property is indexed for search. This is a flags enum, so you can combine IndexedNotAnalyzed and IndexedAnalyzed to index both exact and analyzed variants.\nFlags enum, combine any of the below values:\n\n* \u00600\u0060 - NotIndexed\n* \u00601\u0060 - IndexedNotAnalyzed\n* \u00602\u0060 - IndexedAnalyzed",
         "type": "integer",
         "required": false,
         "properties_id": null,
@@ -97,7 +104,7 @@
       {
         "name": "IsArray",
         "deprecation_notice": null,
-        "description": "Determines if the property allows multiple values or if it\u0027s just a single value.",
+        "description": "Determines whether the property accepts multiple values (array) or a single value.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -106,7 +113,7 @@
       {
         "name": "ProductPropertyTypeID",
         "deprecation_notice": null,
-        "description": "The ID of the custom property, by convention in snake_case.",
+        "description": "The ID of the custom property, typically in snake_case.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -117,7 +124,7 @@
       {
         "name": "DeliveryOnly",
         "deprecation_notice": null,
-        "description": "The product won\u0027t be available for endless aisle pickup from shop.",
+        "description": "Product is only available for delivery, not store pickup.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -126,7 +133,7 @@
       {
         "name": "DisableBackorder",
         "deprecation_notice": null,
-        "description": "The product won\u0027t be orderable if there is no available stock.",
+        "description": "Product cannot be backordered when out of stock.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -135,7 +142,7 @@
       {
         "name": "DisableDelivery",
         "deprecation_notice": null,
-        "description": "The product will be unavailable for delivery.",
+        "description": "Product cannot be delivered.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -144,7 +151,7 @@
       {
         "name": "DisablePickup",
         "deprecation_notice": null,
-        "description": "The product won\u0027t be available from a shop at all.",
+        "description": "Product cannot be picked up from a shop.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -153,7 +160,7 @@
       {
         "name": "NonSellable",
         "deprecation_notice": null,
-        "description": "Indicates the product isn\u0027t sellable.",
+        "description": "Indicates the product is not sellable.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -162,7 +169,7 @@
       {
         "name": "PreRelease",
         "deprecation_notice": null,
-        "description": "The product will be unavailable until the pre-order date.",
+        "description": "Product is unavailable until the pre-order date.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -171,7 +178,7 @@
       {
         "name": "UseUp",
         "deprecation_notice": null,
-        "description": "Indicates the product won\u0027t be back in store and all current stock is all there is going to be.",
+        "description": "Indicates the product is end-of-life; remaining stock is final.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -182,7 +189,7 @@
       {
         "name": "AnnouncementDate",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional date when the product is announced for this assortment.",
         "type": "datetime | null",
         "required": false,
         "properties_id": null,
@@ -191,7 +198,7 @@
       {
         "name": "AssortmentCode",
         "deprecation_notice": null,
-        "description": "",
+        "description": "The backend code of the assortment this product should belong to.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -200,7 +207,7 @@
       {
         "name": "EndDate",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional date when the product stops being active in this assortment.",
         "type": "datetime | null",
         "required": false,
         "properties_id": null,
@@ -209,7 +216,7 @@
       {
         "name": "PreSaleDate",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional date when the product becomes available for pre-sale.",
         "type": "datetime | null",
         "required": false,
         "properties_id": null,
@@ -218,7 +225,7 @@
       {
         "name": "ProductStatus",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Status flags to apply for this product within the assortment.",
         "type": "object | null",
         "required": false,
         "properties_id": "F",
@@ -227,7 +234,7 @@
       {
         "name": "ShipmentDate",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional date when the product is expected to ship.",
         "type": "datetime | null",
         "required": false,
         "properties_id": null,
@@ -236,7 +243,7 @@
       {
         "name": "StartDate",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional date when the product becomes active in this assortment.",
         "type": "datetime | null",
         "required": false,
         "properties_id": null,
@@ -247,7 +254,7 @@
       {
         "name": "ID",
         "deprecation_notice": null,
-        "description": "The unique identifier for the image. Optional, if null then an ID is generated based on the hash of the ImageUrl",
+        "description": "The unique identifier for the image. Optional; when null an ID is generated from the ImageUrl hash.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -256,7 +263,7 @@
       {
         "name": "ImageData",
         "deprecation_notice": null,
-        "description": "The raw image data. Only required if ImageUrl is left empty.",
+        "description": "Raw image bytes. Required only if ImageUrl is not provided.",
         "type": "binary | null",
         "required": false,
         "properties_id": null,
@@ -265,7 +272,7 @@
       {
         "name": "ImageUrl",
         "deprecation_notice": null,
-        "description": "Where can the image be downloaded? Required unless ImageData is provided.",
+        "description": "Where the image can be downloaded from. Required unless ImageData is provided.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -274,7 +281,7 @@
       {
         "name": "IsPrimaryImage",
         "deprecation_notice": null,
-        "description": "If an image is specified as IsPrimaryImage = true then it will be used as the primary image on the product.\nIf there is for some reason multiple images for a product that have IsPrimaryImage set to true then the last image that have this set will become the actual primary image.",
+        "description": "When true, marks this image as the primary image for the product. If multiple images are marked, the last one wins.",
         "type": "boolean | null",
         "required": false,
         "properties_id": null,
@@ -283,7 +290,7 @@
       {
         "name": "LocationType",
         "deprecation_notice": null,
-        "description": "How the image should be stored. Usually empty.",
+        "description": "Storage location type override. Usually left empty to use defaults.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -292,7 +299,7 @@
       {
         "name": "MimeType",
         "deprecation_notice": null,
-        "description": "The image mime type. Optional, if null then the mime type will be guessed by the ImageUrl",
+        "description": "The image MIME type. Optional; when null it will be inferred from the ImageUrl.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -301,7 +308,7 @@
       {
         "name": "Name",
         "deprecation_notice": null,
-        "description": "The human readable name of the image. Optional, if null then the name will be the ID of the image.",
+        "description": "Human-readable display name for the image. Optional; defaults to the image ID.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -310,7 +317,7 @@
       {
         "name": "Sequence",
         "deprecation_notice": null,
-        "description": "The sequence number of the image, can be used to determine the display order of images and will be used to determine the primary image of the product.\n\nSmaller numbers mean a higher priority.\n\nBy default this will be null and the sequence of the images will be determined by their ordering in the Images array.\n\nThe number provided here does not necessarily translate to the actual sequence number stored in EVA, only the relative order will be used. Given the sequence 1, 2, 4, 7 the actual sequence stored in EVA\nwill be 0, 1, 2, 3.",
+        "description": "Sequence number used for ordering images and determining the primary image.\nSmaller numbers mean higher priority. If null, ordering follows the Images array.\nOnly relative order matters: sequences 1, 2, 4, 7 will be stored as 0, 1, 2, 3.",
         "type": "integer | null",
         "required": false,
         "properties_id": null,
@@ -319,9 +326,83 @@
     ],
     "I": [
       {
+        "name": "ID",
+        "deprecation_notice": null,
+        "description": "The unique identifier for the media item. Optional; when null an ID is generated from the MediaUrl hash.",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsPrimaryImage",
+        "deprecation_notice": null,
+        "description": "When true, marks this media item as the primary image for the product. If multiple items are marked, the last one wins. Ignored for non-image/video media types.",
+        "type": "boolean | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "LocationType",
+        "deprecation_notice": null,
+        "description": "Storage location type override. Usually left empty to use defaults.",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "MediaData",
+        "deprecation_notice": null,
+        "description": "Raw media bytes. Required only if MediaUrl is not provided.",
+        "type": "binary | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "MediaUrl",
+        "deprecation_notice": null,
+        "description": "Where the media can be downloaded from. Required unless MediaData is provided.",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "MimeType",
+        "deprecation_notice": null,
+        "description": "The media MIME type. Optional; when null it will be inferred from the MediaUrl.",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Name",
+        "deprecation_notice": null,
+        "description": "Human-readable display name for the media item. Optional; defaults to the media ID.",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Sequence",
+        "deprecation_notice": null,
+        "description": "Sequence number used for ordering media and determining the primary image.\nSmaller numbers mean higher priority. If null, ordering follows the Media array.\nOnly relative order matters: sequences 1, 2, 4, 7 will be stored as 0, 1, 2, 3.",
+        "type": "integer | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "J": [
+      {
         "name": "PropertyName",
         "deprecation_notice": null,
-        "description": "",
+        "description": "The name of the dimension property (e.g., \u0027Width\u0027, \u0027Height\u0027).",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -330,7 +411,7 @@
       {
         "name": "Value",
         "deprecation_notice": null,
-        "description": "",
+        "description": "The dimension value, expressed as a string to preserve formatting or units.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -341,7 +422,7 @@
       {
         "name": "CountryID",
         "deprecation_notice": null,
-        "description": "This is the ID of a \u0060Country\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
+        "description": "Optional country for this content block. Leave null for country-agnostic content.\n\nThis is the ID of a \u0060Country\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -350,7 +431,7 @@
       {
         "name": "CustomContent",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Custom content values keyed by property ID, used for arbitrary content data.",
         "type": "map[any] | null",
         "required": false,
         "properties_id": null,
@@ -358,8 +439,8 @@
       },
       {
         "name": "Images",
-        "deprecation_notice": null,
-        "description": "",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Images is deprecated and will be removed in 2.0.856: Use Media instead.\n\n**Will be removed in 838**",
+        "description": "Deprecated list of product images. Use Media instead.\n\n**Deprecated since 812:** Images is deprecated and will be removed in 2.0.856: Use Media instead.\n\n**Will be removed in 838**",
         "type": "array[object] | null",
         "required": false,
         "properties_id": "H",
@@ -368,7 +449,7 @@
       {
         "name": "LanguageID",
         "deprecation_notice": null,
-        "description": "This is the ID of a \u0060Language\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
+        "description": "Optional language for this content block. Leave null for language-agnostic content.\n\nThis is the ID of a \u0060Language\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -377,7 +458,7 @@
       {
         "name": "LongDescription",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Long-form description, typically used on the product detail page.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -386,16 +467,25 @@
       {
         "name": "MarketingDescription",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Marketing-focused description used in merchandising contexts.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
         "one_of": null
       },
       {
+        "name": "Media",
+        "deprecation_notice": null,
+        "description": "List of product media items (images, videos, etc.).",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "I",
+        "one_of": null
+      },
+      {
         "name": "Name",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Display name of the product for this language/country.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -404,7 +494,7 @@
       {
         "name": "PublicationStatuses",
         "deprecation_notice": null,
-        "description": "The publication status determines the visibility of the product. A product generally won\u0027t be visible to non-employee users unless it has publication status \u0027public\u0027.",
+        "description": "Publication statuses that determine visibility. A product is generally not visible to non-employee users unless it includes a \u0027public\u0027 status.",
         "type": "array[string] | null",
         "required": false,
         "properties_id": null,
@@ -413,7 +503,7 @@
       {
         "name": "ShortDescription",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Short description, typically used in listings or quick views.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -422,7 +512,7 @@
       {
         "name": "Tags",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Tags used for filtering or merchandising.",
         "type": "array[string] | null",
         "required": false,
         "properties_id": null,
@@ -431,7 +521,7 @@
       {
         "name": "UniqueSellingPointBlobIDs",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Blob IDs for unique selling point assets (images, icons, etc.).",
         "type": "array[guid] | null",
         "required": false,
         "properties_id": null,
@@ -440,7 +530,7 @@
       {
         "name": "UniqueSellingPointTexts",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Unique selling point text entries for this content block.",
         "type": "array[string] | null",
         "required": false,
         "properties_id": null,
@@ -449,27 +539,27 @@
       {
         "name": "XDimension",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional X-dimension metadata for the product (e.g., width).",
         "type": "object | null",
         "required": false,
-        "properties_id": "I",
+        "properties_id": "J",
         "one_of": null
       },
       {
         "name": "YDimension",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional Y-dimension metadata for the product (e.g., height).",
         "type": "object | null",
         "required": false,
-        "properties_id": "I",
+        "properties_id": "J",
         "one_of": null
       }
     ],
-    "J": [
+    "K": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional backend identifier for external systems.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -478,7 +568,7 @@
       {
         "name": "DataType",
         "deprecation_notice": null,
-        "description": "Possible values:\n\n* \u00600\u0060 - String\n* \u00601\u0060 - Bool\n* \u00602\u0060 - Integer\n* \u00603\u0060 - Decimal\n* \u00604\u0060 - Enum\n* \u00605\u0060 - Text",
+        "description": "The data type expected for this requirement.\nPossible values:\n\n* \u00600\u0060 - String\n* \u00601\u0060 - Bool\n* \u00602\u0060 - Integer\n* \u00603\u0060 - Decimal\n* \u00604\u0060 - Enum\n* \u00605\u0060 - Text",
         "type": "integer",
         "required": true,
         "properties_id": null,
@@ -487,7 +577,7 @@
       {
         "name": "EnumValues",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional enumeration values keyed by value with display text as the value.",
         "type": "map[string] | null",
         "required": false,
         "properties_id": null,
@@ -496,7 +586,7 @@
       {
         "name": "Handler",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Optional handler name that processes the requirement value.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -505,7 +595,7 @@
       {
         "name": "IsArray",
         "deprecation_notice": null,
-        "description": "",
+        "description": "When true, the requirement accepts multiple values.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -514,7 +604,7 @@
       {
         "name": "IsRequired",
         "deprecation_notice": null,
-        "description": "",
+        "description": "When true, the requirement must be provided to complete the order.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -523,7 +613,7 @@
       {
         "name": "Name",
         "deprecation_notice": null,
-        "description": "",
+        "description": "The display name of the requirement presented to the customer.",
         "type": "string",
         "required": true,
         "properties_id": null,
@@ -532,18 +622,18 @@
       {
         "name": "OrderType",
         "deprecation_notice": null,
-        "description": "Possible values:\n\n* \u00600\u0060 - Sales\n* \u00601\u0060 - Purchase",
+        "description": "Optional order type this requirement applies to.\nPossible values:\n\n* \u00600\u0060 - Sales\n* \u00601\u0060 - Purchase",
         "type": "integer | null",
         "required": false,
         "properties_id": null,
         "one_of": null
       }
     ],
-    "L": [
+    "M": [
       {
         "name": "AllowCustomPricing",
         "deprecation_notice": null,
-        "description": "Indicates if custom pricing on the product is allowed.",
+        "description": "Indicates whether custom pricing is allowed.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -552,7 +642,16 @@
       {
         "name": "BundleProduct",
         "deprecation_notice": null,
-        "description": "Indicates the product is of a bundle type.",
+        "description": "Indicates the product is a bundle.",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Event",
+        "deprecation_notice": null,
+        "description": "An event product intended for scheduling appointments.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -561,7 +660,16 @@
       {
         "name": "GiftCard",
         "deprecation_notice": null,
-        "description": "A giftcard product.",
+        "description": "A gift card product.",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "GreetingCard",
+        "deprecation_notice": null,
+        "description": "A greeting card product.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -570,7 +678,25 @@
       {
         "name": "Insurance",
         "deprecation_notice": null,
-        "description": "Indicates if the product is an insurance product.",
+        "description": "Indicates the product is an insurance product.",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Marketing",
+        "deprecation_notice": null,
+        "description": "A marketing-only product.",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "NotReturnable",
+        "deprecation_notice": null,
+        "description": "A product that cannot be returned.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -579,7 +705,7 @@
       {
         "name": "Service",
         "deprecation_notice": null,
-        "description": "A non-physical product that represents a service of some sort.",
+        "description": "A non-physical product that represents a service.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -588,7 +714,7 @@
       {
         "name": "Stock",
         "deprecation_notice": null,
-        "description": "A normal stock-keeping product. This will be the default if not specified.",
+        "description": "A normal stock-keeping product. This is the default when no type is specified.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -597,18 +723,27 @@
       {
         "name": "SubscriptionProduct",
         "deprecation_notice": null,
-        "description": "Indicates the product is of a subscription type.",
+        "description": "Indicates the product is a subscription.",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "VirtualProduct",
+        "deprecation_notice": null,
+        "description": "Indicates the product is virtual and has no physical form.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
         "one_of": null
       }
     ],
-    "M": [
+    "N": [
       {
         "name": "Barcode",
         "deprecation_notice": null,
-        "description": "The barcode of the product. Must be unique.",
+        "description": "The barcode value. Must be unique.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -617,8 +752,17 @@
       {
         "name": "Quantity",
         "deprecation_notice": null,
-        "description": "The quantity of the product (in the given unit of measure) that the barcode represents.",
+        "description": "The quantity of product (in the specified unit of measure) represented by this barcode.",
         "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "UnitOfMeasureID",
+        "deprecation_notice": "\n\n**Deprecated since 812:** UnitOfMeasureID is deprecated and will be removed in 2.0.856: Use UnitOfMeasureName instead.\n\n**Will be removed in 838**",
+        "description": "The unit of measure ID for this barcode. If not specified, \u0027Each\u0027 is used. Must exist beforehand.\n\nThis is the ID of a \u0060UnitOfMeasure\u0060\n\n**Deprecated since 812:** UnitOfMeasureID is deprecated and will be removed in 2.0.856: Use UnitOfMeasureName instead.\n\n**Will be removed in 838**",
+        "type": "integer | null",
         "required": false,
         "properties_id": null,
         "one_of": null
@@ -626,14 +770,14 @@
       {
         "name": "UnitOfMeasureName",
         "deprecation_notice": null,
-        "description": "The name of the unit of measure to use for this barcode. If not specified, \u0027Each\u0027 will be used. Must be created beforehand.",
+        "description": "The unit of measure name for this barcode. If not specified, \u0027Each\u0027 is used. Must exist beforehand.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
         "one_of": null
       }
     ],
-    "K": [
+    "L": [
       {
         "name": "Assortments",
         "deprecation_notice": null,
@@ -748,7 +892,7 @@
         "description": "Defines what kind of product it is. If the product is part of a hierarchy, this is only relevant for the SKU level, all other levels will have type Configurable.",
         "type": "object | null",
         "required": false,
-        "properties_id": "L",
+        "properties_id": "M",
         "one_of": null
       },
       {
@@ -757,15 +901,15 @@
         "description": "An (optional) list of barcodes with the associated quantity and unit of measure for this product. A barcode should be globally unique and any duplicate barcodes will result in an error.",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "M",
+        "properties_id": "N",
         "one_of": null
       }
     ],
-    "N": [
+    "O": [
       {
         "name": "CountryID",
         "deprecation_notice": null,
-        "description": "Can be left null if the variation value isn\u0027t culture dependent.\n\nThis is the ID of a \u0060Country\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
+        "description": "Optional. Leave null if the variation value is not country-specific.\n\nThis is the ID of a \u0060Country\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -774,7 +918,7 @@
       {
         "name": "LanguageID",
         "deprecation_notice": null,
-        "description": "Can be left null if the variation value isn\u0027t culture dependent.\n\nThis is the ID of a \u0060Language\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
+        "description": "Optional. Leave null if the variation value is not language-specific.\n\nThis is the ID of a \u0060Language\u0060\n\nThis string must be between 2 (incl) and 2 (incl) characters long.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -783,18 +927,18 @@
       {
         "name": "Value",
         "deprecation_notice": null,
-        "description": "",
-        "type": "string",
-        "required": true,
+        "description": "The actual value for the variation (e.g., \u0027XL\u0027, \u0027BLUE\u0027).\n\n**Required since 812:** Field Value is required and will be enforced as such in 2.0.856.\n\n**Will be enforced in 838**",
+        "type": "string | null",
+        "required": false,
         "properties_id": null,
         "one_of": null
       }
     ],
-    "O": [
+    "P": [
       {
         "name": "LogicalLevel",
         "deprecation_notice": null,
-        "description": "The LogicalLevel of a product defines the \u0027level\u0027 on which the product can be thought to sit in the hierarchy.\n\nFor example, the various different colors of a shirt can be thought to have LogicalLevel = \u0027color\u0027 and the actual SKU might have LogicalLevel = \u0027size\u0027 or \u0027sku\u0027.\n\nYou are free to use any value, but it\u0027s recommended to keep this consistent between all products, or at least between products of the same kind, as it\u0027s a useful way to\nstructure a frontend by for example filtering on the color level and only show sizes when navigating to the product detail.",
+        "description": "The LogicalLevel of a product defines the \u0027level\u0027 on which the product can be thought to sit in the hierarchy.\n\nFor example, the various different colors of a shirt can be thought to have LogicalLevel = \u0027color\u0027 and the actual SKU might have LogicalLevel = \u0027size\u0027 or \u0027sku\u0027.\n\nYou are free to use any value, but keep it consistent within a product family. This helps frontends group levels (e.g., filter on color and then show sizes on the detail page).",
         "type": "string",
         "required": true,
         "properties_id": null,
@@ -803,7 +947,7 @@
       {
         "name": "Products",
         "deprecation_notice": null,
-        "description": "The actual variations of the product on the specified LogicalLevel.",
+        "description": "The collection of products that represent the variations at the specified LogicalLevel.",
         "type": "array[object]",
         "required": true,
         "properties_id": "D",
@@ -812,7 +956,7 @@
       {
         "name": "Property",
         "deprecation_notice": null,
-        "description": "The property on which the product hierarchy varies. For example \u0027size\u0027 or \u0027color\u0027.",
+        "description": "The property on which the product hierarchy varies, e.g. \u0027size\u0027 or \u0027color\u0027.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -930,8 +1074,8 @@
       },
       {
         "name": "ImagesWillBeInheritedByChildren",
-        "deprecation_notice": null,
-        "description": "Determines whether or not any images set on a parent product will inherit down to its children. This defaults to true.\nCan be useful to give the root product of a hierarchy an ensemble of the available colors, without inheriting these images to the children.",
+        "deprecation_notice": "\n\n**Deprecated since 812:** ImagesWillBeInheritedByChildren is deprecated and will be removed in 2.0.856: Use MediaWillBeInheretedByChildren.\n\n**Will be removed in 838**",
+        "description": "Determines whether or not any images set on a parent product will inherit down to its children. This defaults to true.\nCan be useful to give the root product of a hierarchy an ensemble of the available colors, without inheriting these images to the children.\n\n**Deprecated since 812:** ImagesWillBeInheritedByChildren is deprecated and will be removed in 2.0.856: Use MediaWillBeInheretedByChildren.\n\n**Will be removed in 838**",
         "type": "boolean | null",
         "required": false,
         "properties_id": null,
@@ -942,6 +1086,15 @@
         "deprecation_notice": null,
         "description": "Set to \u0060True\u0060 to delete the product.",
         "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsFullHierarchy",
+        "deprecation_notice": null,
+        "description": "Controls hierarchy mutation behavior during import.\n\nWhen true (default): Performs a full hierarchy sync. Products that are children of this product in the database but not included in this import request will be detached (their parent relationship is removed).\n\nWhen false: Preserves existing parent-child relationships. Only explicitly included products have their hierarchy updated. Use this when doing partial updates to avoid accidentally breaking existing hierarchies.\n\nExample: If you have a shirt with 3 color variations and you re-import just one color to update its price, set IsFullHierarchy=false to prevent the other 2 colors from being detached.",
+        "type": "boolean | null",
         "required": false,
         "properties_id": null,
         "one_of": null
@@ -965,6 +1118,15 @@
         "one_of": null
       },
       {
+        "name": "MediaWillBeInheritedByChildren",
+        "deprecation_notice": null,
+        "description": "Determines whether or not any media set on a parent product will inherit down to its children. This defaults to true.\nCan be useful to give the root product of a hierarchy an ensemble of the available colors, without inheriting the media items to the children.",
+        "type": "boolean | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "Name",
         "deprecation_notice": null,
         "description": "The culture independent name of the product by which it can be recognized even if it otherwise does not have any content. Required unless Type = ContentOnly.\n\nThis string must be between 2 (incl) and 255 (incl) characters long.",
@@ -979,13 +1141,13 @@
         "description": "Optional field to set up the product requirements on a product.",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "J",
+        "properties_id": "K",
         "one_of": null
       },
       {
         "name": "RequireSerialNumberForSale",
         "deprecation_notice": null,
-        "description": "Optional field to indicate a serialnumber will be required when selling this product.",
+        "description": "Optional field to indicate a serialnumber will be required when selling this product.\n\n- Will set the serial number configuration of the product to the default configuration, but only if not already set\n- Use \u0060SerialNumberConfigurationID\u0060 for more control\n- Omitting both this field and \u0060SerialNumberConfigurationID\u0060 will remove any serial number configuration from the product",
         "type": "boolean | null",
         "required": false,
         "properties_id": null,
@@ -994,7 +1156,7 @@
       {
         "name": "SerialNumberConfigurationID",
         "deprecation_notice": null,
-        "description": "Optional field to indicate what kind of serial number requirements apply to this product.\n\nThis is the ID of a \u0060SerialNumberConfiguration\u0060",
+        "description": "Optional field to indicate what kind of serial number requirements apply to this product.\n\n- Will overwrite the serial number configuration of the product with this specified value, taking precedence over \u0060RequireSerialNumberForSale\u0060\n- Omitting both this field AND \u0060RequireSerialNumberForSale\u0060 will remove any serial number configuration from the product\n\nThis is the ID of a \u0060SerialNumberConfiguration\u0060",
         "type": "integer | null",
         "required": false,
         "properties_id": null,
@@ -1015,7 +1177,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "K",
+        "properties_id": "L",
         "one_of": null
       },
       {
@@ -1033,7 +1195,7 @@
         "description": "Defines what kind of product it is. If the product is part of a hierarchy, this is only relevant for the SKU level, all other levels will have type Configurable.",
         "type": "object | null",
         "required": false,
-        "properties_id": "L",
+        "properties_id": "M",
         "one_of": null
       },
       {
@@ -1042,7 +1204,7 @@
         "description": "An (optional) list of barcodes with the associated quantity and unit of measure for this product. A barcode should be globally unique and any duplicate barcodes will result in an error.",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "M",
+        "properties_id": "N",
         "one_of": null
       },
       {
@@ -1051,7 +1213,7 @@
         "description": "Defines the per-language value of the variation property for this product. For example, if the variation property is \u0060color\u0060 then the value could be \u0027red\u0027 or \u0027blue\u0027.\n\nIf the variation value isn\u0027t language sensitive then the LanguageID should be left null. If there isn\u0027t an item where LanguageID is null, all languages for which this product has content must have\na value for the variation property.",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "N",
+        "properties_id": "O",
         "one_of": null
       },
       {
@@ -1060,15 +1222,24 @@
         "description": "Defines the variations hierarchy of the product.",
         "type": "object | null",
         "required": false,
-        "properties_id": "O",
+        "properties_id": "P",
         "one_of": null
       }
     ],
     "B": [
       {
+        "name": "AllowEmptyMedia",
+        "deprecation_notice": null,
+        "description": "When true, and no media is supplied in the request, existing media on the product will be cleared.",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "CustomPropertyTypes",
         "deprecation_notice": null,
-        "description": "Custom properties used in product content can be defined by specifying their definition in this collection.",
+        "description": "Optional definitions for custom properties referenced in product content. Use this to create or configure properties on-the-fly.",
         "type": "array[object] | null",
         "required": false,
         "properties_id": "C",
@@ -1076,8 +1247,17 @@
       },
       {
         "name": "DownloadImagesInBackground",
+        "deprecation_notice": "\n\n**Deprecated since 812:** DownloadImagesInBackground is deprecated and will be removed in 2.0.856: Use DownloadMediaInBackground.\n\n**Will be removed in 838**",
+        "description": "Deprecated. When not specified or explicitly false, images are downloaded during the request and may extend execution time. Defaults to true.\n\n**Deprecated since 812:** DownloadImagesInBackground is deprecated and will be removed in 2.0.856: Use DownloadMediaInBackground.\n\n**Will be removed in 838**",
+        "type": "boolean | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "DownloadMediaInBackground",
         "deprecation_notice": null,
-        "description": "When not specified, or explicitly specified as \u0060false\u0060, images will be downloaded while you wait and may cause this service to run for a long time. Defaults to \u0060true\u0060.",
+        "description": "When not specified or explicitly false, media is downloaded during the request and may extend execution time. Defaults to true.",
         "type": "boolean | null",
         "required": false,
         "properties_id": null,
@@ -1085,8 +1265,8 @@
       },
       {
         "name": "ImageBlobCategory",
-        "deprecation_notice": null,
-        "description": "A string that identifies the category in which the ProductImages will be stored. It\u0027s optional, when not provided the SystemID will be used instead.\n\nThis string must be between 2 (incl) and 50 (incl) characters long.",
+        "deprecation_notice": "\n\n**Deprecated since 812:** ImageBlobCategory is deprecated and will be removed in 2.0.856: Use MediaBlobCategory.\n\n**Will be removed in 838**",
+        "description": "A string that identifies the storage category for product images. Optional; when omitted the SystemID is used instead.\n\nThis string must be between 2 (incl) and 50 (incl) characters long.\n\n**Deprecated since 812:** ImageBlobCategory is deprecated and will be removed in 2.0.856: Use MediaBlobCategory.\n\n**Will be removed in 838**",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -1102,9 +1282,18 @@
         "one_of": null
       },
       {
+        "name": "MediaBlobCategory",
+        "deprecation_notice": null,
+        "description": "A string that identifies the storage category for product media. Optional; when omitted the SystemID is used instead.\n\nThis string must be between 2 (incl) and 50 (incl) characters long.",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "Products",
         "deprecation_notice": null,
-        "description": "The list of products to create or update. If a product does not exist it\u0027s created and if a product with the same ID and SystemID already exists it is updated.",
+        "description": "The list of products to create or update. If a product does not exist it is created; if a product with the same ID and SystemID exists it is updated.",
         "type": "array[object]",
         "required": true,
         "properties_id": "D",
@@ -1113,7 +1302,7 @@
       {
         "name": "RootLogicalLevel",
         "deprecation_notice": null,
-        "description": "The LogicalLevel that will be assigned to the root level of a product hierarcy. If not specified a default value is used.\n\nSee ProductVariation.LogicalLevel for more information.",
+        "description": "The LogicalLevel that will be assigned to root products in the hierarchy. If not specified, a default value is used.\n\nSee ProductVariation.LogicalLevel for more information.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -1122,7 +1311,7 @@
       {
         "name": "SystemID",
         "deprecation_notice": null,
-        "description": "A string that identifies the system that was used to call this service. In combination with a product\u0027s ID, this is what uniquely identifies the product in EVA.\nThe SystemID must be the same for every call, if it\u0027s different from a previous call then new products will be created.\n\nThis string must be between 2 (incl) and 50 (incl) characters long.",
+        "description": "A string that identifies the upstream system calling this service. Together with a product\u0027s ID, this uniquely identifies the product in EVA.\nThe SystemID must remain consistent across calls; changing it will cause new products to be created instead of updated.\n\nThis string must be between 2 (incl) and 50 (incl) characters long.",
         "type": "string",
         "required": true,
         "properties_id": null,
@@ -1131,7 +1320,7 @@
       {
         "name": "Type",
         "deprecation_notice": null,
-        "description": "Determines the behavior of this service.\nPossible values:\n\n* \u00600\u0060 - Normal\n* \u00601\u0060 - ContentOnly\n* \u00602\u0060 - PreviewOnly",
+        "description": "Controls how the import is executed (normal, content-only, or preview-only).\nPossible values:\n\n* \u00600\u0060 - Normal\n* \u00601\u0060 - ContentOnly\n* \u00602\u0060 - PreviewOnly",
         "type": "integer",
         "required": false,
         "properties_id": null,
@@ -1140,14 +1329,14 @@
       {
         "name": "WaitForProductComposition",
         "deprecation_notice": null,
-        "description": "By default this service only blocks for the time that it takes to store the requested modifications. After that time, some processing still needs to happen before the product is fully ready and searchable, but this happens in the background.\nIf this parameter is specified as true then this service blocks for the full duration that it takes to complete the full process.",
+        "description": "By default the service only blocks long enough to store the requested modifications; additional processing continues asynchronously.\nWhen set to true, the service blocks until the full product composition process is complete.",
         "type": "boolean",
         "required": false,
         "properties_id": null,
         "one_of": null
       }
     ],
-    "Q": [
+    "R": [
       {
         "name": "Code",
         "deprecation_notice": null,
@@ -1194,7 +1383,7 @@
         "one_of": null
       }
     ],
-    "R": [
+    "S": [
       {
         "name": "ExternalIDs",
         "deprecation_notice": null,
@@ -1223,7 +1412,7 @@
         "one_of": null
       }
     ],
-    "S": [
+    "T": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -1243,11 +1432,11 @@
         "one_of": null
       }
     ],
-    "P": [
+    "Q": [
       {
         "name": "CreatedProductIDs",
         "deprecation_notice": null,
-        "description": "The EVA IDs of the products that were newly created by this call.\n\nThis is the ID of a \u0060Product\u0060",
+        "description": "The EVA IDs of products that were newly created by this call.\n\nThis is the ID of a \u0060Product\u0060",
         "type": "array[integer] | null",
         "required": false,
         "properties_id": null,
@@ -1259,7 +1448,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "Q",
+        "properties_id": "R",
         "one_of": null
       },
       {
@@ -1268,13 +1457,13 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "R",
+        "properties_id": "S",
         "one_of": null
       },
       {
         "name": "PreviewResult",
         "deprecation_notice": null,
-        "description": "If the Type of the request was PreviewOnly this property will contain the product structure that would be generated.",
+        "description": "If the request Type was PreviewOnly, this contains the generated product structure preview.",
         "type": "string | null",
         "required": false,
         "properties_id": null,
@@ -1283,16 +1472,16 @@
       {
         "name": "ProductMap",
         "deprecation_notice": null,
-        "description": "Contains an entry for every product mapping the input string ID to its internal EVA integer ID.",
+        "description": "Mapping entries from each input product ID to its internal EVA integer ID.",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "S",
+        "properties_id": "T",
         "one_of": null
       },
       {
         "name": "UpdatedProductIDs",
         "deprecation_notice": null,
-        "description": "The EVA IDs of the products were touched by this call.\n\nThis is the ID of a \u0060Product\u0060",
+        "description": "The EVA IDs of products that were updated by this call.\n\nThis is the ID of a \u0060Product\u0060",
         "type": "array[integer] | null",
         "required": false,
         "properties_id": null,

@@ -42,7 +42,7 @@
   "response_samples": [
     {
       "name": "200",
-      "sample": "{\n  \u0022AllowCurrencyConversion\u0022: true,\n  \u0022AllowMultipleCardsPayment\u0022: true,\n  \u0022AllowRefundWithoutTransaction\u0022: true,\n  \u0022CardType\u0022: \u0022string\u0022,\n  \u0022Data\u0022: \u0022any valid json value\u0022,\n  \u0022Handler\u0022: \u0022string\u0022,\n  \u0022Name\u0022: \u0022string\u0022,\n  \u0022UsageType\u0022: 2\n}"
+      "sample": "{\n  \u0022AllowCurrencyConversion\u0022: true,\n  \u0022AllowMultipleCardsPayment\u0022: true,\n  \u0022AllowRefundWithoutTransaction\u0022: true,\n  \u0022AllowRefunds\u0022: true,\n  \u0022CardNumberValidationRegex\u0022: \u0022string\u0022,\n  \u0022CardType\u0022: \u0022string\u0022,\n  \u0022Data\u0022: {},\n  \u0022Handler\u0022: \u0022Discount\u0022,\n  \u0022Name\u0022: \u0022string\u0022,\n  \u0022UsageType\u0022: 2\n}"
     },
     {
       "name": "400",
@@ -68,7 +68,168 @@
         "one_of": null
       }
     ],
-    "D": [
+    "D": [],
+    "E": [],
+    "F": [
+      {
+        "name": "DiscountID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "H": [
+      {
+        "name": "ActivateValueMax",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "float | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ActivateValueMin",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "float | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ActivateValues",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[float] | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "DateOfExpiration",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "datetime | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "DateOfPurchase",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "datetime | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsExpired",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "PurchaseValueMax",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "float | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "PurchaseValueMin",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "float | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Refundable",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Reloadable",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "G": [
+      {
+        "name": "BaseUrl",
+        "deprecation_notice": "\n\n**Deprecated since 812:** BaseUrl is deprecated and will be removed in 2.0.856: Use endpoint configurations..\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** BaseUrl is deprecated and will be removed in 2.0.856: Use endpoint configurations..\n\n**Will be removed in 838**",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "BusinessRules",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "H",
+        "one_of": null
+      },
+      {
+        "name": "EndPointConfigurationID",
+        "deprecation_notice": null,
+        "description": "This is the ID of a \u0060EndpointConfiguration\u0060\n\n**Required since 812:** Field EndPointConfigurationID is required and will be enforced as such in 2.0.856.\n\n**Will be enforced in 838**",
+        "type": "integer | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Password",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Password is deprecated and will be removed in 2.0.856: Use endpoint configurations..\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Password is deprecated and will be removed in 2.0.856: Use endpoint configurations..\n\n**Will be removed in 838**",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Timeout",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Timeout is deprecated and will be removed in 2.0.856: Use endpoint configurations..\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Timeout is deprecated and will be removed in 2.0.856: Use endpoint configurations..\n\n**Will be removed in 838**",
+        "type": "integer | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Username",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Username is deprecated and will be removed in 2.0.856: Use endpoint configurations..\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Username is deprecated and will be removed in 2.0.856: Use endpoint configurations..\n\n**Will be removed in 838**",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "I": [
       {
         "name": "Code",
         "deprecation_notice": null,
@@ -115,7 +276,7 @@
         "one_of": null
       }
     ],
-    "E": [
+    "J": [
       {
         "name": "ExternalIDs",
         "deprecation_notice": null,
@@ -173,6 +334,24 @@
         "one_of": null
       },
       {
+        "name": "AllowRefunds",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": true,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "CardNumberValidationRegex",
+        "deprecation_notice": null,
+        "description": "Regular expression pattern to validate card numbers (e.g., \u0027^6064\u0027 requires gift card numbers starting with 6064)\n\nThis string must be between 0 (incl) and 255 (incl) characters long.",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "CardType",
         "deprecation_notice": null,
         "description": "Some gift card handlers are able to handle multiple types of cards. With this property you can set the card the handler should work with.",
@@ -185,10 +364,23 @@
         "name": "Data",
         "deprecation_notice": null,
         "description": "",
-        "type": "any | null",
+        "type": "one-of[object] | null",
         "required": false,
-        "properties_id": null,
-        "one_of": null
+        "properties_id": "D",
+        "one_of": [
+          {
+            "name": "NoGiftCardData",
+            "properties_id": "E"
+          },
+          {
+            "name": "DiscountGiftCardData",
+            "properties_id": "F"
+          },
+          {
+            "name": "APIGiftCardData",
+            "properties_id": "G"
+          }
+        ]
       },
       {
         "name": "Error",
@@ -196,13 +388,13 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "D",
+        "properties_id": "I",
         "one_of": null
       },
       {
         "name": "Handler",
         "deprecation_notice": null,
-        "description": "",
+        "description": "Possible values:\n\n* \u0060Discount\u0060\n* \u0060AdyenStoredValue\u0060\n* \u0060APIGIFTCARD\u0060\n* \u0060EPAY\u0060\n* \u0060FASHIONCHEQUE\u0060\n* \u0060INTERSOLVE\u0060",
         "type": "string",
         "required": true,
         "properties_id": null,
@@ -214,7 +406,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "E",
+        "properties_id": "J",
         "one_of": null
       },
       {

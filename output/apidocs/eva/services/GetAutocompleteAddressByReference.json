@@ -30,12 +30,12 @@
   "request_samples": [
     {
       "name": "JSON",
-      "sample": "{\n  \u0022Suggestion\u0022: {\n    \u0022Description\u0022: \u0022string\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022Reference\u0022: \u0022string\u0022\n  }\n}",
+      "sample": "{\n  \u0022LanguageID\u0022: \u0022string\u0022,\n  \u0022Suggestion\u0022: {\n    \u0022Description\u0022: \u0022string\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022Reference\u0022: \u0022string\u0022\n  }\n}",
       "syntax": "json"
     },
     {
       "name": "CURL",
-      "sample": "curl -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022EVA-User-Agent: MyFirstUserAgent/1.0.0\u0022 \\\n  -H \u0022Authorization: Bearer \u003Ctoken\u003E\u0022 \\\n  --data \u0027{\n  \u0022Suggestion\u0022: {\n    \u0022Description\u0022: \u0022string\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022Reference\u0022: \u0022string\u0022\n  }\n}\u0027 \\\n  https://euw.acme.test.eva-online.cloud/message/GetAutocompleteAddressByReference",
+      "sample": "curl -H \u0022Content-Type: application/json\u0022 \\\n  -H \u0022EVA-User-Agent: MyFirstUserAgent/1.0.0\u0022 \\\n  -H \u0022Authorization: Bearer \u003Ctoken\u003E\u0022 \\\n  --data \u0027{\n  \u0022LanguageID\u0022: \u0022string\u0022,\n  \u0022Suggestion\u0022: {\n    \u0022Description\u0022: \u0022string\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022Reference\u0022: \u0022string\u0022\n  }\n}\u0027 \\\n  https://euw.acme.test.eva-online.cloud/message/GetAutocompleteAddressByReference",
       "syntax": "bash"
     }
   ],
@@ -87,6 +87,15 @@
       }
     ],
     "B": [
+      {
+        "name": "LanguageID",
+        "deprecation_notice": null,
+        "description": "The preferred language in which to return results.\n\nThis is the ID of a \u0060Language\u0060",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
       {
         "name": "Suggestion",
         "deprecation_notice": null,
@@ -344,8 +353,8 @@
       },
       {
         "name": "Region",
-        "deprecation_notice": "\n\n**Deprecated since 799:** Region is deprecated and will be removed in 2.0.815: Use a less generic property - \u0060District\u0060, \u0060Subdistrict\u0060 or \u0060State\u0060 (or future options \u0060Municipality\u0060 or \u0060Province\u0060).\n\n**Will be removed in 807**",
-        "description": "**Deprecated since 799:** Region is deprecated and will be removed in 2.0.815: Use a less generic property - \u0060District\u0060, \u0060Subdistrict\u0060 or \u0060State\u0060 (or future options \u0060Municipality\u0060 or \u0060Province\u0060).\n\n**Will be removed in 807**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Region is deprecated and will be removed in 2.0.856: Use a less generic property - \u0060District\u0060, \u0060Subdistrict\u0060 or \u0060State\u0060 (or future options \u0060Municipality\u0060 or \u0060Province\u0060).\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Region is deprecated and will be removed in 2.0.856: Use a less generic property - \u0060District\u0060, \u0060Subdistrict\u0060 or \u0060State\u0060 (or future options \u0060Municipality\u0060 or \u0060Province\u0060).\n\n**Will be removed in 838**",
         "type": "object | null",
         "required": false,
         "properties_id": "H",
@@ -362,8 +371,8 @@
       },
       {
         "name": "Street",
-        "deprecation_notice": "\n\n**Deprecated since 799:** Street is deprecated and will be removed in 2.0.815: Use \u0060Address1\u0060 instead.\n\n**Will be removed in 807**",
-        "description": "**Deprecated since 799:** Street is deprecated and will be removed in 2.0.815: Use \u0060Address1\u0060 instead.\n\n**Will be removed in 807**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Street is deprecated and will be removed in 2.0.856: Use \u0060Address1\u0060 instead.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Street is deprecated and will be removed in 2.0.856: Use \u0060Address1\u0060 instead.\n\n**Will be removed in 838**",
         "type": "object | null",
         "required": false,
         "properties_id": "H",

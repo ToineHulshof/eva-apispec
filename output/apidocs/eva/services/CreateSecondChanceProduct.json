@@ -182,8 +182,8 @@
       },
       {
         "name": "StockLabelID",
-        "deprecation_notice": "\n\n**Deprecated since 791:** StockLabelID is deprecated and will be removed in 2.0.823: Use \u0060SourceStockLabelID\u0060..\n\n**Will be removed in 807**",
-        "description": "The stock label of the original product. If unspecified, defaults to \u0060Damaged\u0060.\n\nThis is the ID of a \u0060StockLabel\u0060\n\n**Deprecated since 791:** StockLabelID is deprecated and will be removed in 2.0.823: Use \u0060SourceStockLabelID\u0060..\n\n**Will be removed in 807**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** StockLabelID is deprecated and will be removed in 2.0.856: Use \u0060SourceStockLabelID\u0060..\n\n**Will be removed in 838**",
+        "description": "The stock label of the original product. If unspecified, defaults to \u0060Damaged\u0060.\n\nThis is the ID of a \u0060StockLabel\u0060\n\n**Deprecated since 812:** StockLabelID is deprecated and will be removed in 2.0.856: Use \u0060SourceStockLabelID\u0060..\n\n**Will be removed in 838**",
         "type": "integer | null",
         "required": false,
         "properties_id": null,

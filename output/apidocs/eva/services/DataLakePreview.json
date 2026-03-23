@@ -56,7 +56,7 @@
   "response_samples": [
     {
       "name": "200",
-      "sample": "{\n  \u0022FinancialPeriod\u0022: {\n    \u0022AutoClosed\u0022: true,\n    \u0022AutoOpened\u0022: true,\n    \u0022CashCorrections\u0022: [\n      {\n        \u0022Amount\u0022: 123.456,\n        \u0022CashTransactionLedger\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022CashJournalID\u0022: \u0022string\u0022,\n          \u0022CreatedByID\u0022: \u0022string\u0022,\n          \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n          \u0022CurrencyID\u0022: \u0022string\u0022,\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022Details\u0022: {\n            \u0022BankNotes\u0022: {\n              \u0022key\u0022: 123\n            },\n            \u0022CashDeposits\u0022: {\n              \u0022key\u0022: 123.456\n            },\n            \u0022Coins\u0022: {\n              \u0022key\u0022: 123\n            }\n          },\n          \u0022GroupID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022PaymentTransactionID\u0022: \u0022string\u0022,\n          \u0022Type\u0022: \u0022string\u0022\n        },\n        \u0022CashTransactionLedgerID\u0022: \u0022string\u0022,\n        \u0022FinancialPeriodID\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022Remark\u0022: \u0022string\u0022,\n        \u0022Type\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022CashDeposits\u0022: [\n      {\n        \u0022Amount\u0022: 123.456,\n        \u0022CashTransactionLedger\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022CashJournalID\u0022: \u0022string\u0022,\n          \u0022CreatedByID\u0022: \u0022string\u0022,\n          \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n          \u0022CurrencyID\u0022: \u0022string\u0022,\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022Details\u0022: {\n            \u0022BankNotes\u0022: {\n              \u0022key\u0022: 123\n            },\n            \u0022CashDeposits\u0022: {\n              \u0022key\u0022: 123.456\n            },\n            \u0022Coins\u0022: {\n              \u0022key\u0022: 123\n            }\n          },\n          \u0022GroupID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022PaymentTransactionID\u0022: \u0022string\u0022,\n          \u0022Type\u0022: \u0022string\u0022\n        },\n        \u0022CashTransactionLedgerID\u0022: \u0022string\u0022,\n        \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022Details\u0022: {\n          \u0022BankNotes\u0022: {\n            \u0022key\u0022: 123\n          },\n          \u0022Coins\u0022: {\n            \u0022key\u0022: 123\n          }\n        },\n        \u0022DeviceID\u0022: \u0022string\u0022,\n        \u0022Number\u0022: \u0022string\u0022,\n        \u0022PaymentType\u0022: {\n          \u0022BackendRelationID\u0022: \u0022string\u0022,\n          \u0022CashJournalMethod\u0022: \u0022string\u0022,\n          \u0022Category\u0022: \u0022string\u0022,\n          \u0022Code\u0022: \u0022string\u0022,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022PaymentMethodID\u0022: \u0022string\u0022\n        },\n        \u0022PaymentTypeID\u0022: \u0022string\u0022,\n        \u0022Status\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022CashJournals\u0022: [\n      {\n        \u0022ClosingAmount\u0022: 123.456,\n        \u0022ClosingDetailsObject\u0022: {\n          \u0022BankNotes\u0022: {\n            \u0022key\u0022: 123\n          },\n          \u0022CashDeposits\u0022: {\n            \u0022key\u0022: 123.456\n          },\n          \u0022Coins\u0022: {\n            \u0022key\u0022: 123\n          },\n          \u0022Data\u0022: {\n            \u0022key\u0022: \u0022any valid json value\u0022\n          }\n        },\n        \u0022ClosingDeviation\u0022: 123.456,\n        \u0022ClosingTime\u0022: \u00222025-01-01\u0022,\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022DeviceID\u0022: \u0022string\u0022,\n        \u0022DeviceName\u0022: \u0022string\u0022,\n        \u0022DeviceTypeID\u0022: \u0022string\u0022,\n        \u0022FinancialPeriodID\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022OpeningAmount\u0022: 123.456,\n        \u0022OpeningDetailsObject\u0022: {\n          \u0022BankNotes\u0022: {\n            \u0022key\u0022: 123\n          },\n          \u0022CashDeposits\u0022: {\n            \u0022key\u0022: 123.456\n          },\n          \u0022Coins\u0022: {\n            \u0022key\u0022: 123\n          }\n        },\n        \u0022OpeningDeviation\u0022: 123.456,\n        \u0022OpeningTime\u0022: \u00222025-01-01\u0022,\n        \u0022PaymentType\u0022: {\n          \u0022BackendRelationID\u0022: \u0022string\u0022,\n          \u0022CashJournalMethod\u0022: \u0022string\u0022,\n          \u0022Category\u0022: \u0022string\u0022,\n          \u0022Code\u0022: \u0022string\u0022,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022PaymentMethodID\u0022: \u0022string\u0022\n        },\n        \u0022PaymentTypeID\u0022: \u0022string\u0022,\n        \u0022PreviousCashJournalID\u0022: \u0022string\u0022,\n        \u0022StationID\u0022: \u0022string\u0022,\n        \u0022Type\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022ClosingTime\u0022: \u00222025-01-01\u0022,\n    \u0022CostPriceCurrencyID\u0022: \u0022string\u0022,\n    \u0022CurrencyID\u0022: \u0022string\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022Employees\u0022: [\n      {\n        \u0022CommissionShare\u0022: 123.456,\n        \u0022UserID\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022Expenses\u0022: [\n      {\n        \u0022Amount\u0022: 123.456,\n        \u0022BlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n        \u0022CashTransactionLedgerID\u0022: \u0022string\u0022,\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022FinancialPeriodID\u0022: \u0022string\u0022,\n        \u0022TaxCodeID\u0022: \u0022string\u0022,\n        \u0022TaxRate\u0022: 123.456,\n        \u0022Type\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022TypeID\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022FinancialPeriodAuditID\u0022: \u0022string\u0022,\n    \u0022FinancialPeriodNumber\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022LoyaltyProgram\u0022: {\n      \u0022ID\u0022: \u0022string\u0022\n    },\n    \u0022OpenedByUser\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022BackendSystemID\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CustomFields\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022CustomFieldID\u0022: 123,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Value\u0022: \u0022any valid json value\u0022\n        }\n      ],\n      \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n      \u0022EmailAddress\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022FiscalID\u0022: \u0022string\u0022,\n      \u0022FullName\u0022: \u0022string\u0022,\n      \u0022Gender\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LanguageID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Nickname\u0022: \u0022string\u0022,\n      \u0022PhoneNumber\u0022: \u0022string\u0022,\n      \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n      \u0022Salutation\u0022: \u0022string\u0022\n    },\n    \u0022OpeningTime\u0022: \u00222025-01-01\u0022,\n    \u0022OrganizationUnitID\u0022: \u0022string\u0022,\n    \u0022PreviousFinancialPeriodID\u0022: \u0022string\u0022,\n    \u0022Status\u0022: \u0022string\u0022,\n    \u0022User\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022BackendSystemID\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CustomFields\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022CustomFieldID\u0022: 123,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Value\u0022: \u0022any valid json value\u0022\n        }\n      ],\n      \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n      \u0022EmailAddress\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022FiscalID\u0022: \u0022string\u0022,\n      \u0022FullName\u0022: \u0022string\u0022,\n      \u0022Gender\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LanguageID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Nickname\u0022: \u0022string\u0022,\n      \u0022PhoneNumber\u0022: \u0022string\u0022,\n      \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n      \u0022Salutation\u0022: \u0022string\u0022\n    }\n  },\n  \u0022Order\u0022: {\n    \u0022Amounts\u0022: {\n      \u0022CurrencyID\u0022: \u0022string\u0022,\n      \u0022Discounts\u0022: {\n        \u0022PerDiscount\u0022: [\n          {\n            \u0022Discount\u0022: {\n              \u0022Description\u0022: \u0022string\u0022\n            },\n            \u0022DiscountID\u0022: 123,\n            \u0022Total\u0022: 123.456\n          }\n        ],\n        \u0022TotalDiscountAmount\u0022: 123.456\n      },\n      \u0022Open\u0022: {\n        \u0022Capturable\u0022: 123.456,\n        \u0022InTax\u0022: 123.456,\n        \u0022PendingInTax\u0022: 123.456\n      },\n      \u0022OpenAmountIsZero\u0022: true,\n      \u0022Paid\u0022: {\n        \u0022Amount\u0022: 123.456,\n        \u0022Captured\u0022: 123.456,\n        \u0022Pending\u0022: 123.456\n      },\n      \u0022SubtotalExDiscount\u0022: 123.456,\n      \u0022Taxes\u0022: [\n        {\n          \u0022Amount\u0022: 123.456,\n          \u0022Base\u0022: 123.456,\n          \u0022Rate\u0022: 123.456,\n          \u0022Total\u0022: 123.456\n        }\n      ],\n      \u0022Total\u0022: {\n        \u0022Amount\u0022: 123.456,\n        \u0022InTax\u0022: 123.456,\n        \u0022Tax\u0022: 123.456\n      },\n      \u0022Types\u0022: {\n        \u0022key\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        }\n      },\n      \u0022UnroundedTotal\u0022: {\n        \u0022Amount\u0022: 123.456,\n        \u0022InTax\u0022: 123.456,\n        \u0022Tax\u0022: 123.456\n      }\n    },\n    \u0022BackendID\u0022: \u0022string\u0022,\n    \u0022BackendSystemID\u0022: \u0022string\u0022,\n    \u0022BillingAddress\u0022: {\n      \u0022Address1\u0022: \u0022string\u0022,\n      \u0022Address2\u0022: \u0022string\u0022,\n      \u0022AddressedTo\u0022: \u0022string\u0022,\n      \u0022City\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022District\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022HouseNumber\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Region\u0022: \u0022string\u0022,\n      \u0022State\u0022: \u0022string\u0022,\n      \u0022Street\u0022: \u0022string\u0022,\n      \u0022Subdistrict\u0022: \u0022string\u0022,\n      \u0022ZipCode\u0022: \u0022string\u0022\n    },\n    \u0022BoardingPass\u0022: {\n      \u0022AirlineCompanyCode\u0022: \u0022string\u0022,\n      \u0022Cabin\u0022: \u0022string\u0022,\n      \u0022CheckinSequence\u0022: 123,\n      \u0022Data\u0022: \u0022string\u0022,\n      \u0022DataLength\u0022: \u0022string\u0022,\n      \u0022DepartingAirportCode\u0022: \u0022string\u0022,\n      \u0022DestinationAirportCode\u0022: \u0022string\u0022,\n      \u0022Flight\u0022: {\n        \u0022AirlineCompanyCode\u0022: \u0022string\u0022,\n        \u0022DestinationAirportCode\u0022: \u0022string\u0022,\n        \u0022DestinationCode\u0022: 123,\n        \u0022FlightNumber\u0022: \u0022string\u0022,\n        \u0022FromDate\u0022: \u00222025-01-01\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022OrganizationUnitID\u0022: \u0022string\u0022,\n        \u0022ToDate\u0022: \u00222025-01-01\u0022\n      },\n      \u0022FlightNumber\u0022: 123,\n      \u0022Format\u0022: \u0022string\u0022,\n      \u0022JulianDate\u0022: 123,\n      \u0022Name\u0022: \u0022string\u0022,\n      \u0022NumberOfLegs\u0022: 123,\n      \u0022OperatingCarrierPNRCode\u0022: \u0022string\u0022,\n      \u0022Seat\u0022: \u0022string\u0022,\n      \u0022Status\u0022: 123,\n      \u0022Success\u0022: true,\n      \u0022Type\u0022: \u0022string\u0022\n    },\n    \u0022CaptureDate\u0022: \u00222025-01-01\u0022,\n    \u0022CompletionDate\u0022: \u00222025-01-01\u0022,\n    \u0022CreatedByID\u0022: \u0022string\u0022,\n    \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n    \u0022CurrencyID\u0022: \u0022string\u0022,\n    \u0022CustomFields\u0022: [\n      {\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022CustomFieldID\u0022: 123,\n        \u0022Name\u0022: \u0022string\u0022,\n        \u0022Value\u0022: \u0022any valid json value\u0022\n      }\n    ],\n    \u0022CustomStatus\u0022: [\n      \u0022string\u0022\n    ],\n    \u0022Customer\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022BackendSystemID\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CustomFields\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022CustomFieldID\u0022: 123,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Value\u0022: \u0022any valid json value\u0022\n        }\n      ],\n      \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n      \u0022EmailAddress\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022FiscalID\u0022: \u0022string\u0022,\n      \u0022FullName\u0022: \u0022string\u0022,\n      \u0022Gender\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LanguageID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Nickname\u0022: \u0022string\u0022,\n      \u0022PhoneNumber\u0022: \u0022string\u0022,\n      \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n      \u0022Salutation\u0022: \u0022string\u0022\n    },\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022Description\u0022: \u0022string\u0022,\n    \u0022FiscalID\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022GiftWrapping\u0022: {\n      \u0022GreetingCardProductID\u0022: \u0022string\u0022,\n      \u0022Message\u0022: \u0022string\u0022,\n      \u0022WrapIndividually\u0022: true,\n      \u0022WrapOrder\u0022: true,\n      \u0022Wraps\u0022: [\n        {\n          \u0022GreetingCardProductID\u0022: \u0022string\u0022,\n          \u0022Lines\u0022: [\n            {\n              \u0022OrderLineID\u0022: \u0022string\u0022,\n              \u0022Quantity\u0022: 123\n            }\n          ],\n          \u0022Message\u0022: \u0022string\u0022\n        }\n      ]\n    },\n    \u0022GroupID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n    \u0022HasProductSubscriptions\u0022: true,\n    \u0022HasReturns\u0022: true,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022InvoiceDate\u0022: \u00222025-01-01\u0022,\n    \u0022IsCompleted\u0022: true,\n    \u0022IsPaid\u0022: true,\n    \u0022IsShipped\u0022: true,\n    \u0022IsTaxExempt\u0022: true,\n    \u0022LastModificationTime\u0022: \u00222025-01-01\u0022,\n    \u0022Lines\u0022: [\n      {\n        \u0022Amounts\u0022: {\n          \u0022DiscountAmount\u0022: 123.456,\n          \u0022NetTotalAmount\u0022: 123.456,\n          \u0022NetTotalAmountInTax\u0022: 123.456,\n          \u0022NetTotalTaxAmount\u0022: 123.456,\n          \u0022TotalAmount\u0022: 123.456,\n          \u0022TotalAmountInTax\u0022: 123.456,\n          \u0022TotalTaxAmount\u0022: 123.456\n        },\n        \u0022AvailabilityStatus\u0022: \u0022string\u0022,\n        \u0022CostPriceCurrencyID\u0022: \u0022string\u0022,\n        \u0022CreatedByID\u0022: \u0022string\u0022,\n        \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022CustomFields\u0022: [\n          {\n            \u0022BackendID\u0022: \u0022string\u0022,\n            \u0022CustomFieldID\u0022: 123,\n            \u0022Name\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022any valid json value\u0022\n          }\n        ],\n        \u0022CustomOrderLineType\u0022: \u0022string\u0022,\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022DiscountAmount\u0022: 123.456,\n        \u0022DiscountCouponCode\u0022: \u0022string\u0022,\n        \u0022DiscountCouponID\u0022: \u0022string\u0022,\n        \u0022DiscountID\u0022: \u0022string\u0022,\n        \u0022Discounts\u0022: [\n          {\n            \u0022Amount\u0022: 123.456,\n            \u0022CompliancyRule\u0022: \u0022string\u0022,\n            \u0022DiscountBackendID\u0022: \u0022string\u0022,\n            \u0022DiscountID\u0022: \u0022string\u0022,\n            \u0022DiscountOrderLineID\u0022: \u0022string\u0022\n          }\n        ],\n        \u0022ExpectedAvailabilityDate\u0022: \u00222025-01-01\u0022,\n        \u0022FulfillmentOrganizationUnitID\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022IsCancelled\u0022: true,\n        \u0022IsCarryOut\u0022: true,\n        \u0022IsCompleted\u0022: true,\n        \u0022IsDelivery\u0022: true,\n        \u0022IsExported\u0022: true,\n        \u0022IsInvoiced\u0022: true,\n        \u0022IsOrdered\u0022: true,\n        \u0022IsReservation\u0022: true,\n        \u0022IsShipped\u0022: true,\n        \u0022LastModificationTime\u0022: \u00222025-01-01\u0022,\n        \u0022OriginalAmountInTax\u0022: 123.456,\n        \u0022OriginalUnitPrice\u0022: 123.456,\n        \u0022OriginalUnitPriceInTax\u0022: 123.456,\n        \u0022ParentID\u0022: \u0022string\u0022,\n        \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n        \u0022Product\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022BackendSystemID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022ManufacturerID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022ProductRequirements\u0022: [\n          {\n            \u0022ID\u0022: \u0022string\u0022,\n            \u0022Name\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022any valid json value\u0022\n          }\n        ],\n        \u0022ProductVariationLines\u0022: [\n          {\n            \u0022ID\u0022: \u0022string\u0022,\n            \u0022Label\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          }\n        ],\n        \u0022QuantityCancelled\u0022: 123,\n        \u0022QuantityCommitted\u0022: 123,\n        \u0022QuantityDelivered\u0022: 123,\n        \u0022QuantityExported\u0022: 123,\n        \u0022QuantityInvoiced\u0022: 123,\n        \u0022QuantityOrdered\u0022: 123,\n        \u0022QuantityReserved\u0022: 123,\n        \u0022QuantityShipped\u0022: 123,\n        \u0022Reference\u0022: \u0022string\u0022,\n        \u0022Remark\u0022: \u0022string\u0022,\n        \u0022RequestedDate\u0022: \u00222025-01-01\u0022,\n        \u0022ReturnReason\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022ReturnedOrderID\u0022: \u0022string\u0022,\n        \u0022ReturnedOrderLineID\u0022: \u0022string\u0022,\n        \u0022SerialNumber\u0022: \u0022string\u0022,\n        \u0022ShippingMethod\u0022: \u0022string\u0022,\n        \u0022SoldBy\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022BackendSystemID\u0022: \u0022string\u0022,\n          \u0022CountryID\u0022: \u0022string\u0022,\n          \u0022CustomFields\u0022: [\n            {\n              \u0022BackendID\u0022: \u0022string\u0022,\n              \u0022CustomFieldID\u0022: 123,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Value\u0022: \u0022any valid json value\u0022\n            }\n          ],\n          \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n          \u0022EmailAddress\u0022: \u0022string\u0022,\n          \u0022FirstName\u0022: \u0022string\u0022,\n          \u0022FiscalID\u0022: \u0022string\u0022,\n          \u0022FullName\u0022: \u0022string\u0022,\n          \u0022Gender\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022LanguageID\u0022: \u0022string\u0022,\n          \u0022LastName\u0022: \u0022string\u0022,\n          \u0022Nickname\u0022: \u0022string\u0022,\n          \u0022PhoneNumber\u0022: \u0022string\u0022,\n          \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n          \u0022Salutation\u0022: \u0022string\u0022\n        },\n        \u0022TaxCodeID\u0022: \u0022string\u0022,\n        \u0022TaxDetails\u0022: [\n          {\n            \u0022Amount\u0022: 123.456,\n            \u0022Name\u0022: \u0022string\u0022,\n            \u0022Rate\u0022: 123.456,\n            \u0022Type\u0022: \u0022string\u0022\n          }\n        ],\n        \u0022TaxRate\u0022: 123.456,\n        \u0022TotalQuantityToShip\u0022: 123,\n        \u0022Type\u0022: \u0022string\u0022,\n        \u0022UnitCost\u0022: 123.456,\n        \u0022UnitPrice\u0022: 123.456,\n        \u0022UnitPriceBeforeCorrection\u0022: 123.456,\n        \u0022UnitPriceBeforeCorrectionInTax\u0022: 123.456,\n        \u0022UnitPriceCorrectionReason\u0022: {\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022UnitPriceInTax\u0022: 123.456,\n        \u0022UnitPricePriceListID\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022LoyaltyProgramID\u0022: \u0022string\u0022,\n    \u0022OrderCustomStatus\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022Description\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022OrderCustomType\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022Description\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022OrderLedgers\u0022: [\n      {\n        \u0022CreatedBy\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022BackendSystemID\u0022: \u0022string\u0022,\n          \u0022CountryID\u0022: \u0022string\u0022,\n          \u0022CustomFields\u0022: [\n            {\n              \u0022BackendID\u0022: \u0022string\u0022,\n              \u0022CustomFieldID\u0022: 123,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Value\u0022: \u0022any valid json value\u0022\n            }\n          ],\n          \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n          \u0022EmailAddress\u0022: \u0022string\u0022,\n          \u0022FirstName\u0022: \u0022string\u0022,\n          \u0022FiscalID\u0022: \u0022string\u0022,\n          \u0022FullName\u0022: \u0022string\u0022,\n          \u0022Gender\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022LanguageID\u0022: \u0022string\u0022,\n          \u0022LastName\u0022: \u0022string\u0022,\n          \u0022Nickname\u0022: \u0022string\u0022,\n          \u0022PhoneNumber\u0022: \u0022string\u0022,\n          \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n          \u0022Salutation\u0022: \u0022string\u0022\n        },\n        \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022ID\u0022: 123,\n        \u0022NewValue\u0022: \u0022string\u0022,\n        \u0022OldValue\u0022: \u0022string\u0022,\n        \u0022OrderLineID\u0022: \u0022string\u0022,\n        \u0022Type\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022OrderProperties\u0022: [\n      \u0022string\u0022\n    ],\n    \u0022OriginatingOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022PaymentDate\u0022: \u00222025-01-01\u0022,\n    \u0022Payments\u0022: [\n      {\n        \u0022Amount\u0022: 123.456,\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022BackendRelationID\u0022: \u0022string\u0022,\n        \u0022BackendSystemID\u0022: \u0022string\u0022,\n        \u0022CardID\u0022: \u0022string\u0022,\n        \u0022CardNumber\u0022: \u0022string\u0022,\n        \u0022Code\u0022: \u0022string\u0022,\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022CustomFields\u0022: [\n          {\n            \u0022BackendID\u0022: \u0022string\u0022,\n            \u0022CustomFieldID\u0022: 123,\n            \u0022Name\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022any valid json value\u0022\n          }\n        ],\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022DeviceID\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022IsConfirmed\u0022: true,\n        \u0022IsRefund\u0022: true,\n        \u0022PaidAmount\u0022: 123.456,\n        \u0022PaymentDate\u0022: \u00222025-01-01\u0022,\n        \u0022PaymentMethod\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022PickupOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022PlacementDate\u0022: \u00222025-01-01\u0022,\n    \u0022Properties\u0022: 123,\n    \u0022Remark\u0022: \u0022string\u0022,\n    \u0022ShipFromOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022ShipToOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n    \u0022ShippingAddress\u0022: {\n      \u0022Address1\u0022: \u0022string\u0022,\n      \u0022Address2\u0022: \u0022string\u0022,\n      \u0022AddressedTo\u0022: \u0022string\u0022,\n      \u0022City\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022District\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022HouseNumber\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Region\u0022: \u0022string\u0022,\n      \u0022State\u0022: \u0022string\u0022,\n      \u0022Street\u0022: \u0022string\u0022,\n      \u0022Subdistrict\u0022: \u0022string\u0022,\n      \u0022ZipCode\u0022: \u0022string\u0022\n    },\n    \u0022SoldFromOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022SoldToOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022Status\u0022: \u0022string\u0022,\n    \u0022TotalAmountIncludingTaxes\u0022: 123.456,\n    \u0022TotalAmountInvoiced\u0022: 123.456,\n    \u0022TotalItems\u0022: 123,\n    \u0022TotalLineCount\u0022: 123,\n    \u0022Type\u0022: \u0022string\u0022,\n    \u0022UserAgent\u0022: \u0022string\u0022,\n    \u0022VatNumber\u0022: \u0022string\u0022\n  },\n  \u0022StockMutation\u0022: {\n    \u0022AutomaticCorrectionQuantity\u0022: 123,\n    \u0022BackendID\u0022: \u0022string\u0022,\n    \u0022BackendSystemID\u0022: \u0022string\u0022,\n    \u0022CreatedByID\u0022: \u0022string\u0022,\n    \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022DestinationStockLabel\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022Ledgers\u0022: [\n      {\n        \u0022Quantity\u0022: 123,\n        \u0022StockLabel\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022OrderLineID\u0022: \u0022string\u0022,\n    \u0022OrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022Product\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022BackendSystemID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LedgerClassID\u0022: \u0022string\u0022,\n      \u0022ManufacturerID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022Quantity\u0022: 123,\n    \u0022Reason\u0022: \u0022string\u0022,\n    \u0022Remark\u0022: \u0022string\u0022,\n    \u0022SerialNumber\u0022: \u0022string\u0022,\n    \u0022SourceStockLabel\u0022: \u0022string\u0022,\n    \u0022UnitCost\u0022: 123.456\n  },\n  \u0022Survey\u0022: {\n    \u0022BackendID\u0022: \u0022string\u0022,\n    \u0022ClosingRemarkBlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n    \u0022ClosingRemarkMessage\u0022: \u0022string\u0022,\n    \u0022ClosingRemarkTitle\u0022: \u0022string\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022Description\u0022: \u0022string\u0022,\n    \u0022EndDate\u0022: \u00222025-01-01\u0022,\n    \u0022FirstQuestionID\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022IntroductionBlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n    \u0022IntroductionMessage\u0022: \u0022string\u0022,\n    \u0022IntroductionTitle\u0022: \u0022string\u0022,\n    \u0022IsDeactivated\u0022: true,\n    \u0022IsSystem\u0022: true,\n    \u0022LastDeactivatedByID\u0022: \u0022string\u0022,\n    \u0022LastDeactivatedOn\u0022: \u00222025-01-01\u0022,\n    \u0022LastPublishedByID\u0022: \u0022string\u0022,\n    \u0022LastPublishedOn\u0022: \u00222025-01-01\u0022,\n    \u0022Name\u0022: \u0022string\u0022,\n    \u0022OrganizationUnitSetID\u0022: \u0022string\u0022,\n    \u0022Questions\u0022: [\n      {\n        \u0022AllowMultipleAnswers\u0022: true,\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022BlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n        \u0022DataType\u0022: {\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022DisplayType\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022InputHint\u0022: \u0022string\u0022,\n        \u0022MaximumDate\u0022: \u00222025-01-01\u0022,\n        \u0022MaximumLength\u0022: 123,\n        \u0022MaximumValue\u0022: 123.456,\n        \u0022MinimumDate\u0022: \u00222025-01-01\u0022,\n        \u0022MinimumLength\u0022: 123,\n        \u0022MinimumValue\u0022: 123.456,\n        \u0022OptionalAnswers\u0022: {\n          \u0022key\u0022: \u0022string\u0022\n        },\n        \u0022Remark\u0022: \u0022string\u0022,\n        \u0022Required\u0022: true,\n        \u0022Sequence\u0022: 123,\n        \u0022StoreAnswerOnContextCustomField\u0022: true,\n        \u0022SurveyContextCustomFieldID\u0022: \u0022string\u0022,\n        \u0022Text\u0022: \u0022string\u0022,\n        \u0022Type\u0022: {\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022UseContextCustomFieldDataAsPrefill\u0022: true\n      }\n    ],\n    \u0022StartDate\u0022: \u00222025-01-01\u0022,\n    \u0022SurveyContext\u0022: {\n      \u0022Description\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022SurveyDistributionHandler\u0022: \u0022string\u0022,\n    \u0022SurveyTrigger\u0022: \u0022string\u0022,\n    \u0022Version\u0022: 123\n  },\n  \u0022User\u0022: {\n    \u0022BackendID\u0022: \u0022string\u0022,\n    \u0022BackendRelationID\u0022: \u0022string\u0022,\n    \u0022BackendSystemID\u0022: \u0022string\u0022,\n    \u0022BankAccount\u0022: \u0022string\u0022,\n    \u0022BillingAddress\u0022: {\n      \u0022Address1\u0022: \u0022string\u0022,\n      \u0022Address2\u0022: \u0022string\u0022,\n      \u0022AddressedTo\u0022: \u0022string\u0022,\n      \u0022City\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022District\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022HouseNumber\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Region\u0022: \u0022string\u0022,\n      \u0022State\u0022: \u0022string\u0022,\n      \u0022Street\u0022: \u0022string\u0022,\n      \u0022Subdistrict\u0022: \u0022string\u0022,\n      \u0022ZipCode\u0022: \u0022string\u0022\n    },\n    \u0022CompanyID\u0022: \u0022string\u0022,\n    \u0022CountryID\u0022: \u0022string\u0022,\n    \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n    \u0022CustomFields\u0022: [\n      {\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022CustomFieldID\u0022: 123,\n        \u0022Name\u0022: \u0022string\u0022,\n        \u0022Value\u0022: \u0022any valid json value\u0022\n      }\n    ],\n    \u0022CustomID\u0022: \u0022string\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n    \u0022DeactivationDate\u0022: \u00222025-01-01\u0022,\n    \u0022EmailAddress\u0022: \u0022string\u0022,\n    \u0022FirstName\u0022: \u0022string\u0022,\n    \u0022FiscalID\u0022: \u0022string\u0022,\n    \u0022Gender\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022GlobalID\u0022: \u0022string\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022Initials\u0022: \u0022string\u0022,\n    \u0022LanguageID\u0022: \u0022string\u0022,\n    \u0022LastModificationTime\u0022: \u00222025-01-01\u0022,\n    \u0022LastName\u0022: \u0022string\u0022,\n    \u0022LastSuccessfulLogin\u0022: \u00222025-01-01\u0022,\n    \u0022Nickname\u0022: \u0022string\u0022,\n    \u0022OriginatingOrganizationUnitID\u0022: \u0022string\u0022,\n    \u0022PhoneNumber\u0022: \u0022string\u0022,\n    \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n    \u0022PreferredStoreID\u0022: \u0022string\u0022,\n    \u0022PricingGroupID\u0022: \u0022string\u0022,\n    \u0022Salutation\u0022: \u0022string\u0022,\n    \u0022ShippingAddress\u0022: {\n      \u0022Address1\u0022: \u0022string\u0022,\n      \u0022Address2\u0022: \u0022string\u0022,\n      \u0022AddressedTo\u0022: \u0022string\u0022,\n      \u0022City\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022District\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022HouseNumber\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Region\u0022: \u0022string\u0022,\n      \u0022State\u0022: \u0022string\u0022,\n      \u0022Street\u0022: \u0022string\u0022,\n      \u0022Subdistrict\u0022: \u0022string\u0022,\n      \u0022ZipCode\u0022: \u0022string\u0022\n    },\n    \u0022TimeZone\u0022: \u0022string\u0022,\n    \u0022Title\u0022: \u0022string\u0022,\n    \u0022TypeID\u0022: 123,\n    \u0022Types\u0022: [\n      \u0022string\u0022\n    ],\n    \u0022UserAgent\u0022: \u0022string\u0022,\n    \u0022UserSubscriptions\u0022: [\n      {\n        \u0022IsBlocked\u0022: true,\n        \u0022OriginatingOrganizationUnit\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022Status\u0022: \u0022string\u0022,\n        \u0022SubscribeFromSourceIdentifier\u0022: \u0022string\u0022,\n        \u0022SubscribeFromSourceOrganizationUnit\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022SubscribeFromSourceUserAgent\u0022: \u0022string\u0022,\n        \u0022Subscription\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022LoyaltyProgramID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022SubscriptionID\u0022: \u0022string\u0022,\n        \u0022UnsubscribeFromSourceIdentifier\u0022: \u0022string\u0022,\n        \u0022UnsubscribeFromSourceOrganizationUnit\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022UnsubscribeFromSourceReason\u0022: \u0022string\u0022,\n        \u0022UnsubscribeFromSourceUserAgent\u0022: \u0022string\u0022,\n        \u0022UserAgent\u0022: \u0022string\u0022\n      }\n    ]\n  }\n}"
+      "sample": "{\n  \u0022FinancialPeriod\u0022: {\n    \u0022AutoClosed\u0022: true,\n    \u0022AutoOpened\u0022: true,\n    \u0022CashCorrections\u0022: [\n      {\n        \u0022Amount\u0022: 123.456,\n        \u0022CashTransactionLedger\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022CashJournalID\u0022: \u0022string\u0022,\n          \u0022CreatedByID\u0022: \u0022string\u0022,\n          \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n          \u0022CurrencyID\u0022: \u0022string\u0022,\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022Details\u0022: {\n            \u0022BankNotes\u0022: {\n              \u0022key\u0022: 123\n            },\n            \u0022CashDeposits\u0022: {\n              \u0022key\u0022: 123.456\n            },\n            \u0022Coins\u0022: {\n              \u0022key\u0022: 123\n            }\n          },\n          \u0022GroupID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022PaymentTransactionID\u0022: \u0022string\u0022,\n          \u0022Type\u0022: \u0022string\u0022\n        },\n        \u0022CashTransactionLedgerID\u0022: \u0022string\u0022,\n        \u0022FinancialPeriodID\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022Remark\u0022: \u0022string\u0022,\n        \u0022Type\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022CashDeposits\u0022: [\n      {\n        \u0022Amount\u0022: 123.456,\n        \u0022CashTransactionLedger\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022CashJournalID\u0022: \u0022string\u0022,\n          \u0022CreatedByID\u0022: \u0022string\u0022,\n          \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n          \u0022CurrencyID\u0022: \u0022string\u0022,\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022Details\u0022: {\n            \u0022BankNotes\u0022: {\n              \u0022key\u0022: 123\n            },\n            \u0022CashDeposits\u0022: {\n              \u0022key\u0022: 123.456\n            },\n            \u0022Coins\u0022: {\n              \u0022key\u0022: 123\n            }\n          },\n          \u0022GroupID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022PaymentTransactionID\u0022: \u0022string\u0022,\n          \u0022Type\u0022: \u0022string\u0022\n        },\n        \u0022CashTransactionLedgerID\u0022: \u0022string\u0022,\n        \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022Details\u0022: {\n          \u0022BankNotes\u0022: {\n            \u0022key\u0022: 123\n          },\n          \u0022Coins\u0022: {\n            \u0022key\u0022: 123\n          }\n        },\n        \u0022DeviceID\u0022: \u0022string\u0022,\n        \u0022Number\u0022: \u0022string\u0022,\n        \u0022PaymentType\u0022: {\n          \u0022BackendRelationID\u0022: \u0022string\u0022,\n          \u0022CashJournalMethod\u0022: \u0022string\u0022,\n          \u0022Category\u0022: \u0022string\u0022,\n          \u0022Code\u0022: \u0022string\u0022,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022PaymentMethodID\u0022: \u0022string\u0022\n        },\n        \u0022PaymentTypeID\u0022: \u0022string\u0022,\n        \u0022Status\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022CashJournals\u0022: [\n      {\n        \u0022ClosingAmount\u0022: 123.456,\n        \u0022ClosingDetailsObject\u0022: {\n          \u0022BankNotes\u0022: {\n            \u0022key\u0022: 123\n          },\n          \u0022CashDeposits\u0022: {\n            \u0022key\u0022: 123.456\n          },\n          \u0022Coins\u0022: {\n            \u0022key\u0022: 123\n          },\n          \u0022Data\u0022: {\n            \u0022key\u0022: \u0022any valid json value\u0022\n          }\n        },\n        \u0022ClosingDeviation\u0022: 123.456,\n        \u0022ClosingTime\u0022: \u00222025-01-01\u0022,\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022DeviceID\u0022: \u0022string\u0022,\n        \u0022DeviceName\u0022: \u0022string\u0022,\n        \u0022DeviceTypeID\u0022: \u0022string\u0022,\n        \u0022FinancialPeriodID\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022OpeningAmount\u0022: 123.456,\n        \u0022OpeningDetailsObject\u0022: {\n          \u0022BankNotes\u0022: {\n            \u0022key\u0022: 123\n          },\n          \u0022CashDeposits\u0022: {\n            \u0022key\u0022: 123.456\n          },\n          \u0022Coins\u0022: {\n            \u0022key\u0022: 123\n          }\n        },\n        \u0022OpeningDeviation\u0022: 123.456,\n        \u0022OpeningTime\u0022: \u00222025-01-01\u0022,\n        \u0022PaymentType\u0022: {\n          \u0022BackendRelationID\u0022: \u0022string\u0022,\n          \u0022CashJournalMethod\u0022: \u0022string\u0022,\n          \u0022Category\u0022: \u0022string\u0022,\n          \u0022Code\u0022: \u0022string\u0022,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022PaymentMethodID\u0022: \u0022string\u0022\n        },\n        \u0022PaymentTypeID\u0022: \u0022string\u0022,\n        \u0022PreviousCashJournalID\u0022: \u0022string\u0022,\n        \u0022StationID\u0022: \u0022string\u0022,\n        \u0022Type\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022ClosingTime\u0022: \u00222025-01-01\u0022,\n    \u0022CostPriceCurrencyID\u0022: \u0022string\u0022,\n    \u0022CurrencyID\u0022: \u0022string\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022Employees\u0022: [\n      {\n        \u0022CommissionShare\u0022: 123.456,\n        \u0022UserID\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022Expenses\u0022: [\n      {\n        \u0022Amount\u0022: 123.456,\n        \u0022BlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n        \u0022CashTransactionLedgerID\u0022: \u0022string\u0022,\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022FinancialPeriodID\u0022: \u0022string\u0022,\n        \u0022TaxCodeID\u0022: \u0022string\u0022,\n        \u0022TaxRate\u0022: 123.456,\n        \u0022Type\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022TypeID\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022FinancialPeriodAuditID\u0022: \u0022string\u0022,\n    \u0022FinancialPeriodNumber\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022LoyaltyProgram\u0022: {\n      \u0022ID\u0022: \u0022string\u0022\n    },\n    \u0022OpenedByUser\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022BackendSystemID\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CustomFields\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022CustomFieldID\u0022: 123,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Value\u0022: \u0022any valid json value\u0022\n        }\n      ],\n      \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n      \u0022EmailAddress\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022FiscalID\u0022: \u0022string\u0022,\n      \u0022FullName\u0022: \u0022string\u0022,\n      \u0022Gender\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LanguageID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Nickname\u0022: \u0022string\u0022,\n      \u0022PhoneNumber\u0022: \u0022string\u0022,\n      \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n      \u0022Salutation\u0022: \u0022string\u0022\n    },\n    \u0022OpeningTime\u0022: \u00222025-01-01\u0022,\n    \u0022OrganizationUnitID\u0022: \u0022string\u0022,\n    \u0022PreviousFinancialPeriodID\u0022: \u0022string\u0022,\n    \u0022Status\u0022: \u0022string\u0022,\n    \u0022User\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022BackendSystemID\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CustomFields\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022CustomFieldID\u0022: 123,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Value\u0022: \u0022any valid json value\u0022\n        }\n      ],\n      \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n      \u0022EmailAddress\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022FiscalID\u0022: \u0022string\u0022,\n      \u0022FullName\u0022: \u0022string\u0022,\n      \u0022Gender\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LanguageID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Nickname\u0022: \u0022string\u0022,\n      \u0022PhoneNumber\u0022: \u0022string\u0022,\n      \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n      \u0022Salutation\u0022: \u0022string\u0022\n    }\n  },\n  \u0022Order\u0022: {\n    \u0022Amounts\u0022: {\n      \u0022CurrencyID\u0022: \u0022string\u0022,\n      \u0022Discounts\u0022: {\n        \u0022PerDiscount\u0022: [\n          {\n            \u0022Discount\u0022: {\n              \u0022Description\u0022: \u0022string\u0022\n            },\n            \u0022DiscountID\u0022: 123,\n            \u0022Total\u0022: 123.456\n          }\n        ],\n        \u0022TotalDiscountAmount\u0022: 123.456\n      },\n      \u0022Open\u0022: {\n        \u0022Amount\u0022: 123.456,\n        \u0022Capturable\u0022: 123.456,\n        \u0022CapturedInTax\u0022: 123.456,\n        \u0022Foreign\u0022: 123.456,\n        \u0022ForeignInTax\u0022: 123.456,\n        \u0022InTax\u0022: 123.456,\n        \u0022PendingInTax\u0022: 123.456\n      },\n      \u0022OpenAmountIsZero\u0022: true,\n      \u0022Paid\u0022: {\n        \u0022Amount\u0022: 123.456,\n        \u0022Captured\u0022: 123.456,\n        \u0022Foreign\u0022: 123.456,\n        \u0022Pending\u0022: 123.456\n      },\n      \u0022SubtotalExDiscount\u0022: 123.456,\n      \u0022Taxes\u0022: [\n        {\n          \u0022Amount\u0022: 123.456,\n          \u0022Base\u0022: 123.456,\n          \u0022ForeignAmount\u0022: 123.456,\n          \u0022Rate\u0022: 123.456,\n          \u0022Total\u0022: 123.456\n        }\n      ],\n      \u0022Total\u0022: {\n        \u0022Amount\u0022: 123.456,\n        \u0022Foreign\u0022: 123.456,\n        \u0022ForeignInTax\u0022: 123.456,\n        \u0022InTax\u0022: 123.456,\n        \u0022Tax\u0022: 123.456\n      },\n      \u0022Types\u0022: {\n        \u0022Discount\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        },\n        \u0022DownPayment\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        },\n        \u0022ExtraCosts\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        },\n        \u0022GiftWrappingCosts\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        },\n        \u0022NormalProduct\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        },\n        \u0022PriceCorrection\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        },\n        \u0022ReturnCosts\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        },\n        \u0022Service\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        },\n        \u0022ShippingCosts\u0022: {\n          \u0022Amount\u0022: 123.456,\n          \u0022Foreign\u0022: 123.456,\n          \u0022ForeignInTax\u0022: 123.456,\n          \u0022InTax\u0022: 123.456,\n          \u0022Tax\u0022: 123.456\n        }\n      },\n      \u0022UnroundedTotal\u0022: {\n        \u0022Amount\u0022: 123.456,\n        \u0022Foreign\u0022: 123.456,\n        \u0022ForeignInTax\u0022: 123.456,\n        \u0022InTax\u0022: 123.456,\n        \u0022Tax\u0022: 123.456\n      }\n    },\n    \u0022BackendID\u0022: \u0022string\u0022,\n    \u0022BackendSystemID\u0022: \u0022string\u0022,\n    \u0022BillingAddress\u0022: {\n      \u0022Address1\u0022: \u0022string\u0022,\n      \u0022Address2\u0022: \u0022string\u0022,\n      \u0022AddressedTo\u0022: \u0022string\u0022,\n      \u0022City\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022District\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022HouseNumber\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Region\u0022: \u0022string\u0022,\n      \u0022State\u0022: \u0022string\u0022,\n      \u0022Street\u0022: \u0022string\u0022,\n      \u0022Subdistrict\u0022: \u0022string\u0022,\n      \u0022ZipCode\u0022: \u0022string\u0022\n    },\n    \u0022Blobs\u0022: [\n      {\n        \u0022BlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n        \u0022InvoiceID\u0022: \u0022string\u0022,\n        \u0022Name\u0022: \u0022string\u0022,\n        \u0022OrderLineID\u0022: \u0022string\u0022,\n        \u0022ShipmentID\u0022: \u0022string\u0022,\n        \u0022Type\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022BoardingPass\u0022: {\n      \u0022AirlineCompanyCode\u0022: \u0022string\u0022,\n      \u0022Cabin\u0022: \u0022string\u0022,\n      \u0022CheckinSequence\u0022: 123,\n      \u0022Data\u0022: \u0022string\u0022,\n      \u0022DataLength\u0022: \u0022string\u0022,\n      \u0022DepartingAirportCode\u0022: \u0022string\u0022,\n      \u0022DestinationAirportCode\u0022: \u0022string\u0022,\n      \u0022Flight\u0022: {\n        \u0022AirlineCompanyCode\u0022: \u0022string\u0022,\n        \u0022DestinationAirportCode\u0022: \u0022string\u0022,\n        \u0022DestinationCode\u0022: 123,\n        \u0022FlightNumber\u0022: \u0022string\u0022,\n        \u0022FromDate\u0022: \u00222025-01-01\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022OrganizationUnitID\u0022: \u0022string\u0022,\n        \u0022ToDate\u0022: \u00222025-01-01\u0022\n      },\n      \u0022FlightNumber\u0022: 123,\n      \u0022Format\u0022: \u0022string\u0022,\n      \u0022JulianDate\u0022: 123,\n      \u0022Name\u0022: \u0022string\u0022,\n      \u0022NumberOfLegs\u0022: 123,\n      \u0022OperatingCarrierPNRCode\u0022: \u0022string\u0022,\n      \u0022Seat\u0022: \u0022string\u0022,\n      \u0022Status\u0022: 123,\n      \u0022Success\u0022: true,\n      \u0022Type\u0022: \u0022string\u0022\n    },\n    \u0022CaptureDate\u0022: \u00222025-01-01\u0022,\n    \u0022Company\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022CustomFields\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022CustomFieldID\u0022: 123,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Value\u0022: \u0022any valid json value\u0022\n        }\n      ],\n      \u0022EmailAddress\u0022: \u0022string\u0022,\n      \u0022EntityType\u0022: \u0022string\u0022,\n      \u0022EstablishmentNumber\u0022: \u0022string\u0022,\n      \u0022FiscalID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022IsInvoicing\u0022: true,\n      \u0022Name\u0022: \u0022string\u0022,\n      \u0022PhoneNumber\u0022: \u0022string\u0022,\n      \u0022RegistrationCountryID\u0022: \u0022string\u0022,\n      \u0022RegistrationCountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022RegistrationNumber\u0022: \u0022string\u0022,\n      \u0022SingleUse\u0022: true,\n      \u0022TaxOfficeNumber\u0022: \u0022string\u0022,\n      \u0022TaxRecipientCode\u0022: \u0022string\u0022,\n      \u0022TaxRecipientEmail\u0022: \u0022string\u0022,\n      \u0022TaxRegistrationNumber\u0022: \u0022string\u0022\n    },\n    \u0022CompletionDate\u0022: \u00222025-01-01\u0022,\n    \u0022CreatedByID\u0022: \u0022string\u0022,\n    \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n    \u0022CurrencyID\u0022: \u0022string\u0022,\n    \u0022CustomFields\u0022: [\n      {\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022CustomFieldID\u0022: 123,\n        \u0022Name\u0022: \u0022string\u0022,\n        \u0022Value\u0022: \u0022any valid json value\u0022\n      }\n    ],\n    \u0022CustomStatus\u0022: [\n      \u0022string\u0022\n    ],\n    \u0022Customer\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022BackendSystemID\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CustomFields\u0022: [\n        {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022CustomFieldID\u0022: 123,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Value\u0022: \u0022any valid json value\u0022\n        }\n      ],\n      \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n      \u0022EmailAddress\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022FiscalID\u0022: \u0022string\u0022,\n      \u0022FullName\u0022: \u0022string\u0022,\n      \u0022Gender\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LanguageID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Nickname\u0022: \u0022string\u0022,\n      \u0022PhoneNumber\u0022: \u0022string\u0022,\n      \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n      \u0022Salutation\u0022: \u0022string\u0022\n    },\n    \u0022CustomerOrderID\u0022: \u0022string\u0022,\n    \u0022CustomerReference\u0022: \u0022string\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022DeliveryDate\u0022: \u00222025-01-01\u0022,\n    \u0022Description\u0022: \u0022string\u0022,\n    \u0022FiscalID\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022GiftWrapping\u0022: {\n      \u0022GreetingCardProductID\u0022: \u0022string\u0022,\n      \u0022Message\u0022: \u0022string\u0022,\n      \u0022WrapIndividually\u0022: true,\n      \u0022WrapOrder\u0022: true,\n      \u0022Wraps\u0022: [\n        {\n          \u0022GreetingCardProductID\u0022: \u0022string\u0022,\n          \u0022Lines\u0022: [\n            {\n              \u0022OrderLineID\u0022: \u0022string\u0022,\n              \u0022Quantity\u0022: 123\n            }\n          ],\n          \u0022Message\u0022: \u0022string\u0022\n        }\n      ]\n    },\n    \u0022GroupID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n    \u0022HasProductSubscriptions\u0022: true,\n    \u0022HasReturns\u0022: true,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022InvoiceDate\u0022: \u00222025-01-01\u0022,\n    \u0022IsCompleted\u0022: true,\n    \u0022IsDelivered\u0022: true,\n    \u0022IsInvoiced\u0022: true,\n    \u0022IsPaid\u0022: true,\n    \u0022IsShipped\u0022: true,\n    \u0022IsTaxExempt\u0022: true,\n    \u0022LastModificationTime\u0022: \u00222025-01-01\u0022,\n    \u0022Lines\u0022: [\n      {\n        \u0022AdditionalData\u0022: {\n          \u0022key\u0022: \u0022string\u0022\n        },\n        \u0022Amounts\u0022: {\n          \u0022DiscountAmount\u0022: 123.456,\n          \u0022NetTotalAmount\u0022: 123.456,\n          \u0022NetTotalAmountInTax\u0022: 123.456,\n          \u0022NetTotalTaxAmount\u0022: 123.456,\n          \u0022TotalAmount\u0022: 123.456,\n          \u0022TotalAmountInTax\u0022: 123.456,\n          \u0022TotalTaxAmount\u0022: 123.456\n        },\n        \u0022AvailabilityStatus\u0022: \u0022string\u0022,\n        \u0022BackendReference\u0022: \u0022string\u0022,\n        \u0022CostPriceCurrencyID\u0022: \u0022string\u0022,\n        \u0022CreatedByID\u0022: \u0022string\u0022,\n        \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022CustomFields\u0022: [\n          {\n            \u0022BackendID\u0022: \u0022string\u0022,\n            \u0022CustomFieldID\u0022: 123,\n            \u0022Name\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022any valid json value\u0022\n          }\n        ],\n        \u0022CustomOrderLineType\u0022: \u0022string\u0022,\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022DiscountAmount\u0022: 123.456,\n        \u0022DiscountCouponCode\u0022: \u0022string\u0022,\n        \u0022DiscountCouponID\u0022: \u0022string\u0022,\n        \u0022DiscountID\u0022: \u0022string\u0022,\n        \u0022Discounts\u0022: [\n          {\n            \u0022Amount\u0022: 123.456,\n            \u0022CompliancyRule\u0022: \u0022string\u0022,\n            \u0022DiscountBackendID\u0022: \u0022string\u0022,\n            \u0022DiscountID\u0022: \u0022string\u0022,\n            \u0022DiscountOrderLineID\u0022: \u0022string\u0022\n          }\n        ],\n        \u0022ExpectedAvailabilityDate\u0022: \u00222025-01-01\u0022,\n        \u0022FulfillmentOrganizationUnitID\u0022: \u0022string\u0022,\n        \u0022FulfillmentStatus\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022IsCancelled\u0022: true,\n        \u0022IsCarryOut\u0022: true,\n        \u0022IsCompleted\u0022: true,\n        \u0022IsDelivery\u0022: true,\n        \u0022IsExported\u0022: true,\n        \u0022IsInvoiced\u0022: true,\n        \u0022IsOrdered\u0022: true,\n        \u0022IsReservation\u0022: true,\n        \u0022IsShipped\u0022: true,\n        \u0022LastModificationTime\u0022: \u00222025-01-01\u0022,\n        \u0022OriginalAmountInTax\u0022: 123.456,\n        \u0022OriginalUnitPrice\u0022: 123.456,\n        \u0022OriginalUnitPriceInTax\u0022: 123.456,\n        \u0022ParentID\u0022: \u0022string\u0022,\n        \u0022PreSaleDate\u0022: \u00222025-01-01\u0022,\n        \u0022Product\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022BackendSystemID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022LedgerClassID\u0022: \u0022string\u0022,\n          \u0022ManufacturerID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022,\n          \u0022Type\u0022: [\n            \u0022string\u0022\n          ]\n        },\n        \u0022ProductRequirements\u0022: [\n          {\n            \u0022ID\u0022: \u0022string\u0022,\n            \u0022Name\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022any valid json value\u0022\n          }\n        ],\n        \u0022ProductVariationLines\u0022: [\n          {\n            \u0022ID\u0022: \u0022string\u0022,\n            \u0022Label\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022string\u0022\n          }\n        ],\n        \u0022QuantityCancelled\u0022: 123,\n        \u0022QuantityCommitted\u0022: 123,\n        \u0022QuantityDelivered\u0022: 123,\n        \u0022QuantityExported\u0022: 123,\n        \u0022QuantityInvoiced\u0022: 123,\n        \u0022QuantityOrdered\u0022: 123,\n        \u0022QuantityReserved\u0022: 123,\n        \u0022QuantityReturned\u0022: 123,\n        \u0022QuantityShipped\u0022: 123,\n        \u0022Reference\u0022: \u0022string\u0022,\n        \u0022RelatedOrderLineID\u0022: \u0022string\u0022,\n        \u0022Remark\u0022: \u0022string\u0022,\n        \u0022RequestedDate\u0022: \u00222025-01-01\u0022,\n        \u0022ReturnReason\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022ReturnedOrderID\u0022: \u0022string\u0022,\n        \u0022ReturnedOrderLineID\u0022: \u0022string\u0022,\n        \u0022SerialNumber\u0022: \u0022string\u0022,\n        \u0022ShippingMethod\u0022: \u0022string\u0022,\n        \u0022SoldBy\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022BackendSystemID\u0022: \u0022string\u0022,\n          \u0022CountryID\u0022: \u0022string\u0022,\n          \u0022CustomFields\u0022: [\n            {\n              \u0022BackendID\u0022: \u0022string\u0022,\n              \u0022CustomFieldID\u0022: 123,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Value\u0022: \u0022any valid json value\u0022\n            }\n          ],\n          \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n          \u0022EmailAddress\u0022: \u0022string\u0022,\n          \u0022FirstName\u0022: \u0022string\u0022,\n          \u0022FiscalID\u0022: \u0022string\u0022,\n          \u0022FullName\u0022: \u0022string\u0022,\n          \u0022Gender\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022LanguageID\u0022: \u0022string\u0022,\n          \u0022LastName\u0022: \u0022string\u0022,\n          \u0022Nickname\u0022: \u0022string\u0022,\n          \u0022PhoneNumber\u0022: \u0022string\u0022,\n          \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n          \u0022Salutation\u0022: \u0022string\u0022\n        },\n        \u0022TaxCodeID\u0022: \u0022string\u0022,\n        \u0022TaxDetails\u0022: [\n          {\n            \u0022Amount\u0022: 123.456,\n            \u0022Name\u0022: \u0022string\u0022,\n            \u0022Rate\u0022: 123.456,\n            \u0022Type\u0022: \u0022string\u0022\n          }\n        ],\n        \u0022TaxRate\u0022: 123.456,\n        \u0022TotalQuantityToShip\u0022: 123,\n        \u0022Type\u0022: \u0022string\u0022,\n        \u0022UnitCost\u0022: 123.456,\n        \u0022UnitPrice\u0022: 123.456,\n        \u0022UnitPriceBeforeCorrection\u0022: 123.456,\n        \u0022UnitPriceBeforeCorrectionInTax\u0022: 123.456,\n        \u0022UnitPriceCorrectionReason\u0022: {\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022UnitPriceInTax\u0022: 123.456,\n        \u0022UnitPricePriceListID\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022LoyaltyProgramID\u0022: \u0022string\u0022,\n    \u0022OrderCustomStatus\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022Description\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022OrderCustomType\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022Description\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022OrderLedgers\u0022: [\n      {\n        \u0022CreatedBy\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022BackendSystemID\u0022: \u0022string\u0022,\n          \u0022CountryID\u0022: \u0022string\u0022,\n          \u0022CustomFields\u0022: [\n            {\n              \u0022BackendID\u0022: \u0022string\u0022,\n              \u0022CustomFieldID\u0022: 123,\n              \u0022Name\u0022: \u0022string\u0022,\n              \u0022Value\u0022: \u0022any valid json value\u0022\n            }\n          ],\n          \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n          \u0022EmailAddress\u0022: \u0022string\u0022,\n          \u0022FirstName\u0022: \u0022string\u0022,\n          \u0022FiscalID\u0022: \u0022string\u0022,\n          \u0022FullName\u0022: \u0022string\u0022,\n          \u0022Gender\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022LanguageID\u0022: \u0022string\u0022,\n          \u0022LastName\u0022: \u0022string\u0022,\n          \u0022Nickname\u0022: \u0022string\u0022,\n          \u0022PhoneNumber\u0022: \u0022string\u0022,\n          \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n          \u0022Salutation\u0022: \u0022string\u0022\n        },\n        \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022ID\u0022: 123,\n        \u0022NewValue\u0022: \u0022string\u0022,\n        \u0022OldValue\u0022: \u0022string\u0022,\n        \u0022OrderLineID\u0022: \u0022string\u0022,\n        \u0022Type\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022OrderProperties\u0022: [\n      \u0022string\u0022\n    ],\n    \u0022OriginatingOrderID\u0022: \u0022string\u0022,\n    \u0022OriginatingOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022PaymentDate\u0022: \u00222025-01-01\u0022,\n    \u0022Payments\u0022: [\n      {\n        \u0022Amount\u0022: 123.456,\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022BackendRelationID\u0022: \u0022string\u0022,\n        \u0022BackendSystemID\u0022: \u0022string\u0022,\n        \u0022CardID\u0022: \u0022string\u0022,\n        \u0022CardNumber\u0022: \u0022string\u0022,\n        \u0022Code\u0022: \u0022string\u0022,\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022CustomFields\u0022: [\n          {\n            \u0022BackendID\u0022: \u0022string\u0022,\n            \u0022CustomFieldID\u0022: 123,\n            \u0022Name\u0022: \u0022string\u0022,\n            \u0022Value\u0022: \u0022any valid json value\u0022\n          }\n        ],\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022DeviceID\u0022: \u0022string\u0022,\n        \u0022HasDispute\u0022: true,\n        \u0022HasUnresolvedDispute\u0022: true,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022IsConfirmed\u0022: true,\n        \u0022IsRefund\u0022: true,\n        \u0022PaidAmount\u0022: 123.456,\n        \u0022PaymentDate\u0022: \u00222025-01-01\u0022,\n        \u0022PaymentMethod\u0022: \u0022string\u0022,\n        \u0022ReturnedPaymentTransactionID\u0022: \u0022string\u0022,\n        \u0022Status\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022PickupOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022PlacementDate\u0022: \u00222025-01-01\u0022,\n    \u0022Properties\u0022: 123,\n    \u0022Remark\u0022: \u0022string\u0022,\n    \u0022ShipFromOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022ShipToOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022ShipmentDate\u0022: \u00222025-01-01\u0022,\n    \u0022ShippingAddress\u0022: {\n      \u0022Address1\u0022: \u0022string\u0022,\n      \u0022Address2\u0022: \u0022string\u0022,\n      \u0022AddressedTo\u0022: \u0022string\u0022,\n      \u0022City\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022District\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022HouseNumber\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Region\u0022: \u0022string\u0022,\n      \u0022State\u0022: \u0022string\u0022,\n      \u0022Street\u0022: \u0022string\u0022,\n      \u0022Subdistrict\u0022: \u0022string\u0022,\n      \u0022ZipCode\u0022: \u0022string\u0022\n    },\n    \u0022SoldFromOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022SoldToOrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022StationID\u0022: \u0022string\u0022,\n    \u0022Status\u0022: \u0022string\u0022,\n    \u0022TotalAmount\u0022: 123.456,\n    \u0022TotalAmountIncludingTaxes\u0022: 123.456,\n    \u0022TotalAmountInvoiced\u0022: 123.456,\n    \u0022TotalItems\u0022: 123,\n    \u0022TotalLineCount\u0022: 123,\n    \u0022TotalTaxAmount\u0022: 123.456,\n    \u0022Type\u0022: \u0022string\u0022,\n    \u0022UserAgent\u0022: \u0022string\u0022,\n    \u0022VatNumber\u0022: \u0022string\u0022\n  },\n  \u0022StockMutation\u0022: {\n    \u0022AutomaticCorrectionQuantity\u0022: 123,\n    \u0022BackendID\u0022: \u0022string\u0022,\n    \u0022BackendSystemID\u0022: \u0022string\u0022,\n    \u0022CreatedByID\u0022: \u0022string\u0022,\n    \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n    \u0022CurrencyID\u0022: \u0022string\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022DestinationStockLabel\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022Ledgers\u0022: [\n      {\n        \u0022Quantity\u0022: 123,\n        \u0022StockLabel\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022OrderLineID\u0022: \u0022string\u0022,\n    \u0022OrganizationUnit\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022Product\u0022: {\n      \u0022BackendID\u0022: \u0022string\u0022,\n      \u0022BackendSystemID\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LedgerClassID\u0022: \u0022string\u0022,\n      \u0022ManufacturerID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022,\n      \u0022Type\u0022: [\n        \u0022string\u0022\n      ]\n    },\n    \u0022Quantity\u0022: 123,\n    \u0022Reason\u0022: \u0022string\u0022,\n    \u0022ReasonBackendID\u0022: \u0022string\u0022,\n    \u0022Remark\u0022: \u0022string\u0022,\n    \u0022SerialNumber\u0022: \u0022string\u0022,\n    \u0022SourceStockLabel\u0022: \u0022string\u0022,\n    \u0022Type\u0022: \u0022string\u0022,\n    \u0022UnitCost\u0022: 123.456\n  },\n  \u0022Survey\u0022: {\n    \u0022BackendID\u0022: \u0022string\u0022,\n    \u0022ClosingRemarkBlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n    \u0022ClosingRemarkMessage\u0022: \u0022string\u0022,\n    \u0022ClosingRemarkTitle\u0022: \u0022string\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022Description\u0022: \u0022string\u0022,\n    \u0022EndDate\u0022: \u00222025-01-01\u0022,\n    \u0022FirstQuestionID\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022IntroductionBlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n    \u0022IntroductionMessage\u0022: \u0022string\u0022,\n    \u0022IntroductionTitle\u0022: \u0022string\u0022,\n    \u0022IsDeactivated\u0022: true,\n    \u0022IsSystem\u0022: true,\n    \u0022LastDeactivatedByID\u0022: \u0022string\u0022,\n    \u0022LastDeactivatedOn\u0022: \u00222025-01-01\u0022,\n    \u0022LastPublishedByID\u0022: \u0022string\u0022,\n    \u0022LastPublishedOn\u0022: \u00222025-01-01\u0022,\n    \u0022Name\u0022: \u0022string\u0022,\n    \u0022OrganizationUnitSetID\u0022: \u0022string\u0022,\n    \u0022Questions\u0022: [\n      {\n        \u0022AllowMultipleAnswers\u0022: true,\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022BlobID\u0022: \u0022DB422695-4164-4046-8E63-83CDAE00D364\u0022,\n        \u0022DataType\u0022: {\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022DisplayType\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022InputHint\u0022: \u0022string\u0022,\n        \u0022MaximumDate\u0022: \u00222025-01-01\u0022,\n        \u0022MaximumLength\u0022: 123,\n        \u0022MaximumValue\u0022: 123.456,\n        \u0022MinimumDate\u0022: \u00222025-01-01\u0022,\n        \u0022MinimumLength\u0022: 123,\n        \u0022MinimumValue\u0022: 123.456,\n        \u0022OptionalAnswers\u0022: {\n          \u0022key\u0022: \u0022string\u0022\n        },\n        \u0022Remark\u0022: \u0022string\u0022,\n        \u0022Required\u0022: true,\n        \u0022Sequence\u0022: 123,\n        \u0022StoreAnswerOnContextCustomField\u0022: true,\n        \u0022SurveyContextCustomFieldID\u0022: \u0022string\u0022,\n        \u0022Text\u0022: \u0022string\u0022,\n        \u0022Type\u0022: {\n          \u0022Description\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022UseContextCustomFieldDataAsPrefill\u0022: true\n      }\n    ],\n    \u0022StartDate\u0022: \u00222025-01-01\u0022,\n    \u0022SurveyContext\u0022: {\n      \u0022Description\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022Name\u0022: \u0022string\u0022\n    },\n    \u0022SurveyDistributionHandler\u0022: \u0022string\u0022,\n    \u0022SurveyTrigger\u0022: \u0022string\u0022,\n    \u0022Version\u0022: 123\n  },\n  \u0022User\u0022: {\n    \u0022AcceptedUserAgreements\u0022: [\n      {\n        \u0022AcceptedOn\u0022: \u00222025-01-01\u0022,\n        \u0022Description\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022IsRequired\u0022: true,\n        \u0022Name\u0022: \u0022string\u0022,\n        \u0022RequiresSignature\u0022: true,\n        \u0022UsedForDataProcessing\u0022: true\n      }\n    ],\n    \u0022AccountType\u0022: \u0022string\u0022,\n    \u0022AllowPasswordLogin\u0022: true,\n    \u0022BackendID\u0022: \u0022string\u0022,\n    \u0022BackendRelationID\u0022: \u0022string\u0022,\n    \u0022BackendSystemID\u0022: \u0022string\u0022,\n    \u0022BankAccount\u0022: \u0022string\u0022,\n    \u0022BillingAddress\u0022: {\n      \u0022Address1\u0022: \u0022string\u0022,\n      \u0022Address2\u0022: \u0022string\u0022,\n      \u0022AddressedTo\u0022: \u0022string\u0022,\n      \u0022City\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022District\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022HouseNumber\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Region\u0022: \u0022string\u0022,\n      \u0022State\u0022: \u0022string\u0022,\n      \u0022Street\u0022: \u0022string\u0022,\n      \u0022Subdistrict\u0022: \u0022string\u0022,\n      \u0022ZipCode\u0022: \u0022string\u0022\n    },\n    \u0022CompanyID\u0022: \u0022string\u0022,\n    \u0022CountryID\u0022: \u0022string\u0022,\n    \u0022CreationTime\u0022: \u00222025-01-01\u0022,\n    \u0022CustomFields\u0022: [\n      {\n        \u0022BackendID\u0022: \u0022string\u0022,\n        \u0022CustomFieldID\u0022: 123,\n        \u0022Name\u0022: \u0022string\u0022,\n        \u0022Value\u0022: \u0022any valid json value\u0022\n      }\n    ],\n    \u0022CustomID\u0022: \u0022string\u0022,\n    \u0022DataLakeType\u0022: \u0022string\u0022,\n    \u0022DateOfBirth\u0022: \u00222025-01-01\u0022,\n    \u0022DeactivationDate\u0022: \u00222025-01-01\u0022,\n    \u0022EmailAddress\u0022: \u0022string\u0022,\n    \u0022EmailAddressValidated\u0022: true,\n    \u0022FirstName\u0022: \u0022string\u0022,\n    \u0022FiscalID\u0022: \u0022string\u0022,\n    \u0022Gender\u0022: \u0022string\u0022,\n    \u0022GenerationTime\u0022: \u00222025-01-01\u0022,\n    \u0022GlobalID\u0022: \u0022string\u0022,\n    \u0022ID\u0022: \u0022string\u0022,\n    \u0022Initials\u0022: \u0022string\u0022,\n    \u0022IsDeactivated\u0022: true,\n    \u0022IsDeleted\u0022: true,\n    \u0022LanguageID\u0022: \u0022string\u0022,\n    \u0022LastModificationTime\u0022: \u00222025-01-01\u0022,\n    \u0022LastName\u0022: \u0022string\u0022,\n    \u0022LastSuccessfulLogin\u0022: \u00222025-01-01\u0022,\n    \u0022Nickname\u0022: \u0022string\u0022,\n    \u0022OriginatingOrganizationUnitID\u0022: \u0022string\u0022,\n    \u0022PhoneNumber\u0022: \u0022string\u0022,\n    \u0022PlaceOfBirth\u0022: \u0022string\u0022,\n    \u0022PreferredStoreID\u0022: \u0022string\u0022,\n    \u0022PricingGroupID\u0022: \u0022string\u0022,\n    \u0022Salutation\u0022: \u0022string\u0022,\n    \u0022ShippingAddress\u0022: {\n      \u0022Address1\u0022: \u0022string\u0022,\n      \u0022Address2\u0022: \u0022string\u0022,\n      \u0022AddressedTo\u0022: \u0022string\u0022,\n      \u0022City\u0022: \u0022string\u0022,\n      \u0022CountryID\u0022: \u0022string\u0022,\n      \u0022CountrySubdivisionID\u0022: \u0022string\u0022,\n      \u0022District\u0022: \u0022string\u0022,\n      \u0022FirstName\u0022: \u0022string\u0022,\n      \u0022HouseNumber\u0022: \u0022string\u0022,\n      \u0022ID\u0022: \u0022string\u0022,\n      \u0022LastName\u0022: \u0022string\u0022,\n      \u0022Region\u0022: \u0022string\u0022,\n      \u0022State\u0022: \u0022string\u0022,\n      \u0022Street\u0022: \u0022string\u0022,\n      \u0022Subdistrict\u0022: \u0022string\u0022,\n      \u0022ZipCode\u0022: \u0022string\u0022\n    },\n    \u0022SingleSignOnID\u0022: \u0022string\u0022,\n    \u0022SingleSignOnOnly\u0022: true,\n    \u0022TimeZone\u0022: \u0022string\u0022,\n    \u0022Title\u0022: \u0022string\u0022,\n    \u0022TypeID\u0022: 123,\n    \u0022Types\u0022: [\n      \u0022string\u0022\n    ],\n    \u0022UserAgent\u0022: \u0022string\u0022,\n    \u0022UserProductSubscriptions\u0022: [\n      {\n        \u0022CurrencyID\u0022: \u0022string\u0022,\n        \u0022DiscountID\u0022: \u0022string\u0022,\n        \u0022ID\u0022: \u0022string\u0022,\n        \u0022Price\u0022: 123.456,\n        \u0022RenewalDate\u0022: \u00222025-01-01\u0022,\n        \u0022Status\u0022: \u0022string\u0022,\n        \u0022SubscriptionID\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022UserSubscriptions\u0022: [\n      {\n        \u0022AssignedTierID\u0022: \u0022string\u0022,\n        \u0022Badges\u0022: [\n          {\n            \u0022AssignedOn\u0022: \u00222025-01-01\u0022,\n            \u0022BadgeID\u0022: \u0022string\u0022,\n            \u0022ID\u0022: \u0022string\u0022,\n            \u0022IsAssigned\u0022: true\n          }\n        ],\n        \u0022IsBlocked\u0022: true,\n        \u0022OriginatingOrganizationUnit\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022Status\u0022: \u0022string\u0022,\n        \u0022SubscribeFromSourceIdentifier\u0022: \u0022string\u0022,\n        \u0022SubscribeFromSourceOrganizationUnit\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022SubscribeFromSourceUserAgent\u0022: \u0022string\u0022,\n        \u0022Subscription\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022LoyaltyProgramID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022SubscriptionID\u0022: \u0022string\u0022,\n        \u0022UnsubscribeFromSourceIdentifier\u0022: \u0022string\u0022,\n        \u0022UnsubscribeFromSourceOrganizationUnit\u0022: {\n          \u0022BackendID\u0022: \u0022string\u0022,\n          \u0022ID\u0022: \u0022string\u0022,\n          \u0022Name\u0022: \u0022string\u0022\n        },\n        \u0022UnsubscribeFromSourceReason\u0022: \u0022string\u0022,\n        \u0022UnsubscribeFromSourceUserAgent\u0022: \u0022string\u0022,\n        \u0022UserAgent\u0022: \u0022string\u0022\n      }\n    ],\n    \u0022VisibilityGroupID\u0022: \u0022string\u0022\n  }\n}"
     },
     {
       "name": "400",
@@ -1413,9 +1413,45 @@
     ],
     "BA": [
       {
+        "name": "Amount",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Amount is deprecated and will be removed in 2.0.856: Use \u0060InTax\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Amount is deprecated and will be removed in 2.0.856: Use \u0060InTax\u0060.\n\n**Will be removed in 838**",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "Capturable",
         "deprecation_notice": null,
         "description": "",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "CapturedInTax",
+        "deprecation_notice": "\n\n**Deprecated since 812:** CapturedInTax is deprecated and will be removed in 2.0.856: Use \u0060InTax\u0060 or \u0060Capturable\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** CapturedInTax is deprecated and will be removed in 2.0.856: Use \u0060InTax\u0060 or \u0060Capturable\u0060.\n\n**Will be removed in 838**",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Foreign",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Foreign is deprecated and will be removed in 2.0.856: Use \u0060Amount\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Foreign is deprecated and will be removed in 2.0.856: Use \u0060Amount\u0060.\n\n**Will be removed in 838**",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ForeignInTax",
+        "deprecation_notice": "\n\n**Deprecated since 812:** ForeignInTax is deprecated and will be removed in 2.0.856: Use \u0060InTax\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** ForeignInTax is deprecated and will be removed in 2.0.856: Use \u0060InTax\u0060.\n\n**Will be removed in 838**",
         "type": "float",
         "required": false,
         "properties_id": null,
@@ -1460,6 +1496,15 @@
         "one_of": null
       },
       {
+        "name": "Foreign",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Foreign is deprecated and will be removed in 2.0.856: Use \u0060Amount\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Foreign is deprecated and will be removed in 2.0.856: Use \u0060Amount\u0060.\n\n**Will be removed in 838**",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "Pending",
         "deprecation_notice": null,
         "description": "",
@@ -1483,6 +1528,15 @@
         "name": "Base",
         "deprecation_notice": null,
         "description": "TotalAmount that has this rate",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ForeignAmount",
+        "deprecation_notice": "\n\n**Deprecated since 812:** ForeignAmount is deprecated and will be removed in 2.0.856: Use \u0060Amount\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** ForeignAmount is deprecated and will be removed in 2.0.856: Use \u0060Amount\u0060.\n\n**Will be removed in 838**",
         "type": "float",
         "required": false,
         "properties_id": null,
@@ -1518,6 +1572,24 @@
         "one_of": null
       },
       {
+        "name": "Foreign",
+        "deprecation_notice": "\n\n**Deprecated since 812:** Foreign is deprecated and will be removed in 2.0.856: Use \u0060Amount\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** Foreign is deprecated and will be removed in 2.0.856: Use \u0060Amount\u0060.\n\n**Will be removed in 838**",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ForeignInTax",
+        "deprecation_notice": "\n\n**Deprecated since 812:** ForeignInTax is deprecated and will be removed in 2.0.856: Use \u0060InTax\u0060.\n\n**Will be removed in 838**",
+        "description": "**Deprecated since 812:** ForeignInTax is deprecated and will be removed in 2.0.856: Use \u0060InTax\u0060.\n\n**Will be removed in 838**",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "InTax",
         "deprecation_notice": null,
         "description": "",
@@ -1533,6 +1605,89 @@
         "type": "float",
         "required": false,
         "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "BE": [
+      {
+        "name": "Discount",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
+        "one_of": null
+      },
+      {
+        "name": "DownPayment",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
+        "one_of": null
+      },
+      {
+        "name": "ExtraCosts",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
+        "one_of": null
+      },
+      {
+        "name": "GiftWrappingCosts",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
+        "one_of": null
+      },
+      {
+        "name": "NormalProduct",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
+        "one_of": null
+      },
+      {
+        "name": "PriceCorrection",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
+        "one_of": null
+      },
+      {
+        "name": "ReturnCosts",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
+        "one_of": null
+      },
+      {
+        "name": "Service",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
+        "one_of": null
+      },
+      {
+        "name": "ShippingCosts",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BD",
         "one_of": null
       }
     ],
@@ -1613,9 +1768,9 @@
         "name": "Types",
         "deprecation_notice": null,
         "description": "",
-        "type": "map[object] | null",
+        "type": "object | null",
         "required": false,
-        "properties_id": "BD",
+        "properties_id": "BE",
         "one_of": null
       },
       {
@@ -1628,7 +1783,7 @@
         "one_of": null
       }
     ],
-    "BE": [
+    "BF": [
       {
         "name": "Address1",
         "deprecation_notice": null,
@@ -1711,6 +1866,15 @@
         "one_of": null
       },
       {
+        "name": "ID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "LastName",
         "deprecation_notice": null,
         "description": "",
@@ -1766,6 +1930,62 @@
       }
     ],
     "BG": [
+      {
+        "name": "BlobID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "guid",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "InvoiceID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Name",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "OrderLineID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ShipmentID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Type",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "BI": [
       {
         "name": "AirlineCompanyCode",
         "deprecation_notice": null,
@@ -1839,7 +2059,7 @@
         "one_of": null
       }
     ],
-    "BF": [
+    "BH": [
       {
         "name": "AirlineCompanyCode",
         "deprecation_notice": null,
@@ -1909,7 +2129,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BG",
+        "properties_id": "BI",
         "one_of": null
       },
       {
@@ -2005,6 +2225,170 @@
     ],
     "BJ": [
       {
+        "name": "BackendID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "CustomFields",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "T",
+        "one_of": null
+      },
+      {
+        "name": "EmailAddress",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "EntityType",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "EstablishmentNumber",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "FiscalID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsInvoicing",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Name",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "PhoneNumber",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "RegistrationCountryID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "RegistrationCountrySubdivisionID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "RegistrationNumber",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "SingleUse",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "TaxOfficeNumber",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "TaxRecipientCode",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "TaxRecipientEmail",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "TaxRegistrationNumber",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "BM": [
+      {
         "name": "OrderLineID",
         "deprecation_notice": null,
         "description": "",
@@ -2023,7 +2407,7 @@
         "one_of": null
       }
     ],
-    "BI": [
+    "BL": [
       {
         "name": "GreetingCardProductID",
         "deprecation_notice": null,
@@ -2039,7 +2423,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BJ",
+        "properties_id": "BM",
         "one_of": null
       },
       {
@@ -2052,7 +2436,7 @@
         "one_of": null
       }
     ],
-    "BH": [
+    "BK": [
       {
         "name": "GreetingCardProductID",
         "deprecation_notice": null,
@@ -2095,11 +2479,11 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BI",
+        "properties_id": "BL",
         "one_of": null
       }
     ],
-    "BL": [
+    "BO": [
       {
         "name": "DiscountAmount",
         "deprecation_notice": null,
@@ -2164,7 +2548,7 @@
         "one_of": null
       }
     ],
-    "BM": [
+    "BP": [
       {
         "name": "Amount",
         "deprecation_notice": null,
@@ -2211,7 +2595,7 @@
         "one_of": null
       }
     ],
-    "BN": [
+    "BQ": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -2265,9 +2649,18 @@
         "required": false,
         "properties_id": null,
         "one_of": null
+      },
+      {
+        "name": "Type",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[string] | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
       }
     ],
-    "BO": [
+    "BR": [
       {
         "name": "ID",
         "deprecation_notice": null,
@@ -2296,7 +2689,7 @@
         "one_of": null
       }
     ],
-    "BP": [
+    "BS": [
       {
         "name": "ID",
         "deprecation_notice": null,
@@ -2325,7 +2718,7 @@
         "one_of": null
       }
     ],
-    "BQ": [
+    "BT": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -2354,7 +2747,7 @@
         "one_of": null
       }
     ],
-    "BR": [
+    "BU": [
       {
         "name": "Amount",
         "deprecation_notice": null,
@@ -2392,7 +2785,7 @@
         "one_of": null
       }
     ],
-    "BS": [
+    "BV": [
       {
         "name": "Description",
         "deprecation_notice": null,
@@ -2421,18 +2814,36 @@
         "one_of": null
       }
     ],
-    "BK": [
+    "BN": [
+      {
+        "name": "AdditionalData",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "map[string] | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
       {
         "name": "Amounts",
         "deprecation_notice": null,
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BL",
+        "properties_id": "BO",
         "one_of": null
       },
       {
         "name": "AvailabilityStatus",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "BackendReference",
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
@@ -2545,7 +2956,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BM",
+        "properties_id": "BP",
         "one_of": null
       },
       {
@@ -2559,6 +2970,15 @@
       },
       {
         "name": "FulfillmentOrganizationUnitID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "FulfillmentStatus",
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
@@ -2716,7 +3136,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BN",
+        "properties_id": "BQ",
         "one_of": null
       },
       {
@@ -2725,7 +3145,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BO",
+        "properties_id": "BR",
         "one_of": null
       },
       {
@@ -2734,7 +3154,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BP",
+        "properties_id": "BS",
         "one_of": null
       },
       {
@@ -2801,6 +3221,15 @@
         "one_of": null
       },
       {
+        "name": "QuantityReturned",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "QuantityShipped",
         "deprecation_notice": null,
         "description": "",
@@ -2811,6 +3240,15 @@
       },
       {
         "name": "Reference",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "RelatedOrderLineID",
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
@@ -2842,7 +3280,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BQ",
+        "properties_id": "BT",
         "one_of": null
       },
       {
@@ -2905,7 +3343,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BR",
+        "properties_id": "BU",
         "one_of": null
       },
       {
@@ -2977,7 +3415,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BS",
+        "properties_id": "BV",
         "one_of": null
       },
       {
@@ -2999,7 +3437,7 @@
         "one_of": null
       }
     ],
-    "BT": [
+    "BW": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -3037,7 +3475,7 @@
         "one_of": null
       }
     ],
-    "BU": [
+    "BX": [
       {
         "name": "CreatedBy",
         "deprecation_notice": null,
@@ -3111,7 +3549,7 @@
         "one_of": null
       }
     ],
-    "BV": [
+    "BY": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -3140,7 +3578,7 @@
         "one_of": null
       }
     ],
-    "BW": [
+    "BZ": [
       {
         "name": "Amount",
         "deprecation_notice": null,
@@ -3241,6 +3679,24 @@
         "one_of": null
       },
       {
+        "name": "HasDispute",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "HasUnresolvedDispute",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "ID",
         "deprecation_notice": null,
         "description": "",
@@ -3293,6 +3749,24 @@
         "required": false,
         "properties_id": null,
         "one_of": null
+      },
+      {
+        "name": "ReturnedPaymentTransactionID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Status",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
       }
     ],
     "V": [
@@ -3329,7 +3803,16 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BE",
+        "properties_id": "BF",
+        "one_of": null
+      },
+      {
+        "name": "Blobs",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "BG",
         "one_of": null
       },
       {
@@ -3338,7 +3821,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BF",
+        "properties_id": "BH",
         "one_of": null
       },
       {
@@ -3348,6 +3831,15 @@
         "type": "datetime | null",
         "required": false,
         "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Company",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "object | null",
+        "required": false,
+        "properties_id": "BJ",
         "one_of": null
       },
       {
@@ -3414,10 +3906,37 @@
         "one_of": null
       },
       {
+        "name": "CustomerOrderID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "CustomerReference",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "DataLakeType",
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "DeliveryDate",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "datetime | null",
         "required": false,
         "properties_id": null,
         "one_of": null
@@ -3455,7 +3974,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BH",
+        "properties_id": "BK",
         "one_of": null
       },
       {
@@ -3513,6 +4032,24 @@
         "one_of": null
       },
       {
+        "name": "IsDelivered",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsInvoiced",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "IsPaid",
         "deprecation_notice": null,
         "description": "",
@@ -3554,7 +4091,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BK",
+        "properties_id": "BN",
         "one_of": null
       },
       {
@@ -3572,7 +4109,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BT",
+        "properties_id": "BW",
         "one_of": null
       },
       {
@@ -3581,7 +4118,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BT",
+        "properties_id": "BW",
         "one_of": null
       },
       {
@@ -3590,7 +4127,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BU",
+        "properties_id": "BX",
         "one_of": null
       },
       {
@@ -3603,12 +4140,21 @@
         "one_of": null
       },
       {
+        "name": "OriginatingOrderID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "OriginatingOrganizationUnit",
         "deprecation_notice": null,
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -3626,7 +4172,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BW",
+        "properties_id": "BZ",
         "one_of": null
       },
       {
@@ -3635,7 +4181,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -3671,7 +4217,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -3680,7 +4226,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -3698,7 +4244,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BE",
+        "properties_id": "BF",
         "one_of": null
       },
       {
@@ -3707,7 +4253,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -3716,7 +4262,16 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
+        "one_of": null
+      },
+      {
+        "name": "StationID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
         "one_of": null
       },
       {
@@ -3724,6 +4279,15 @@
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "TotalAmount",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "float",
         "required": false,
         "properties_id": null,
         "one_of": null
@@ -3765,6 +4329,15 @@
         "one_of": null
       },
       {
+        "name": "TotalTaxAmount",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "Type",
         "deprecation_notice": null,
         "description": "",
@@ -3792,7 +4365,7 @@
         "one_of": null
       }
     ],
-    "BY": [
+    "CB": [
       {
         "name": "Quantity",
         "deprecation_notice": null,
@@ -3812,7 +4385,7 @@
         "one_of": null
       }
     ],
-    "BX": [
+    "CA": [
       {
         "name": "AutomaticCorrectionQuantity",
         "deprecation_notice": null,
@@ -3859,6 +4432,15 @@
         "one_of": null
       },
       {
+        "name": "CurrencyID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "DataLakeType",
         "deprecation_notice": null,
         "description": "",
@@ -3900,7 +4482,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "BY",
+        "properties_id": "CB",
         "one_of": null
       },
       {
@@ -3918,7 +4500,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -3927,7 +4509,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BN",
+        "properties_id": "BQ",
         "one_of": null
       },
       {
@@ -3941,6 +4523,15 @@
       },
       {
         "name": "Reason",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ReasonBackendID",
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
@@ -3976,6 +4567,15 @@
         "one_of": null
       },
       {
+        "name": "Type",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "UnitCost",
         "deprecation_notice": null,
         "description": "",
@@ -3985,7 +4585,7 @@
         "one_of": null
       }
     ],
-    "CA": [
+    "CD": [
       {
         "name": "AllowMultipleAnswers",
         "deprecation_notice": null,
@@ -4019,7 +4619,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BS",
+        "properties_id": "BV",
         "one_of": null
       },
       {
@@ -4181,7 +4781,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BS",
+        "properties_id": "BV",
         "one_of": null
       },
       {
@@ -4194,7 +4794,7 @@
         "one_of": null
       }
     ],
-    "BZ": [
+    "CC": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -4390,7 +4990,7 @@
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CA",
+        "properties_id": "CD",
         "one_of": null
       },
       {
@@ -4408,7 +5008,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BS",
+        "properties_id": "BV",
         "one_of": null
       },
       {
@@ -4439,7 +5039,175 @@
         "one_of": null
       }
     ],
-    "CD": [
+    "CF": [
+      {
+        "name": "AcceptedOn",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "datetime",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Description",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsRequired",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Name",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "RequiresSignature",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "UsedForDataProcessing",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "CG": [
+      {
+        "name": "CurrencyID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "DiscountID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Price",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "float",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "RenewalDate",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "datetime | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Status",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "SubscriptionID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "CI": [
+      {
+        "name": "AssignedOn",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "datetime | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "BadgeID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "ID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsAssigned",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      }
+    ],
+    "CJ": [
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -4477,7 +5245,25 @@
         "one_of": null
       }
     ],
-    "CC": [
+    "CH": [
+      {
+        "name": "AssignedTierID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "Badges",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "CI",
+        "one_of": null
+      },
       {
         "name": "IsBlocked",
         "deprecation_notice": null,
@@ -4493,7 +5279,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -4520,7 +5306,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -4538,7 +5324,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "CD",
+        "properties_id": "CJ",
         "one_of": null
       },
       {
@@ -4565,7 +5351,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BV",
+        "properties_id": "BY",
         "one_of": null
       },
       {
@@ -4596,7 +5382,34 @@
         "one_of": null
       }
     ],
-    "CB": [
+    "CE": [
+      {
+        "name": "AcceptedUserAgreements",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "CF",
+        "one_of": null
+      },
+      {
+        "name": "AccountType",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "AllowPasswordLogin",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
       {
         "name": "BackendID",
         "deprecation_notice": null,
@@ -4639,7 +5452,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BE",
+        "properties_id": "BF",
         "one_of": null
       },
       {
@@ -4724,6 +5537,15 @@
         "one_of": null
       },
       {
+        "name": "EmailAddressValidated",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "FirstName",
         "deprecation_notice": null,
         "description": "",
@@ -4782,6 +5604,24 @@
         "deprecation_notice": null,
         "description": "",
         "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsDeactivated",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "IsDeleted",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
         "required": false,
         "properties_id": null,
         "one_of": null
@@ -4891,7 +5731,25 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BE",
+        "properties_id": "BF",
+        "one_of": null
+      },
+      {
+        "name": "SingleSignOnID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "SingleSignOnOnly",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
         "one_of": null
       },
       {
@@ -4940,12 +5798,30 @@
         "one_of": null
       },
       {
+        "name": "UserProductSubscriptions",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "array[object] | null",
+        "required": false,
+        "properties_id": "CG",
+        "one_of": null
+      },
+      {
         "name": "UserSubscriptions",
         "deprecation_notice": null,
         "description": "",
         "type": "array[object] | null",
         "required": false,
-        "properties_id": "CC",
+        "properties_id": "CH",
+        "one_of": null
+      },
+      {
+        "name": "VisibilityGroupID",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "string | null",
+        "required": false,
+        "properties_id": null,
         "one_of": null
       }
     ],
@@ -4992,7 +5868,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BX",
+        "properties_id": "CA",
         "one_of": null
       },
       {
@@ -5001,7 +5877,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "BZ",
+        "properties_id": "CC",
         "one_of": null
       },
       {
@@ -5010,7 +5886,7 @@
         "description": "",
         "type": "object | null",
         "required": false,
-        "properties_id": "CB",
+        "properties_id": "CE",
         "one_of": null
       }
     ]

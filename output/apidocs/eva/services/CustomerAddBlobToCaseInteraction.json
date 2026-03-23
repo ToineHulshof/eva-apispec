@@ -69,8 +69,8 @@
       },
       {
         "name": "BlobUrl",
-        "deprecation_notice": "\n\n**Deprecated since 785:** BlobUrl is deprecated and will be removed in 2.0.817: Use \u0060BlobUrls\u0060 instead..\n\n**Will be removed in 801**",
-        "description": "Can be used for both standard- and secured blobs - must match environment assets URL.\n\n**Deprecated since 785:** BlobUrl is deprecated and will be removed in 2.0.817: Use \u0060BlobUrls\u0060 instead..\n\n**Will be removed in 801**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** BlobUrl is deprecated and will be removed in 2.0.856: Use \u0060BlobUrls\u0060 instead..\n\n**Will be removed in 838**",
+        "description": "Can be used for both standard- and secured blobs - must match environment assets URL.\n\n**Deprecated since 812:** BlobUrl is deprecated and will be removed in 2.0.856: Use \u0060BlobUrls\u0060 instead..\n\n**Will be removed in 838**",
         "type": "string | null",
         "required": false,
         "properties_id": null,

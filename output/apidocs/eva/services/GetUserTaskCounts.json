@@ -49,7 +49,7 @@
   "response_samples": [
     {
       "name": "200",
-      "sample": "{\n  \u0022DetailedNumberOfTasks\u0022: {\n    \u0022key\u0022: {\n      \u0022Count\u0022: 123,\n      \u0022SubTypeCounts\u0022: {\n        \u0022key\u0022: 123\n      }\n    }\n  },\n  \u0022MyTasksCount\u0022: 123,\n  \u0022NumberOfTasks\u0022: 123,\n  \u0022RepairTasksCount\u0022: 123,\n  \u0022UrgentTasksCount\u0022: 123\n}"
+      "sample": "{\n  \u0022AppointmentsCount\u0022: 123,\n  \u0022DetailedNumberOfTasks\u0022: {\n    \u0022key\u0022: {\n      \u0022Count\u0022: 123,\n      \u0022SubTypeCounts\u0022: {\n        \u0022key\u0022: 123\n      }\n    }\n  },\n  \u0022HasUpdatedDeliveryDates\u0022: true,\n  \u0022MyAppointmentsCount\u0022: 123,\n  \u0022MyTasksCount\u0022: 123,\n  \u0022NumberOfTasks\u0022: 123,\n  \u0022RepairTasksCount\u0022: 123,\n  \u0022UnstartedFullStockCounts\u0022: 123,\n  \u0022UrgentTasksCount\u0022: 123\n}"
     },
     {
       "name": "400",
@@ -67,8 +67,8 @@
     "B": [
       {
         "name": "ExcludeChildOrganizations",
-        "deprecation_notice": "\n\n**Deprecated since 795:** ExcludeChildOrganizations is deprecated and will be removed in 2.0.827: No longer supported, result only include the current ou/requested ou.\n\n**Will be removed in 811**",
-        "description": "When specified, will include only tasks from the specified organization unit, excluding child organizations\n\n**Deprecated since 795:** ExcludeChildOrganizations is deprecated and will be removed in 2.0.827: No longer supported, result only include the current ou/requested ou.\n\n**Will be removed in 811**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** ExcludeChildOrganizations is deprecated and will be removed in 2.0.856: No longer supported, result only include the current ou/requested ou.\n\n**Will be removed in 838**",
+        "description": "When specified, will include only tasks from the specified organization unit, excluding child organizations\n\n**Deprecated since 812:** ExcludeChildOrganizations is deprecated and will be removed in 2.0.856: No longer supported, result only include the current ou/requested ou.\n\n**Will be removed in 838**",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -76,8 +76,8 @@
       },
       {
         "name": "IncludeAllTasks",
-        "deprecation_notice": "\n\n**Deprecated since 795:** IncludeAllTasks is deprecated and will be removed in 2.0.827: No longer supported, results are permission-filtered..\n\n**Will be removed in 811**",
-        "description": "When specified, will include all tasks, regardless if the user can execute them\n\n**Deprecated since 795:** IncludeAllTasks is deprecated and will be removed in 2.0.827: No longer supported, results are permission-filtered..\n\n**Will be removed in 811**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** IncludeAllTasks is deprecated and will be removed in 2.0.856: No longer supported, results are permission-filtered..\n\n**Will be removed in 838**",
+        "description": "When specified, will include all tasks, regardless if the user can execute them\n\n**Deprecated since 812:** IncludeAllTasks is deprecated and will be removed in 2.0.856: No longer supported, results are permission-filtered..\n\n**Will be removed in 838**",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -85,8 +85,8 @@
       },
       {
         "name": "IncludeAssignedTasks",
-        "deprecation_notice": "\n\n**Deprecated since 795:** IncludeAssignedTasks is deprecated and will be removed in 2.0.827: No longer supported, counts always include all tasks.\n\n**Will be removed in 811**",
-        "description": "When specified, will include all assigned tasks in the counts (regardless of whom it is assigned to)\n\n**Deprecated since 795:** IncludeAssignedTasks is deprecated and will be removed in 2.0.827: No longer supported, counts always include all tasks.\n\n**Will be removed in 811**",
+        "deprecation_notice": "\n\n**Deprecated since 812:** IncludeAssignedTasks is deprecated and will be removed in 2.0.856: No longer supported, counts always include all tasks.\n\n**Will be removed in 838**",
+        "description": "When specified, will include all assigned tasks in the counts (regardless of whom it is assigned to)\n\n**Deprecated since 812:** IncludeAssignedTasks is deprecated and will be removed in 2.0.856: No longer supported, counts always include all tasks.\n\n**Will be removed in 838**",
         "type": "boolean",
         "required": false,
         "properties_id": null,
@@ -209,6 +209,15 @@
     ],
     "C": [
       {
+        "name": "AppointmentsCount",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "DetailedNumberOfTasks",
         "deprecation_notice": null,
         "description": "",
@@ -227,12 +236,30 @@
         "one_of": null
       },
       {
+        "name": "HasUpdatedDeliveryDates",
+        "deprecation_notice": null,
+        "description": "True when any ReceiveShipment task has a different expected delivery date than the original delivery date",
+        "type": "boolean",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
         "name": "Metadata",
         "deprecation_notice": null,
         "description": "",
         "type": "object | null",
         "required": false,
         "properties_id": "F",
+        "one_of": null
+      },
+      {
+        "name": "MyAppointmentsCount",
+        "deprecation_notice": null,
+        "description": "",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
         "one_of": null
       },
       {
@@ -257,6 +284,15 @@
         "name": "RepairTasksCount",
         "deprecation_notice": null,
         "description": "",
+        "type": "integer",
+        "required": false,
+        "properties_id": null,
+        "one_of": null
+      },
+      {
+        "name": "UnstartedFullStockCounts",
+        "deprecation_notice": null,
+        "description": "Count of FullStockCount tasks that have not been started",
         "type": "integer",
         "required": false,
         "properties_id": null,
